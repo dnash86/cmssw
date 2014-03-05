@@ -19,7 +19,7 @@ from Configuration.AlCa.GlobalTag import GlobalTag
 process.GlobalTag = GlobalTag(process.GlobalTag, 'auto:upgrade2019', '')
 
 process.maxEvents = cms.untracked.PSet(
-    input = cms.untracked.int32(-1)
+    input = cms.untracked.int32(100)
 )
 process.source = cms.Source("PoolSource",
     fileNames = cms.untracked.vstring('file:///somewhere/simevent.root') ##/somewhere/simevent.root" }
@@ -44,14 +44,16 @@ process.PoolSource.fileNames = [
     #'file:/tmp/dnash/Zmumu.root'
     #'file:/tmp/dnash/Zmumu_620.root'
     #'file:/afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/TryNoME0SLHC8/CMSSW_6_2_0_SLHC8/src/FastSimulation/Configuration/test/MyFirstFamosFile_2.root'
-    'file:/tmp/dnash/MyFirstFamosFile_2.root'
+    #'file:/tmp/dnash/MyFirstFamosFile_2.root'
+    #'/store/relval/CMSSW_6_2_0_SLHC8/RelValFourMuPt1_200/GEN-SIM-RECO/DES19_62_V8_BE5DPixel10D-v1/00000/469E13A9-3BA2-E311-8AD5-02163E00EAB6.root'
+    '/store/relval/CMSSW_6_2_0_SLHC8/RelValZMM_14TeV/GEN-SIM-RECO/DES19_62_V8_BE5DPixel10D-v1/00000/30BBF6A2-6BA2-E311-8D39-002590494E64.root'
 ]
 
 
 process.o1 = cms.OutputModule("PoolOutputModule",
     outputCommands = cms.untracked.vstring('keep *'),
 #                              process.AODSIMEventContent,
-                              fileName = cms.untracked.string('FirstTest.root')
+                              fileName = cms.untracked.string('/tmp/dnash/ZMMTest.root')
 )
 
 process.outpath = cms.EndPath(process.o1)

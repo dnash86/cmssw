@@ -3,7 +3,7 @@ import FWCore.ParameterSet.Config as cms
 def customise(process):
     #if hasattr(process,'famosMuonSequence'):
     #if hasattr(process,'globalMuons'):
-    if hasattr(process,'L1Reco_step'):
+    if hasattr(process,'reconstruction'):
         process=customise_AssumeOneCustomiseStep(process)
     return process
 
@@ -24,9 +24,9 @@ def customise_AssumeOneCustomiseStep(process):
     #process.famosMuonSequence += process.me0SegmentMatcher
     #process.famosMuonSequence += process.me0MuonConverter
 
-    process.L1Reco_step += process.me0SegmentProducer
-    process.L1Reco_step += process.me0SegmentMatcher
-    process.L1Reco_step += process.me0MuonConverter
+    process.reconstruction += process.me0SegmentProducer
+    process.reconstruction += process.me0SegmentMatcher
+    process.reconstruction += process.me0MuonConverter
     process=outputCustoms(process)
     
 

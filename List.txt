@@ -1,0 +1,1519 @@
+ignoring non-requested file relval_standard
+ignoring non-requested file relval_highstats
+ignoring non-requested file relval_pileup
+ignoring non-requested file relval_generator
+ignoring non-requested file relval_production
+ignoring non-requested file relval_ged
+processing  relval_upgrade
+request for INPUT for  None
+ignoring non-requested file relval_identity
+Running in 4 thread(s)
+
+Preparing to run 11400 FourMuPt1_200+FourMuPt_1_200_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11400_FourMuPt1_200+FourMuPt_1_200_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py FourMuPt_1_200_cfi  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUG --relval 10000,100 -s GEN,SIM --datatier GEN-SIM --beamspot Gauss --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --fileout file:step1.root  > step1_FourMuPt1_200+FourMuPt_1_200_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11400_FourMuPt1_200+FourMuPt_1_200_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step2  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT -s DIGI:pdigi_valid,L1,DIGI2RAW --datatier GEN-SIM-DIGI-RAW --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step1.root  --fileout file:step2.root  > step2_FourMuPt1_200+FourMuPt_1_200_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11400_FourMuPt1_200+FourMuPt_1_200_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step3  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT,DQM -s RAW2DIGI,L1Reco,RECO,VALIDATION,DQM --datatier GEN-SIM-RECO,DQM --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step2.root  --fileout file:step3.root  > step3_FourMuPt1_200+FourMuPt_1_200_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11400_FourMuPt1_200+FourMuPt_1_200_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step4  --conditions auto:upgrade2019 --scenario pp -s HARVESTING:validationHarvesting+dqmHarvesting --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --mc  --magField 38T_PostLS1 -n 100  --filein file:step3_inDQM.root --fileout file:step4.root  > step4_FourMuPt1_200+FourMuPt_1_200_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+11400_FourMuPt1_200+FourMuPt_1_200_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D Step0-PASSED Step1-PASSED Step2-PASSED Step3-PASSED  - time date Wed Mar  5 17:46:35 2014-date Wed Mar  5 17:46:35 2014; exit: 0 0 0 0
+1 1 1 1 tests passed, 0 0 0 0 failed
+
+ignoring non-requested file relval_standard
+ignoring non-requested file relval_highstats
+ignoring non-requested file relval_pileup
+ignoring non-requested file relval_generator
+ignoring non-requested file relval_production
+ignoring non-requested file relval_ged
+processing  relval_upgrade
+request for INPUT for  None
+ignoring non-requested file relval_identity
+Running in 4 thread(s)
+
+Preparing to run 11401 SingleElectronPt10+SingleElectronPt10_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11401_SingleElectronPt10+SingleElectronPt10_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py SingleElectronPt10_cfi  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUG --relval 9000,300 -s GEN,SIM --datatier GEN-SIM --beamspot Gauss --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --fileout file:step1.root  > step1_SingleElectronPt10+SingleElectronPt10_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11401_SingleElectronPt10+SingleElectronPt10_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step2  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT -s DIGI:pdigi_valid,L1,DIGI2RAW --datatier GEN-SIM-DIGI-RAW --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step1.root  --fileout file:step2.root  > step2_SingleElectronPt10+SingleElectronPt10_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11401_SingleElectronPt10+SingleElectronPt10_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step3  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT,DQM -s RAW2DIGI,L1Reco,RECO,VALIDATION,DQM --datatier GEN-SIM-RECO,DQM --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step2.root  --fileout file:step3.root  > step3_SingleElectronPt10+SingleElectronPt10_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11401_SingleElectronPt10+SingleElectronPt10_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step4  --conditions auto:upgrade2019 --scenario pp -s HARVESTING:validationHarvesting+dqmHarvesting --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --mc  --magField 38T_PostLS1 -n 100  --filein file:step3_inDQM.root --fileout file:step4.root  > step4_SingleElectronPt10+SingleElectronPt10_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+11401_SingleElectronPt10+SingleElectronPt10_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D Step0-PASSED Step1-PASSED Step2-PASSED Step3-PASSED  - time date Wed Mar  5 17:46:36 2014-date Wed Mar  5 17:46:36 2014; exit: 0 0 0 0
+1 1 1 1 tests passed, 0 0 0 0 failed
+
+ignoring non-requested file relval_standard
+ignoring non-requested file relval_highstats
+ignoring non-requested file relval_pileup
+ignoring non-requested file relval_generator
+ignoring non-requested file relval_production
+ignoring non-requested file relval_ged
+processing  relval_upgrade
+request for INPUT for  None
+ignoring non-requested file relval_identity
+Running in 4 thread(s)
+
+Preparing to run 11402 SingleElectronPt35+SingleElectronPt35_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11402_SingleElectronPt35+SingleElectronPt35_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py SingleElectronPt35_cfi  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUG --relval 9000,500 -s GEN,SIM --datatier GEN-SIM --beamspot Gauss --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --fileout file:step1.root  > step1_SingleElectronPt35+SingleElectronPt35_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11402_SingleElectronPt35+SingleElectronPt35_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step2  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT -s DIGI:pdigi_valid,L1,DIGI2RAW --datatier GEN-SIM-DIGI-RAW --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step1.root  --fileout file:step2.root  > step2_SingleElectronPt35+SingleElectronPt35_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11402_SingleElectronPt35+SingleElectronPt35_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step3  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT,DQM -s RAW2DIGI,L1Reco,RECO,VALIDATION,DQM --datatier GEN-SIM-RECO,DQM --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step2.root  --fileout file:step3.root  > step3_SingleElectronPt35+SingleElectronPt35_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11402_SingleElectronPt35+SingleElectronPt35_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step4  --conditions auto:upgrade2019 --scenario pp -s HARVESTING:validationHarvesting+dqmHarvesting --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --mc  --magField 38T_PostLS1 -n 100  --filein file:step3_inDQM.root --fileout file:step4.root  > step4_SingleElectronPt35+SingleElectronPt35_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+11402_SingleElectronPt35+SingleElectronPt35_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D Step0-PASSED Step1-PASSED Step2-PASSED Step3-PASSED  - time date Wed Mar  5 17:46:37 2014-date Wed Mar  5 17:46:37 2014; exit: 0 0 0 0
+1 1 1 1 tests passed, 0 0 0 0 failed
+
+ignoring non-requested file relval_standard
+ignoring non-requested file relval_highstats
+ignoring non-requested file relval_pileup
+ignoring non-requested file relval_generator
+ignoring non-requested file relval_production
+ignoring non-requested file relval_ged
+processing  relval_upgrade
+request for INPUT for  None
+ignoring non-requested file relval_identity
+Running in 4 thread(s)
+
+Preparing to run 11403 SingleElectronPt1000+SingleElectronPt1000_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11403_SingleElectronPt1000+SingleElectronPt1000_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py SingleElectronPt1000_cfi  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUG --relval 9000,50 -s GEN,SIM --datatier GEN-SIM --beamspot Gauss --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --fileout file:step1.root  > step1_SingleElectronPt1000+SingleElectronPt1000_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11403_SingleElectronPt1000+SingleElectronPt1000_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step2  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT -s DIGI:pdigi_valid,L1,DIGI2RAW --datatier GEN-SIM-DIGI-RAW --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step1.root  --fileout file:step2.root  > step2_SingleElectronPt1000+SingleElectronPt1000_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11403_SingleElectronPt1000+SingleElectronPt1000_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step3  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT,DQM -s RAW2DIGI,L1Reco,RECO,VALIDATION,DQM --datatier GEN-SIM-RECO,DQM --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step2.root  --fileout file:step3.root  > step3_SingleElectronPt1000+SingleElectronPt1000_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11403_SingleElectronPt1000+SingleElectronPt1000_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step4  --conditions auto:upgrade2019 --scenario pp -s HARVESTING:validationHarvesting+dqmHarvesting --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --mc  --magField 38T_PostLS1 -n 100  --filein file:step3_inDQM.root --fileout file:step4.root  > step4_SingleElectronPt1000+SingleElectronPt1000_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+11403_SingleElectronPt1000+SingleElectronPt1000_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D Step0-PASSED Step1-PASSED Step2-PASSED Step3-PASSED  - time date Wed Mar  5 17:46:38 2014-date Wed Mar  5 17:46:38 2014; exit: 0 0 0 0
+1 1 1 1 tests passed, 0 0 0 0 failed
+
+ignoring non-requested file relval_standard
+ignoring non-requested file relval_highstats
+ignoring non-requested file relval_pileup
+ignoring non-requested file relval_generator
+ignoring non-requested file relval_production
+ignoring non-requested file relval_ged
+processing  relval_upgrade
+request for INPUT for  None
+ignoring non-requested file relval_identity
+Running in 4 thread(s)
+
+Preparing to run 11404 SingleGammaPt10+SingleGammaPt10_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11404_SingleGammaPt10+SingleGammaPt10_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py SingleGammaPt10_cfi  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUG --relval 9000,300 -s GEN,SIM --datatier GEN-SIM --beamspot Gauss --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --fileout file:step1.root  > step1_SingleGammaPt10+SingleGammaPt10_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11404_SingleGammaPt10+SingleGammaPt10_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step2  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT -s DIGI:pdigi_valid,L1,DIGI2RAW --datatier GEN-SIM-DIGI-RAW --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step1.root  --fileout file:step2.root  > step2_SingleGammaPt10+SingleGammaPt10_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11404_SingleGammaPt10+SingleGammaPt10_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step3  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT,DQM -s RAW2DIGI,L1Reco,RECO,VALIDATION,DQM --datatier GEN-SIM-RECO,DQM --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step2.root  --fileout file:step3.root  > step3_SingleGammaPt10+SingleGammaPt10_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11404_SingleGammaPt10+SingleGammaPt10_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step4  --conditions auto:upgrade2019 --scenario pp -s HARVESTING:validationHarvesting+dqmHarvesting --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --mc  --magField 38T_PostLS1 -n 100  --filein file:step3_inDQM.root --fileout file:step4.root  > step4_SingleGammaPt10+SingleGammaPt10_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+11404_SingleGammaPt10+SingleGammaPt10_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D Step0-PASSED Step1-PASSED Step2-PASSED Step3-PASSED  - time date Wed Mar  5 17:46:39 2014-date Wed Mar  5 17:46:39 2014; exit: 0 0 0 0
+1 1 1 1 tests passed, 0 0 0 0 failed
+
+ignoring non-requested file relval_standard
+ignoring non-requested file relval_highstats
+ignoring non-requested file relval_pileup
+ignoring non-requested file relval_generator
+ignoring non-requested file relval_production
+ignoring non-requested file relval_ged
+processing  relval_upgrade
+request for INPUT for  None
+ignoring non-requested file relval_identity
+Running in 4 thread(s)
+
+Preparing to run 11405 SingleGammaPt35+SingleGammaPt35_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11405_SingleGammaPt35+SingleGammaPt35_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py SingleGammaPt35_cfi  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUG --relval 9000,50 -s GEN,SIM --datatier GEN-SIM --beamspot Gauss --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --fileout file:step1.root  > step1_SingleGammaPt35+SingleGammaPt35_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11405_SingleGammaPt35+SingleGammaPt35_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step2  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT -s DIGI:pdigi_valid,L1,DIGI2RAW --datatier GEN-SIM-DIGI-RAW --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step1.root  --fileout file:step2.root  > step2_SingleGammaPt35+SingleGammaPt35_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11405_SingleGammaPt35+SingleGammaPt35_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step3  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT,DQM -s RAW2DIGI,L1Reco,RECO,VALIDATION,DQM --datatier GEN-SIM-RECO,DQM --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step2.root  --fileout file:step3.root  > step3_SingleGammaPt35+SingleGammaPt35_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11405_SingleGammaPt35+SingleGammaPt35_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step4  --conditions auto:upgrade2019 --scenario pp -s HARVESTING:validationHarvesting+dqmHarvesting --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --mc  --magField 38T_PostLS1 -n 100  --filein file:step3_inDQM.root --fileout file:step4.root  > step4_SingleGammaPt35+SingleGammaPt35_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+11405_SingleGammaPt35+SingleGammaPt35_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D Step0-PASSED Step1-PASSED Step2-PASSED Step3-PASSED  - time date Wed Mar  5 17:46:39 2014-date Wed Mar  5 17:46:39 2014; exit: 0 0 0 0
+1 1 1 1 tests passed, 0 0 0 0 failed
+
+ignoring non-requested file relval_standard
+ignoring non-requested file relval_highstats
+ignoring non-requested file relval_pileup
+ignoring non-requested file relval_generator
+ignoring non-requested file relval_production
+ignoring non-requested file relval_ged
+processing  relval_upgrade
+request for INPUT for  None
+ignoring non-requested file relval_identity
+Running in 4 thread(s)
+
+Preparing to run 11406 SingleMuPt1+SingleMuPt1_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11406_SingleMuPt1+SingleMuPt1_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py SingleMuPt1_cfi  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUG --relval 25000,1000 -s GEN,SIM --datatier GEN-SIM --beamspot Gauss --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --fileout file:step1.root  > step1_SingleMuPt1+SingleMuPt1_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11406_SingleMuPt1+SingleMuPt1_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step2  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT -s DIGI:pdigi_valid,L1,DIGI2RAW --datatier GEN-SIM-DIGI-RAW --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step1.root  --fileout file:step2.root  > step2_SingleMuPt1+SingleMuPt1_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11406_SingleMuPt1+SingleMuPt1_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step3  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT,DQM -s RAW2DIGI,L1Reco,RECO,VALIDATION,DQM --datatier GEN-SIM-RECO,DQM --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step2.root  --fileout file:step3.root  > step3_SingleMuPt1+SingleMuPt1_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11406_SingleMuPt1+SingleMuPt1_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step4  --conditions auto:upgrade2019 --scenario pp -s HARVESTING:validationHarvesting+dqmHarvesting --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --mc  --magField 38T_PostLS1 -n 100  --filein file:step3_inDQM.root --fileout file:step4.root  > step4_SingleMuPt1+SingleMuPt1_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+11406_SingleMuPt1+SingleMuPt1_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D Step0-PASSED Step1-PASSED Step2-PASSED Step3-PASSED  - time date Wed Mar  5 17:46:40 2014-date Wed Mar  5 17:46:40 2014; exit: 0 0 0 0
+1 1 1 1 tests passed, 0 0 0 0 failed
+
+ignoring non-requested file relval_standard
+ignoring non-requested file relval_highstats
+ignoring non-requested file relval_pileup
+ignoring non-requested file relval_generator
+ignoring non-requested file relval_production
+ignoring non-requested file relval_ged
+processing  relval_upgrade
+request for INPUT for  None
+ignoring non-requested file relval_identity
+Running in 4 thread(s)
+
+Preparing to run 11407 SingleMuPt10+SingleMuPt10_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11407_SingleMuPt10+SingleMuPt10_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py SingleMuPt10_cfi  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUG --relval 25000,500 -s GEN,SIM --datatier GEN-SIM --beamspot Gauss --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --fileout file:step1.root  > step1_SingleMuPt10+SingleMuPt10_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11407_SingleMuPt10+SingleMuPt10_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step2  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT -s DIGI:pdigi_valid,L1,DIGI2RAW --datatier GEN-SIM-DIGI-RAW --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step1.root  --fileout file:step2.root  > step2_SingleMuPt10+SingleMuPt10_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11407_SingleMuPt10+SingleMuPt10_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step3  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT,DQM -s RAW2DIGI,L1Reco,RECO,VALIDATION,DQM --datatier GEN-SIM-RECO,DQM --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step2.root  --fileout file:step3.root  > step3_SingleMuPt10+SingleMuPt10_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11407_SingleMuPt10+SingleMuPt10_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step4  --conditions auto:upgrade2019 --scenario pp -s HARVESTING:validationHarvesting+dqmHarvesting --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --mc  --magField 38T_PostLS1 -n 100  --filein file:step3_inDQM.root --fileout file:step4.root  > step4_SingleMuPt10+SingleMuPt10_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+11407_SingleMuPt10+SingleMuPt10_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D Step0-PASSED Step1-PASSED Step2-PASSED Step3-PASSED  - time date Wed Mar  5 17:46:41 2014-date Wed Mar  5 17:46:41 2014; exit: 0 0 0 0
+1 1 1 1 tests passed, 0 0 0 0 failed
+
+ignoring non-requested file relval_standard
+ignoring non-requested file relval_highstats
+ignoring non-requested file relval_pileup
+ignoring non-requested file relval_generator
+ignoring non-requested file relval_production
+ignoring non-requested file relval_ged
+processing  relval_upgrade
+request for INPUT for  None
+ignoring non-requested file relval_identity
+Running in 4 thread(s)
+
+Preparing to run 11408 SingleMuPt100+SingleMuPt100_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11408_SingleMuPt100+SingleMuPt100_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py SingleMuPt100_cfi  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUG --relval 9000,500 -s GEN,SIM --datatier GEN-SIM --beamspot Gauss --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --fileout file:step1.root  > step1_SingleMuPt100+SingleMuPt100_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11408_SingleMuPt100+SingleMuPt100_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step2  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT -s DIGI:pdigi_valid,L1,DIGI2RAW --datatier GEN-SIM-DIGI-RAW --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step1.root  --fileout file:step2.root  > step2_SingleMuPt100+SingleMuPt100_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11408_SingleMuPt100+SingleMuPt100_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step3  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT,DQM -s RAW2DIGI,L1Reco,RECO,VALIDATION,DQM --datatier GEN-SIM-RECO,DQM --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step2.root  --fileout file:step3.root  > step3_SingleMuPt100+SingleMuPt100_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11408_SingleMuPt100+SingleMuPt100_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step4  --conditions auto:upgrade2019 --scenario pp -s HARVESTING:validationHarvesting+dqmHarvesting --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --mc  --magField 38T_PostLS1 -n 100  --filein file:step3_inDQM.root --fileout file:step4.root  > step4_SingleMuPt100+SingleMuPt100_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+11408_SingleMuPt100+SingleMuPt100_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D Step0-PASSED Step1-PASSED Step2-PASSED Step3-PASSED  - time date Wed Mar  5 17:46:42 2014-date Wed Mar  5 17:46:42 2014; exit: 0 0 0 0
+1 1 1 1 tests passed, 0 0 0 0 failed
+
+ignoring non-requested file relval_standard
+ignoring non-requested file relval_highstats
+ignoring non-requested file relval_pileup
+ignoring non-requested file relval_generator
+ignoring non-requested file relval_production
+ignoring non-requested file relval_ged
+processing  relval_upgrade
+request for INPUT for  None
+ignoring non-requested file relval_identity
+Running in 4 thread(s)
+
+Preparing to run 11409 SingleMuPt1000+SingleMuPt1000_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11409_SingleMuPt1000+SingleMuPt1000_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py SingleMuPt1000_cfi  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUG --relval 9000,500 -s GEN,SIM --datatier GEN-SIM --beamspot Gauss --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --fileout file:step1.root  > step1_SingleMuPt1000+SingleMuPt1000_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11409_SingleMuPt1000+SingleMuPt1000_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step2  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT -s DIGI:pdigi_valid,L1,DIGI2RAW --datatier GEN-SIM-DIGI-RAW --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step1.root  --fileout file:step2.root  > step2_SingleMuPt1000+SingleMuPt1000_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11409_SingleMuPt1000+SingleMuPt1000_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step3  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT,DQM -s RAW2DIGI,L1Reco,RECO,VALIDATION,DQM --datatier GEN-SIM-RECO,DQM --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step2.root  --fileout file:step3.root  > step3_SingleMuPt1000+SingleMuPt1000_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11409_SingleMuPt1000+SingleMuPt1000_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step4  --conditions auto:upgrade2019 --scenario pp -s HARVESTING:validationHarvesting+dqmHarvesting --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --mc  --magField 38T_PostLS1 -n 100  --filein file:step3_inDQM.root --fileout file:step4.root  > step4_SingleMuPt1000+SingleMuPt1000_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+11409_SingleMuPt1000+SingleMuPt1000_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D Step0-PASSED Step1-PASSED Step2-PASSED Step3-PASSED  - time date Wed Mar  5 17:46:43 2014-date Wed Mar  5 17:46:43 2014; exit: 0 0 0 0
+1 1 1 1 tests passed, 0 0 0 0 failed
+
+ignoring non-requested file relval_standard
+ignoring non-requested file relval_highstats
+ignoring non-requested file relval_pileup
+ignoring non-requested file relval_generator
+ignoring non-requested file relval_production
+ignoring non-requested file relval_ged
+processing  relval_upgrade
+request for INPUT for  None
+ignoring non-requested file relval_identity
+Running in 4 thread(s)
+
+Preparing to run 11410 TTbarLepton_8TeV+TTbarLepton_Tauola_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11410_TTbarLepton_8TeV+TTbarLepton_Tauola_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py TTbarLepton_Tauola_8TeV_cfi  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUG --relval 9000,100 -s GEN,SIM --datatier GEN-SIM --beamspot Gauss --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --fileout file:step1.root  > step1_TTbarLepton_8TeV+TTbarLepton_Tauola_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11410_TTbarLepton_8TeV+TTbarLepton_Tauola_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step2  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT -s DIGI:pdigi_valid,L1,DIGI2RAW --datatier GEN-SIM-DIGI-RAW --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step1.root  --fileout file:step2.root  > step2_TTbarLepton_8TeV+TTbarLepton_Tauola_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11410_TTbarLepton_8TeV+TTbarLepton_Tauola_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step3  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT,DQM -s RAW2DIGI,L1Reco,RECO,VALIDATION,DQM --datatier GEN-SIM-RECO,DQM --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step2.root  --fileout file:step3.root  > step3_TTbarLepton_8TeV+TTbarLepton_Tauola_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11410_TTbarLepton_8TeV+TTbarLepton_Tauola_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step4  --conditions auto:upgrade2019 --scenario pp -s HARVESTING:validationHarvesting+dqmHarvesting --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --mc  --magField 38T_PostLS1 -n 100  --filein file:step3_inDQM.root --fileout file:step4.root  > step4_TTbarLepton_8TeV+TTbarLepton_Tauola_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+11410_TTbarLepton_8TeV+TTbarLepton_Tauola_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D Step0-PASSED Step1-PASSED Step2-PASSED Step3-PASSED  - time date Wed Mar  5 17:46:44 2014-date Wed Mar  5 17:46:44 2014; exit: 0 0 0 0
+1 1 1 1 tests passed, 0 0 0 0 failed
+
+ignoring non-requested file relval_standard
+ignoring non-requested file relval_highstats
+ignoring non-requested file relval_pileup
+ignoring non-requested file relval_generator
+ignoring non-requested file relval_production
+ignoring non-requested file relval_ged
+processing  relval_upgrade
+request for INPUT for  None
+ignoring non-requested file relval_identity
+Running in 4 thread(s)
+
+Preparing to run 11411 Wjet_Pt_80_120_8TeV+Wjet_Pt_80_120_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11411_Wjet_Pt_80_120_8TeV+Wjet_Pt_80_120_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py Wjet_Pt_80_120_8TeV_cfi  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUG --relval 9000,100 -s GEN,SIM --datatier GEN-SIM --beamspot Gauss --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --fileout file:step1.root  > step1_Wjet_Pt_80_120_8TeV+Wjet_Pt_80_120_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11411_Wjet_Pt_80_120_8TeV+Wjet_Pt_80_120_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step2  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT -s DIGI:pdigi_valid,L1,DIGI2RAW --datatier GEN-SIM-DIGI-RAW --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step1.root  --fileout file:step2.root  > step2_Wjet_Pt_80_120_8TeV+Wjet_Pt_80_120_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11411_Wjet_Pt_80_120_8TeV+Wjet_Pt_80_120_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step3  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT,DQM -s RAW2DIGI,L1Reco,RECO,VALIDATION,DQM --datatier GEN-SIM-RECO,DQM --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step2.root  --fileout file:step3.root  > step3_Wjet_Pt_80_120_8TeV+Wjet_Pt_80_120_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11411_Wjet_Pt_80_120_8TeV+Wjet_Pt_80_120_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step4  --conditions auto:upgrade2019 --scenario pp -s HARVESTING:validationHarvesting+dqmHarvesting --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --mc  --magField 38T_PostLS1 -n 100  --filein file:step3_inDQM.root --fileout file:step4.root  > step4_Wjet_Pt_80_120_8TeV+Wjet_Pt_80_120_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+11411_Wjet_Pt_80_120_8TeV+Wjet_Pt_80_120_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D Step0-PASSED Step1-PASSED Step2-PASSED Step3-PASSED  - time date Wed Mar  5 17:46:45 2014-date Wed Mar  5 17:46:45 2014; exit: 0 0 0 0
+1 1 1 1 tests passed, 0 0 0 0 failed
+
+ignoring non-requested file relval_standard
+ignoring non-requested file relval_highstats
+ignoring non-requested file relval_pileup
+ignoring non-requested file relval_generator
+ignoring non-requested file relval_production
+ignoring non-requested file relval_ged
+processing  relval_upgrade
+request for INPUT for  None
+ignoring non-requested file relval_identity
+Running in 4 thread(s)
+
+Preparing to run 11412 Wjet_Pt_3000_3500_8TeV+Wjet_Pt_3000_3500_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11412_Wjet_Pt_3000_3500_8TeV+Wjet_Pt_3000_3500_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py Wjet_Pt_3000_3500_8TeV_cfi  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUG --relval 9000,50 -s GEN,SIM --datatier GEN-SIM --beamspot Gauss --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --fileout file:step1.root  > step1_Wjet_Pt_3000_3500_8TeV+Wjet_Pt_3000_3500_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11412_Wjet_Pt_3000_3500_8TeV+Wjet_Pt_3000_3500_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step2  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT -s DIGI:pdigi_valid,L1,DIGI2RAW --datatier GEN-SIM-DIGI-RAW --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step1.root  --fileout file:step2.root  > step2_Wjet_Pt_3000_3500_8TeV+Wjet_Pt_3000_3500_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11412_Wjet_Pt_3000_3500_8TeV+Wjet_Pt_3000_3500_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step3  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT,DQM -s RAW2DIGI,L1Reco,RECO,VALIDATION,DQM --datatier GEN-SIM-RECO,DQM --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step2.root  --fileout file:step3.root  > step3_Wjet_Pt_3000_3500_8TeV+Wjet_Pt_3000_3500_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11412_Wjet_Pt_3000_3500_8TeV+Wjet_Pt_3000_3500_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step4  --conditions auto:upgrade2019 --scenario pp -s HARVESTING:validationHarvesting+dqmHarvesting --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --mc  --magField 38T_PostLS1 -n 100  --filein file:step3_inDQM.root --fileout file:step4.root  > step4_Wjet_Pt_3000_3500_8TeV+Wjet_Pt_3000_3500_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+11412_Wjet_Pt_3000_3500_8TeV+Wjet_Pt_3000_3500_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D Step0-PASSED Step1-PASSED Step2-PASSED Step3-PASSED  - time date Wed Mar  5 17:46:45 2014-date Wed Mar  5 17:46:45 2014; exit: 0 0 0 0
+1 1 1 1 tests passed, 0 0 0 0 failed
+
+ignoring non-requested file relval_standard
+ignoring non-requested file relval_highstats
+ignoring non-requested file relval_pileup
+ignoring non-requested file relval_generator
+ignoring non-requested file relval_production
+ignoring non-requested file relval_ged
+processing  relval_upgrade
+request for INPUT for  None
+ignoring non-requested file relval_identity
+Running in 4 thread(s)
+
+Preparing to run 11413 LM1_sfts_8TeV+LM1_sfts_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11413_LM1_sfts_8TeV+LM1_sfts_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py LM1_sfts_8TeV_cfi  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUG --relval 9000,100 -s GEN,SIM --datatier GEN-SIM --beamspot Gauss --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --fileout file:step1.root  > step1_LM1_sfts_8TeV+LM1_sfts_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11413_LM1_sfts_8TeV+LM1_sfts_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step2  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT -s DIGI:pdigi_valid,L1,DIGI2RAW --datatier GEN-SIM-DIGI-RAW --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step1.root  --fileout file:step2.root  > step2_LM1_sfts_8TeV+LM1_sfts_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11413_LM1_sfts_8TeV+LM1_sfts_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step3  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT,DQM -s RAW2DIGI,L1Reco,RECO,VALIDATION,DQM --datatier GEN-SIM-RECO,DQM --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step2.root  --fileout file:step3.root  > step3_LM1_sfts_8TeV+LM1_sfts_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11413_LM1_sfts_8TeV+LM1_sfts_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step4  --conditions auto:upgrade2019 --scenario pp -s HARVESTING:validationHarvesting+dqmHarvesting --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --mc  --magField 38T_PostLS1 -n 100  --filein file:step3_inDQM.root --fileout file:step4.root  > step4_LM1_sfts_8TeV+LM1_sfts_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+11413_LM1_sfts_8TeV+LM1_sfts_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D Step0-PASSED Step1-PASSED Step2-PASSED Step3-PASSED  - time date Wed Mar  5 17:46:46 2014-date Wed Mar  5 17:46:46 2014; exit: 0 0 0 0
+1 1 1 1 tests passed, 0 0 0 0 failed
+
+ignoring non-requested file relval_standard
+ignoring non-requested file relval_highstats
+ignoring non-requested file relval_pileup
+ignoring non-requested file relval_generator
+ignoring non-requested file relval_production
+ignoring non-requested file relval_ged
+processing  relval_upgrade
+request for INPUT for  None
+ignoring non-requested file relval_identity
+Running in 4 thread(s)
+
+Preparing to run 11414 QCD_Pt_3000_3500_8TeV+QCD_Pt_3000_3500_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11414_QCD_Pt_3000_3500_8TeV+QCD_Pt_3000_3500_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py QCD_Pt_3000_3500_8TeV_cfi  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUG --relval 9000,25 -s GEN,SIM --datatier GEN-SIM --beamspot Gauss --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --fileout file:step1.root  > step1_QCD_Pt_3000_3500_8TeV+QCD_Pt_3000_3500_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11414_QCD_Pt_3000_3500_8TeV+QCD_Pt_3000_3500_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step2  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT -s DIGI:pdigi_valid,L1,DIGI2RAW --datatier GEN-SIM-DIGI-RAW --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step1.root  --fileout file:step2.root  > step2_QCD_Pt_3000_3500_8TeV+QCD_Pt_3000_3500_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11414_QCD_Pt_3000_3500_8TeV+QCD_Pt_3000_3500_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step3  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT,DQM -s RAW2DIGI,L1Reco,RECO,VALIDATION,DQM --datatier GEN-SIM-RECO,DQM --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step2.root  --fileout file:step3.root  > step3_QCD_Pt_3000_3500_8TeV+QCD_Pt_3000_3500_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11414_QCD_Pt_3000_3500_8TeV+QCD_Pt_3000_3500_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step4  --conditions auto:upgrade2019 --scenario pp -s HARVESTING:validationHarvesting+dqmHarvesting --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --mc  --magField 38T_PostLS1 -n 100  --filein file:step3_inDQM.root --fileout file:step4.root  > step4_QCD_Pt_3000_3500_8TeV+QCD_Pt_3000_3500_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+11414_QCD_Pt_3000_3500_8TeV+QCD_Pt_3000_3500_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D Step0-PASSED Step1-PASSED Step2-PASSED Step3-PASSED  - time date Wed Mar  5 17:46:47 2014-date Wed Mar  5 17:46:47 2014; exit: 0 0 0 0
+1 1 1 1 tests passed, 0 0 0 0 failed
+
+ignoring non-requested file relval_standard
+ignoring non-requested file relval_highstats
+ignoring non-requested file relval_pileup
+ignoring non-requested file relval_generator
+ignoring non-requested file relval_production
+ignoring non-requested file relval_ged
+processing  relval_upgrade
+request for INPUT for  None
+ignoring non-requested file relval_identity
+Running in 4 thread(s)
+
+Preparing to run 11415 QCD_Pt_600_800_8TeV+QCD_Pt_600_800_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11415_QCD_Pt_600_800_8TeV+QCD_Pt_600_800_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py QCD_Pt_600_800_8TeV_cfi  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUG --relval 9000,50 -s GEN,SIM --datatier GEN-SIM --beamspot Gauss --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --fileout file:step1.root  > step1_QCD_Pt_600_800_8TeV+QCD_Pt_600_800_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11415_QCD_Pt_600_800_8TeV+QCD_Pt_600_800_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step2  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT -s DIGI:pdigi_valid,L1,DIGI2RAW --datatier GEN-SIM-DIGI-RAW --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step1.root  --fileout file:step2.root  > step2_QCD_Pt_600_800_8TeV+QCD_Pt_600_800_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11415_QCD_Pt_600_800_8TeV+QCD_Pt_600_800_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step3  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT,DQM -s RAW2DIGI,L1Reco,RECO,VALIDATION,DQM --datatier GEN-SIM-RECO,DQM --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step2.root  --fileout file:step3.root  > step3_QCD_Pt_600_800_8TeV+QCD_Pt_600_800_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11415_QCD_Pt_600_800_8TeV+QCD_Pt_600_800_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step4  --conditions auto:upgrade2019 --scenario pp -s HARVESTING:validationHarvesting+dqmHarvesting --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --mc  --magField 38T_PostLS1 -n 100  --filein file:step3_inDQM.root --fileout file:step4.root  > step4_QCD_Pt_600_800_8TeV+QCD_Pt_600_800_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+11415_QCD_Pt_600_800_8TeV+QCD_Pt_600_800_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D Step0-PASSED Step1-PASSED Step2-PASSED Step3-PASSED  - time date Wed Mar  5 17:46:48 2014-date Wed Mar  5 17:46:48 2014; exit: 0 0 0 0
+1 1 1 1 tests passed, 0 0 0 0 failed
+
+ignoring non-requested file relval_standard
+ignoring non-requested file relval_highstats
+ignoring non-requested file relval_pileup
+ignoring non-requested file relval_generator
+ignoring non-requested file relval_production
+ignoring non-requested file relval_ged
+processing  relval_upgrade
+request for INPUT for  None
+ignoring non-requested file relval_identity
+Running in 4 thread(s)
+
+Preparing to run 11416 QCD_Pt_80_120_8TeV+QCD_Pt_80_120_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11416_QCD_Pt_80_120_8TeV+QCD_Pt_80_120_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py QCD_Pt_80_120_8TeV_cfi  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUG --relval 9000,100 -s GEN,SIM --datatier GEN-SIM --beamspot Gauss --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --fileout file:step1.root  > step1_QCD_Pt_80_120_8TeV+QCD_Pt_80_120_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11416_QCD_Pt_80_120_8TeV+QCD_Pt_80_120_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step2  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT -s DIGI:pdigi_valid,L1,DIGI2RAW --datatier GEN-SIM-DIGI-RAW --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step1.root  --fileout file:step2.root  > step2_QCD_Pt_80_120_8TeV+QCD_Pt_80_120_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11416_QCD_Pt_80_120_8TeV+QCD_Pt_80_120_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step3  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT,DQM -s RAW2DIGI,L1Reco,RECO,VALIDATION,DQM --datatier GEN-SIM-RECO,DQM --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step2.root  --fileout file:step3.root  > step3_QCD_Pt_80_120_8TeV+QCD_Pt_80_120_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11416_QCD_Pt_80_120_8TeV+QCD_Pt_80_120_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step4  --conditions auto:upgrade2019 --scenario pp -s HARVESTING:validationHarvesting+dqmHarvesting --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --mc  --magField 38T_PostLS1 -n 100  --filein file:step3_inDQM.root --fileout file:step4.root  > step4_QCD_Pt_80_120_8TeV+QCD_Pt_80_120_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+11416_QCD_Pt_80_120_8TeV+QCD_Pt_80_120_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D Step0-PASSED Step1-PASSED Step2-PASSED Step3-PASSED  - time date Wed Mar  5 17:46:49 2014-date Wed Mar  5 17:46:49 2014; exit: 0 0 0 0
+1 1 1 1 tests passed, 0 0 0 0 failed
+
+ignoring non-requested file relval_standard
+ignoring non-requested file relval_highstats
+ignoring non-requested file relval_pileup
+ignoring non-requested file relval_generator
+ignoring non-requested file relval_production
+ignoring non-requested file relval_ged
+processing  relval_upgrade
+request for INPUT for  None
+ignoring non-requested file relval_identity
+Running in 4 thread(s)
+
+Preparing to run 11417 Higgs200ChargedTaus_8TeV+H200ChargedTaus_Tauola_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11417_Higgs200ChargedTaus_8TeV+H200ChargedTaus_Tauola_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py H200ChargedTaus_Tauola_8TeV_cfi  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUG --relval 9000,100 -s GEN,SIM --datatier GEN-SIM --beamspot Gauss --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --fileout file:step1.root  > step1_Higgs200ChargedTaus_8TeV+H200ChargedTaus_Tauola_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11417_Higgs200ChargedTaus_8TeV+H200ChargedTaus_Tauola_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step2  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT -s DIGI:pdigi_valid,L1,DIGI2RAW --datatier GEN-SIM-DIGI-RAW --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step1.root  --fileout file:step2.root  > step2_Higgs200ChargedTaus_8TeV+H200ChargedTaus_Tauola_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11417_Higgs200ChargedTaus_8TeV+H200ChargedTaus_Tauola_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step3  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT,DQM -s RAW2DIGI,L1Reco,RECO,VALIDATION,DQM --datatier GEN-SIM-RECO,DQM --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step2.root  --fileout file:step3.root  > step3_Higgs200ChargedTaus_8TeV+H200ChargedTaus_Tauola_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11417_Higgs200ChargedTaus_8TeV+H200ChargedTaus_Tauola_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step4  --conditions auto:upgrade2019 --scenario pp -s HARVESTING:validationHarvesting+dqmHarvesting --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --mc  --magField 38T_PostLS1 -n 100  --filein file:step3_inDQM.root --fileout file:step4.root  > step4_Higgs200ChargedTaus_8TeV+H200ChargedTaus_Tauola_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+11417_Higgs200ChargedTaus_8TeV+H200ChargedTaus_Tauola_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D Step0-PASSED Step1-PASSED Step2-PASSED Step3-PASSED  - time date Wed Mar  5 17:46:50 2014-date Wed Mar  5 17:46:50 2014; exit: 0 0 0 0
+1 1 1 1 tests passed, 0 0 0 0 failed
+
+ignoring non-requested file relval_standard
+ignoring non-requested file relval_highstats
+ignoring non-requested file relval_pileup
+ignoring non-requested file relval_generator
+ignoring non-requested file relval_production
+ignoring non-requested file relval_ged
+processing  relval_upgrade
+request for INPUT for  None
+ignoring non-requested file relval_identity
+Running in 4 thread(s)
+
+Preparing to run 11418 JpsiMM_8TeV+JpsiMM_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11418_JpsiMM_8TeV+JpsiMM_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py JpsiMM_8TeV_cfi  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUG --relval 66000,1000 -s GEN,SIM --datatier GEN-SIM --beamspot Gauss --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --fileout file:step1.root  > step1_JpsiMM_8TeV+JpsiMM_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11418_JpsiMM_8TeV+JpsiMM_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step2  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT -s DIGI:pdigi_valid,L1,DIGI2RAW --datatier GEN-SIM-DIGI-RAW --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step1.root  --fileout file:step2.root  > step2_JpsiMM_8TeV+JpsiMM_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11418_JpsiMM_8TeV+JpsiMM_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step3  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT,DQM -s RAW2DIGI,L1Reco,RECO,VALIDATION,DQM --datatier GEN-SIM-RECO,DQM --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step2.root  --fileout file:step3.root  > step3_JpsiMM_8TeV+JpsiMM_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11418_JpsiMM_8TeV+JpsiMM_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step4  --conditions auto:upgrade2019 --scenario pp -s HARVESTING:validationHarvesting+dqmHarvesting --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --mc  --magField 38T_PostLS1 -n 100  --filein file:step3_inDQM.root --fileout file:step4.root  > step4_JpsiMM_8TeV+JpsiMM_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+11418_JpsiMM_8TeV+JpsiMM_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D Step0-PASSED Step1-PASSED Step2-PASSED Step3-PASSED  - time date Wed Mar  5 17:46:51 2014-date Wed Mar  5 17:46:51 2014; exit: 0 0 0 0
+1 1 1 1 tests passed, 0 0 0 0 failed
+
+ignoring non-requested file relval_standard
+ignoring non-requested file relval_highstats
+ignoring non-requested file relval_pileup
+ignoring non-requested file relval_generator
+ignoring non-requested file relval_production
+ignoring non-requested file relval_ged
+processing  relval_upgrade
+request for INPUT for  None
+ignoring non-requested file relval_identity
+Running in 4 thread(s)
+
+Preparing to run 11419 TTbar_8TeV+TTbar_Tauola_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11419_TTbar_8TeV+TTbar_Tauola_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py TTbar_Tauola_8TeV_cfi  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUG --relval 9000,100 -s GEN,SIM --datatier GEN-SIM --beamspot Gauss --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --fileout file:step1.root  > step1_TTbar_8TeV+TTbar_Tauola_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11419_TTbar_8TeV+TTbar_Tauola_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step2  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT -s DIGI:pdigi_valid,L1,DIGI2RAW --datatier GEN-SIM-DIGI-RAW --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step1.root  --fileout file:step2.root  > step2_TTbar_8TeV+TTbar_Tauola_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11419_TTbar_8TeV+TTbar_Tauola_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step3  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT,DQM -s RAW2DIGI,L1Reco,RECO,VALIDATION,DQM --datatier GEN-SIM-RECO,DQM --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step2.root  --fileout file:step3.root  > step3_TTbar_8TeV+TTbar_Tauola_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11419_TTbar_8TeV+TTbar_Tauola_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step4  --conditions auto:upgrade2019 --scenario pp -s HARVESTING:validationHarvesting+dqmHarvesting --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --mc  --magField 38T_PostLS1 -n 100  --filein file:step3_inDQM.root --fileout file:step4.root  > step4_TTbar_8TeV+TTbar_Tauola_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+11419_TTbar_8TeV+TTbar_Tauola_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D Step0-PASSED Step1-PASSED Step2-PASSED Step3-PASSED  - time date Wed Mar  5 17:46:52 2014-date Wed Mar  5 17:46:52 2014; exit: 0 0 0 0
+1 1 1 1 tests passed, 0 0 0 0 failed
+
+ignoring non-requested file relval_standard
+ignoring non-requested file relval_highstats
+ignoring non-requested file relval_pileup
+ignoring non-requested file relval_generator
+ignoring non-requested file relval_production
+ignoring non-requested file relval_ged
+processing  relval_upgrade
+request for INPUT for  None
+ignoring non-requested file relval_identity
+Running in 4 thread(s)
+
+Preparing to run 11420 WE_8TeV+WE_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11420_WE_8TeV+WE_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py WE_8TeV_cfi  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUG --relval 9000,100 -s GEN,SIM --datatier GEN-SIM --beamspot Gauss --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --fileout file:step1.root  > step1_WE_8TeV+WE_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11420_WE_8TeV+WE_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step2  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT -s DIGI:pdigi_valid,L1,DIGI2RAW --datatier GEN-SIM-DIGI-RAW --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step1.root  --fileout file:step2.root  > step2_WE_8TeV+WE_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11420_WE_8TeV+WE_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step3  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT,DQM -s RAW2DIGI,L1Reco,RECO,VALIDATION,DQM --datatier GEN-SIM-RECO,DQM --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step2.root  --fileout file:step3.root  > step3_WE_8TeV+WE_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11420_WE_8TeV+WE_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step4  --conditions auto:upgrade2019 --scenario pp -s HARVESTING:validationHarvesting+dqmHarvesting --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --mc  --magField 38T_PostLS1 -n 100  --filein file:step3_inDQM.root --fileout file:step4.root  > step4_WE_8TeV+WE_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+11420_WE_8TeV+WE_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D Step0-PASSED Step1-PASSED Step2-PASSED Step3-PASSED  - time date Wed Mar  5 17:46:52 2014-date Wed Mar  5 17:46:52 2014; exit: 0 0 0 0
+1 1 1 1 tests passed, 0 0 0 0 failed
+
+ignoring non-requested file relval_standard
+ignoring non-requested file relval_highstats
+ignoring non-requested file relval_pileup
+ignoring non-requested file relval_generator
+ignoring non-requested file relval_production
+ignoring non-requested file relval_ged
+processing  relval_upgrade
+request for INPUT for  None
+ignoring non-requested file relval_identity
+Running in 4 thread(s)
+
+Preparing to run 11421 ZEE_8TeV+ZEE_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11421_ZEE_8TeV+ZEE_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py ZEE_8TeV_cfi  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUG --relval 9000,100 -s GEN,SIM --datatier GEN-SIM --beamspot Gauss --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --fileout file:step1.root  > step1_ZEE_8TeV+ZEE_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11421_ZEE_8TeV+ZEE_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step2  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT -s DIGI:pdigi_valid,L1,DIGI2RAW --datatier GEN-SIM-DIGI-RAW --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step1.root  --fileout file:step2.root  > step2_ZEE_8TeV+ZEE_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11421_ZEE_8TeV+ZEE_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step3  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT,DQM -s RAW2DIGI,L1Reco,RECO,VALIDATION,DQM --datatier GEN-SIM-RECO,DQM --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step2.root  --fileout file:step3.root  > step3_ZEE_8TeV+ZEE_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11421_ZEE_8TeV+ZEE_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step4  --conditions auto:upgrade2019 --scenario pp -s HARVESTING:validationHarvesting+dqmHarvesting --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --mc  --magField 38T_PostLS1 -n 100  --filein file:step3_inDQM.root --fileout file:step4.root  > step4_ZEE_8TeV+ZEE_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+11421_ZEE_8TeV+ZEE_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D Step0-PASSED Step1-PASSED Step2-PASSED Step3-PASSED  - time date Wed Mar  5 17:46:53 2014-date Wed Mar  5 17:46:53 2014; exit: 0 0 0 0
+1 1 1 1 tests passed, 0 0 0 0 failed
+
+ignoring non-requested file relval_standard
+ignoring non-requested file relval_highstats
+ignoring non-requested file relval_pileup
+ignoring non-requested file relval_generator
+ignoring non-requested file relval_production
+ignoring non-requested file relval_ged
+processing  relval_upgrade
+request for INPUT for  None
+ignoring non-requested file relval_identity
+Running in 4 thread(s)
+
+Preparing to run 11422 ZTT_8TeV+ZTT_Tauola_All_hadronic_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11422_ZTT_8TeV+ZTT_Tauola_All_hadronic_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py ZTT_Tauola_All_hadronic_8TeV_cfi  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUG --relval 9000,15 -s GEN,SIM --datatier GEN-SIM --beamspot Gauss --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --fileout file:step1.root  > step1_ZTT_8TeV+ZTT_Tauola_All_hadronic_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11422_ZTT_8TeV+ZTT_Tauola_All_hadronic_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step2  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT -s DIGI:pdigi_valid,L1,DIGI2RAW --datatier GEN-SIM-DIGI-RAW --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step1.root  --fileout file:step2.root  > step2_ZTT_8TeV+ZTT_Tauola_All_hadronic_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11422_ZTT_8TeV+ZTT_Tauola_All_hadronic_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step3  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT,DQM -s RAW2DIGI,L1Reco,RECO,VALIDATION,DQM --datatier GEN-SIM-RECO,DQM --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step2.root  --fileout file:step3.root  > step3_ZTT_8TeV+ZTT_Tauola_All_hadronic_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11422_ZTT_8TeV+ZTT_Tauola_All_hadronic_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step4  --conditions auto:upgrade2019 --scenario pp -s HARVESTING:validationHarvesting+dqmHarvesting --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --mc  --magField 38T_PostLS1 -n 100  --filein file:step3_inDQM.root --fileout file:step4.root  > step4_ZTT_8TeV+ZTT_Tauola_All_hadronic_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+11422_ZTT_8TeV+ZTT_Tauola_All_hadronic_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D Step0-PASSED Step1-PASSED Step2-PASSED Step3-PASSED  - time date Wed Mar  5 17:46:54 2014-date Wed Mar  5 17:46:54 2014; exit: 0 0 0 0
+1 1 1 1 tests passed, 0 0 0 0 failed
+
+ignoring non-requested file relval_standard
+ignoring non-requested file relval_highstats
+ignoring non-requested file relval_pileup
+ignoring non-requested file relval_generator
+ignoring non-requested file relval_production
+ignoring non-requested file relval_ged
+processing  relval_upgrade
+request for INPUT for  None
+ignoring non-requested file relval_identity
+Running in 4 thread(s)
+
+Preparing to run 11423 H130GGgluonfusion_8TeV+H130GGgluonfusion_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11423_H130GGgluonfusion_8TeV+H130GGgluonfusion_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py H130GGgluonfusion_8TeV_cfi  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUG --relval 9000,100 -s GEN,SIM --datatier GEN-SIM --beamspot Gauss --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --fileout file:step1.root  > step1_H130GGgluonfusion_8TeV+H130GGgluonfusion_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11423_H130GGgluonfusion_8TeV+H130GGgluonfusion_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step2  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT -s DIGI:pdigi_valid,L1,DIGI2RAW --datatier GEN-SIM-DIGI-RAW --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step1.root  --fileout file:step2.root  > step2_H130GGgluonfusion_8TeV+H130GGgluonfusion_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11423_H130GGgluonfusion_8TeV+H130GGgluonfusion_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step3  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT,DQM -s RAW2DIGI,L1Reco,RECO,VALIDATION,DQM --datatier GEN-SIM-RECO,DQM --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step2.root  --fileout file:step3.root  > step3_H130GGgluonfusion_8TeV+H130GGgluonfusion_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11423_H130GGgluonfusion_8TeV+H130GGgluonfusion_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step4  --conditions auto:upgrade2019 --scenario pp -s HARVESTING:validationHarvesting+dqmHarvesting --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --mc  --magField 38T_PostLS1 -n 100  --filein file:step3_inDQM.root --fileout file:step4.root  > step4_H130GGgluonfusion_8TeV+H130GGgluonfusion_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+11423_H130GGgluonfusion_8TeV+H130GGgluonfusion_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D Step0-PASSED Step1-PASSED Step2-PASSED Step3-PASSED  - time date Wed Mar  5 17:46:55 2014-date Wed Mar  5 17:46:55 2014; exit: 0 0 0 0
+1 1 1 1 tests passed, 0 0 0 0 failed
+
+ignoring non-requested file relval_standard
+ignoring non-requested file relval_highstats
+ignoring non-requested file relval_pileup
+ignoring non-requested file relval_generator
+ignoring non-requested file relval_production
+ignoring non-requested file relval_ged
+processing  relval_upgrade
+request for INPUT for  None
+ignoring non-requested file relval_identity
+Running in 4 thread(s)
+
+Preparing to run 11424 PhotonJets_Pt_10_8TeV+PhotonJet_Pt_10_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11424_PhotonJets_Pt_10_8TeV+PhotonJet_Pt_10_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py PhotonJet_Pt_10_8TeV_cfi  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUG --relval 9000,150 -s GEN,SIM --datatier GEN-SIM --beamspot Gauss --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --fileout file:step1.root  > step1_PhotonJets_Pt_10_8TeV+PhotonJet_Pt_10_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11424_PhotonJets_Pt_10_8TeV+PhotonJet_Pt_10_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step2  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT -s DIGI:pdigi_valid,L1,DIGI2RAW --datatier GEN-SIM-DIGI-RAW --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step1.root  --fileout file:step2.root  > step2_PhotonJets_Pt_10_8TeV+PhotonJet_Pt_10_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11424_PhotonJets_Pt_10_8TeV+PhotonJet_Pt_10_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step3  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT,DQM -s RAW2DIGI,L1Reco,RECO,VALIDATION,DQM --datatier GEN-SIM-RECO,DQM --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step2.root  --fileout file:step3.root  > step3_PhotonJets_Pt_10_8TeV+PhotonJet_Pt_10_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11424_PhotonJets_Pt_10_8TeV+PhotonJet_Pt_10_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step4  --conditions auto:upgrade2019 --scenario pp -s HARVESTING:validationHarvesting+dqmHarvesting --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --mc  --magField 38T_PostLS1 -n 100  --filein file:step3_inDQM.root --fileout file:step4.root  > step4_PhotonJets_Pt_10_8TeV+PhotonJet_Pt_10_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+11424_PhotonJets_Pt_10_8TeV+PhotonJet_Pt_10_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D Step0-PASSED Step1-PASSED Step2-PASSED Step3-PASSED  - time date Wed Mar  5 17:46:56 2014-date Wed Mar  5 17:46:56 2014; exit: 0 0 0 0
+1 1 1 1 tests passed, 0 0 0 0 failed
+
+ignoring non-requested file relval_standard
+ignoring non-requested file relval_highstats
+ignoring non-requested file relval_pileup
+ignoring non-requested file relval_generator
+ignoring non-requested file relval_production
+ignoring non-requested file relval_ged
+processing  relval_upgrade
+request for INPUT for  None
+ignoring non-requested file relval_identity
+Running in 4 thread(s)
+
+Preparing to run 11425 QQH1352T_Tauola_8TeV+QQH1352T_Tauola_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11425_QQH1352T_Tauola_8TeV+QQH1352T_Tauola_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py QQH1352T_Tauola_8TeV_cfi  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUG --relval 9000,100 -s GEN,SIM --datatier GEN-SIM --beamspot Gauss --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --fileout file:step1.root  > step1_QQH1352T_Tauola_8TeV+QQH1352T_Tauola_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11425_QQH1352T_Tauola_8TeV+QQH1352T_Tauola_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step2  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT -s DIGI:pdigi_valid,L1,DIGI2RAW --datatier GEN-SIM-DIGI-RAW --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step1.root  --fileout file:step2.root  > step2_QQH1352T_Tauola_8TeV+QQH1352T_Tauola_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11425_QQH1352T_Tauola_8TeV+QQH1352T_Tauola_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step3  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT,DQM -s RAW2DIGI,L1Reco,RECO,VALIDATION,DQM --datatier GEN-SIM-RECO,DQM --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step2.root  --fileout file:step3.root  > step3_QQH1352T_Tauola_8TeV+QQH1352T_Tauola_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11425_QQH1352T_Tauola_8TeV+QQH1352T_Tauola_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step4  --conditions auto:upgrade2019 --scenario pp -s HARVESTING:validationHarvesting+dqmHarvesting --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --mc  --magField 38T_PostLS1 -n 100  --filein file:step3_inDQM.root --fileout file:step4.root  > step4_QQH1352T_Tauola_8TeV+QQH1352T_Tauola_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+11425_QQH1352T_Tauola_8TeV+QQH1352T_Tauola_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D Step0-PASSED Step1-PASSED Step2-PASSED Step3-PASSED  - time date Wed Mar  5 17:46:57 2014-date Wed Mar  5 17:46:57 2014; exit: 0 0 0 0
+1 1 1 1 tests passed, 0 0 0 0 failed
+
+ignoring non-requested file relval_standard
+ignoring non-requested file relval_highstats
+ignoring non-requested file relval_pileup
+ignoring non-requested file relval_generator
+ignoring non-requested file relval_production
+ignoring non-requested file relval_ged
+processing  relval_upgrade
+request for INPUT for  None
+ignoring non-requested file relval_identity
+Running in 4 thread(s)
+
+Preparing to run 11426 MinBias_TuneZ2star_8TeV+MinBias_TuneZ2star_8TeV_pythia6_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11426_MinBias_TuneZ2star_8TeV+MinBias_TuneZ2star_8TeV_pythia6_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py MinBias_TuneZ2star_8TeV_pythia6_cff  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUG --relval 9000,30 -s GEN,SIM --datatier GEN-SIM --beamspot Gauss --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --fileout file:step1.root  > step1_MinBias_TuneZ2star_8TeV+MinBias_TuneZ2star_8TeV_pythia6_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11426_MinBias_TuneZ2star_8TeV+MinBias_TuneZ2star_8TeV_pythia6_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step2  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT -s DIGI:pdigi_valid,L1,DIGI2RAW --datatier GEN-SIM-DIGI-RAW --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step1.root  --fileout file:step2.root  > step2_MinBias_TuneZ2star_8TeV+MinBias_TuneZ2star_8TeV_pythia6_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11426_MinBias_TuneZ2star_8TeV+MinBias_TuneZ2star_8TeV_pythia6_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step3  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT,DQM -s RAW2DIGI,L1Reco,RECO,VALIDATION,DQM --datatier GEN-SIM-RECO,DQM --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step2.root  --fileout file:step3.root  > step3_MinBias_TuneZ2star_8TeV+MinBias_TuneZ2star_8TeV_pythia6_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11426_MinBias_TuneZ2star_8TeV+MinBias_TuneZ2star_8TeV_pythia6_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step4  --conditions auto:upgrade2019 --scenario pp -s HARVESTING:validationHarvesting+dqmHarvesting --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --mc  --magField 38T_PostLS1 -n 100  --filein file:step3_inDQM.root --fileout file:step4.root  > step4_MinBias_TuneZ2star_8TeV+MinBias_TuneZ2star_8TeV_pythia6_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+11426_MinBias_TuneZ2star_8TeV+MinBias_TuneZ2star_8TeV_pythia6_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D Step0-PASSED Step1-PASSED Step2-PASSED Step3-PASSED  - time date Wed Mar  5 17:46:58 2014-date Wed Mar  5 17:46:58 2014; exit: 0 0 0 0
+1 1 1 1 tests passed, 0 0 0 0 failed
+
+ignoring non-requested file relval_standard
+ignoring non-requested file relval_highstats
+ignoring non-requested file relval_pileup
+ignoring non-requested file relval_generator
+ignoring non-requested file relval_production
+ignoring non-requested file relval_ged
+processing  relval_upgrade
+request for INPUT for  None
+ignoring non-requested file relval_identity
+Running in 4 thread(s)
+
+Preparing to run 11427 WM_8TeV+WM_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11427_WM_8TeV+WM_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py WM_8TeV_cfi  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUG --relval 9000,200 -s GEN,SIM --datatier GEN-SIM --beamspot Gauss --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --fileout file:step1.root  > step1_WM_8TeV+WM_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11427_WM_8TeV+WM_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step2  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT -s DIGI:pdigi_valid,L1,DIGI2RAW --datatier GEN-SIM-DIGI-RAW --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step1.root  --fileout file:step2.root  > step2_WM_8TeV+WM_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11427_WM_8TeV+WM_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step3  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT,DQM -s RAW2DIGI,L1Reco,RECO,VALIDATION,DQM --datatier GEN-SIM-RECO,DQM --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step2.root  --fileout file:step3.root  > step3_WM_8TeV+WM_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11427_WM_8TeV+WM_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step4  --conditions auto:upgrade2019 --scenario pp -s HARVESTING:validationHarvesting+dqmHarvesting --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --mc  --magField 38T_PostLS1 -n 100  --filein file:step3_inDQM.root --fileout file:step4.root  > step4_WM_8TeV+WM_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+11427_WM_8TeV+WM_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D Step0-PASSED Step1-PASSED Step2-PASSED Step3-PASSED  - time date Wed Mar  5 17:46:59 2014-date Wed Mar  5 17:46:59 2014; exit: 0 0 0 0
+1 1 1 1 tests passed, 0 0 0 0 failed
+
+ignoring non-requested file relval_standard
+ignoring non-requested file relval_highstats
+ignoring non-requested file relval_pileup
+ignoring non-requested file relval_generator
+ignoring non-requested file relval_production
+ignoring non-requested file relval_ged
+processing  relval_upgrade
+request for INPUT for  None
+ignoring non-requested file relval_identity
+Running in 4 thread(s)
+
+Preparing to run 11428 ZMM_8TeV+ZMM_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11428_ZMM_8TeV+ZMM_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py ZMM_8TeV_cfi  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUG --relval 18000,300 -s GEN,SIM --datatier GEN-SIM --beamspot Gauss --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --fileout file:step1.root  > step1_ZMM_8TeV+ZMM_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11428_ZMM_8TeV+ZMM_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step2  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT -s DIGI:pdigi_valid,L1,DIGI2RAW --datatier GEN-SIM-DIGI-RAW --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step1.root  --fileout file:step2.root  > step2_ZMM_8TeV+ZMM_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11428_ZMM_8TeV+ZMM_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step3  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT,DQM -s RAW2DIGI,L1Reco,RECO,VALIDATION,DQM --datatier GEN-SIM-RECO,DQM --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step2.root  --fileout file:step3.root  > step3_ZMM_8TeV+ZMM_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11428_ZMM_8TeV+ZMM_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step4  --conditions auto:upgrade2019 --scenario pp -s HARVESTING:validationHarvesting+dqmHarvesting --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --mc  --magField 38T_PostLS1 -n 100  --filein file:step3_inDQM.root --fileout file:step4.root  > step4_ZMM_8TeV+ZMM_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+11428_ZMM_8TeV+ZMM_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D Step0-PASSED Step1-PASSED Step2-PASSED Step3-PASSED  - time date Wed Mar  5 17:46:59 2014-date Wed Mar  5 17:46:59 2014; exit: 0 0 0 0
+1 1 1 1 tests passed, 0 0 0 0 failed
+
+ignoring non-requested file relval_standard
+ignoring non-requested file relval_highstats
+ignoring non-requested file relval_pileup
+ignoring non-requested file relval_generator
+ignoring non-requested file relval_production
+ignoring non-requested file relval_ged
+processing  relval_upgrade
+request for INPUT for  None
+ignoring non-requested file relval_identity
+Running in 4 thread(s)
+
+Preparing to run 11429 ADDMonoJet_d3MD3_8TeV+ADDMonoJet_8TeV_d3MD3_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11429_ADDMonoJet_d3MD3_8TeV+ADDMonoJet_8TeV_d3MD3_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py ADDMonoJet_8TeV_d3MD3_cfi  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUG --relval 9000,100 -s GEN,SIM --datatier GEN-SIM --beamspot Gauss --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --fileout file:step1.root  > step1_ADDMonoJet_d3MD3_8TeV+ADDMonoJet_8TeV_d3MD3_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11429_ADDMonoJet_d3MD3_8TeV+ADDMonoJet_8TeV_d3MD3_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step2  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT -s DIGI:pdigi_valid,L1,DIGI2RAW --datatier GEN-SIM-DIGI-RAW --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step1.root  --fileout file:step2.root  > step2_ADDMonoJet_d3MD3_8TeV+ADDMonoJet_8TeV_d3MD3_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11429_ADDMonoJet_d3MD3_8TeV+ADDMonoJet_8TeV_d3MD3_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step3  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT,DQM -s RAW2DIGI,L1Reco,RECO,VALIDATION,DQM --datatier GEN-SIM-RECO,DQM --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step2.root  --fileout file:step3.root  > step3_ADDMonoJet_d3MD3_8TeV+ADDMonoJet_8TeV_d3MD3_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11429_ADDMonoJet_d3MD3_8TeV+ADDMonoJet_8TeV_d3MD3_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step4  --conditions auto:upgrade2019 --scenario pp -s HARVESTING:validationHarvesting+dqmHarvesting --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --mc  --magField 38T_PostLS1 -n 100  --filein file:step3_inDQM.root --fileout file:step4.root  > step4_ADDMonoJet_d3MD3_8TeV+ADDMonoJet_8TeV_d3MD3_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+11429_ADDMonoJet_d3MD3_8TeV+ADDMonoJet_8TeV_d3MD3_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D Step0-PASSED Step1-PASSED Step2-PASSED Step3-PASSED  - time date Wed Mar  5 17:47:00 2014-date Wed Mar  5 17:47:00 2014; exit: 0 0 0 0
+1 1 1 1 tests passed, 0 0 0 0 failed
+
+ignoring non-requested file relval_standard
+ignoring non-requested file relval_highstats
+ignoring non-requested file relval_pileup
+ignoring non-requested file relval_generator
+ignoring non-requested file relval_production
+ignoring non-requested file relval_ged
+processing  relval_upgrade
+request for INPUT for  None
+ignoring non-requested file relval_identity
+Running in 4 thread(s)
+
+Preparing to run 11430 ZpMM_8TeV+ZpMM_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11430_ZpMM_8TeV+ZpMM_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py ZpMM_8TeV_cfi  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUG --relval 9000,200 -s GEN,SIM --datatier GEN-SIM --beamspot Gauss --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --fileout file:step1.root  > step1_ZpMM_8TeV+ZpMM_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11430_ZpMM_8TeV+ZpMM_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step2  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT -s DIGI:pdigi_valid,L1,DIGI2RAW --datatier GEN-SIM-DIGI-RAW --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step1.root  --fileout file:step2.root  > step2_ZpMM_8TeV+ZpMM_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11430_ZpMM_8TeV+ZpMM_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step3  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT,DQM -s RAW2DIGI,L1Reco,RECO,VALIDATION,DQM --datatier GEN-SIM-RECO,DQM --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step2.root  --fileout file:step3.root  > step3_ZpMM_8TeV+ZpMM_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11430_ZpMM_8TeV+ZpMM_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step4  --conditions auto:upgrade2019 --scenario pp -s HARVESTING:validationHarvesting+dqmHarvesting --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --mc  --magField 38T_PostLS1 -n 100  --filein file:step3_inDQM.root --fileout file:step4.root  > step4_ZpMM_8TeV+ZpMM_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+11430_ZpMM_8TeV+ZpMM_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D Step0-PASSED Step1-PASSED Step2-PASSED Step3-PASSED  - time date Wed Mar  5 17:47:01 2014-date Wed Mar  5 17:47:01 2014; exit: 0 0 0 0
+1 1 1 1 tests passed, 0 0 0 0 failed
+
+ignoring non-requested file relval_standard
+ignoring non-requested file relval_highstats
+ignoring non-requested file relval_pileup
+ignoring non-requested file relval_generator
+ignoring non-requested file relval_production
+ignoring non-requested file relval_ged
+processing  relval_upgrade
+request for INPUT for  None
+ignoring non-requested file relval_identity
+Running in 4 thread(s)
+
+Preparing to run 11431 WpM_8TeV+WpM_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11431_WpM_8TeV+WpM_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py WpM_8TeV_cfi  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUG --relval 9000,200 -s GEN,SIM --datatier GEN-SIM --beamspot Gauss --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --fileout file:step1.root  > step1_WpM_8TeV+WpM_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11431_WpM_8TeV+WpM_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step2  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT -s DIGI:pdigi_valid,L1,DIGI2RAW --datatier GEN-SIM-DIGI-RAW --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step1.root  --fileout file:step2.root  > step2_WpM_8TeV+WpM_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11431_WpM_8TeV+WpM_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step3  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT,DQM -s RAW2DIGI,L1Reco,RECO,VALIDATION,DQM --datatier GEN-SIM-RECO,DQM --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step2.root  --fileout file:step3.root  > step3_WpM_8TeV+WpM_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11431_WpM_8TeV+WpM_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step4  --conditions auto:upgrade2019 --scenario pp -s HARVESTING:validationHarvesting+dqmHarvesting --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --mc  --magField 38T_PostLS1 -n 100  --filein file:step3_inDQM.root --fileout file:step4.root  > step4_WpM_8TeV+WpM_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+11431_WpM_8TeV+WpM_8TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D Step0-PASSED Step1-PASSED Step2-PASSED Step3-PASSED  - time date Wed Mar  5 17:47:02 2014-date Wed Mar  5 17:47:02 2014; exit: 0 0 0 0
+1 1 1 1 tests passed, 0 0 0 0 failed
+
+ignoring non-requested file relval_standard
+ignoring non-requested file relval_highstats
+ignoring non-requested file relval_pileup
+ignoring non-requested file relval_generator
+ignoring non-requested file relval_production
+ignoring non-requested file relval_ged
+processing  relval_upgrade
+request for INPUT for  None
+ignoring non-requested file relval_identity
+Running in 4 thread(s)
+
+Preparing to run 11432 Wjet_Pt_80_120_14TeV+Wjet_Pt_80_120_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11432_Wjet_Pt_80_120_14TeV+Wjet_Pt_80_120_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py Wjet_Pt_80_120_14TeV_cfi  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUG --relval 9000,100 -s GEN,SIM --datatier GEN-SIM --beamspot Gauss --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --fileout file:step1.root  > step1_Wjet_Pt_80_120_14TeV+Wjet_Pt_80_120_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11432_Wjet_Pt_80_120_14TeV+Wjet_Pt_80_120_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step2  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT -s DIGI:pdigi_valid,L1,DIGI2RAW --datatier GEN-SIM-DIGI-RAW --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step1.root  --fileout file:step2.root  > step2_Wjet_Pt_80_120_14TeV+Wjet_Pt_80_120_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11432_Wjet_Pt_80_120_14TeV+Wjet_Pt_80_120_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step3  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT,DQM -s RAW2DIGI,L1Reco,RECO,VALIDATION,DQM --datatier GEN-SIM-RECO,DQM --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step2.root  --fileout file:step3.root  > step3_Wjet_Pt_80_120_14TeV+Wjet_Pt_80_120_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11432_Wjet_Pt_80_120_14TeV+Wjet_Pt_80_120_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step4  --conditions auto:upgrade2019 --scenario pp -s HARVESTING:validationHarvesting+dqmHarvesting --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --mc  --magField 38T_PostLS1 -n 100  --filein file:step3_inDQM.root --fileout file:step4.root  > step4_Wjet_Pt_80_120_14TeV+Wjet_Pt_80_120_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+11432_Wjet_Pt_80_120_14TeV+Wjet_Pt_80_120_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D Step0-PASSED Step1-PASSED Step2-PASSED Step3-PASSED  - time date Wed Mar  5 17:47:03 2014-date Wed Mar  5 17:47:03 2014; exit: 0 0 0 0
+1 1 1 1 tests passed, 0 0 0 0 failed
+
+ignoring non-requested file relval_standard
+ignoring non-requested file relval_highstats
+ignoring non-requested file relval_pileup
+ignoring non-requested file relval_generator
+ignoring non-requested file relval_production
+ignoring non-requested file relval_ged
+processing  relval_upgrade
+request for INPUT for  None
+ignoring non-requested file relval_identity
+Running in 4 thread(s)
+
+Preparing to run 11433 Wjet_Pt_3000_3500_14TeV+Wjet_Pt_3000_3500_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11433_Wjet_Pt_3000_3500_14TeV+Wjet_Pt_3000_3500_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py Wjet_Pt_3000_3500_14TeV_cfi  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUG --relval 9000,50 -s GEN,SIM --datatier GEN-SIM --beamspot Gauss --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --fileout file:step1.root  > step1_Wjet_Pt_3000_3500_14TeV+Wjet_Pt_3000_3500_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11433_Wjet_Pt_3000_3500_14TeV+Wjet_Pt_3000_3500_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step2  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT -s DIGI:pdigi_valid,L1,DIGI2RAW --datatier GEN-SIM-DIGI-RAW --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step1.root  --fileout file:step2.root  > step2_Wjet_Pt_3000_3500_14TeV+Wjet_Pt_3000_3500_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11433_Wjet_Pt_3000_3500_14TeV+Wjet_Pt_3000_3500_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step3  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT,DQM -s RAW2DIGI,L1Reco,RECO,VALIDATION,DQM --datatier GEN-SIM-RECO,DQM --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step2.root  --fileout file:step3.root  > step3_Wjet_Pt_3000_3500_14TeV+Wjet_Pt_3000_3500_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11433_Wjet_Pt_3000_3500_14TeV+Wjet_Pt_3000_3500_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step4  --conditions auto:upgrade2019 --scenario pp -s HARVESTING:validationHarvesting+dqmHarvesting --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --mc  --magField 38T_PostLS1 -n 100  --filein file:step3_inDQM.root --fileout file:step4.root  > step4_Wjet_Pt_3000_3500_14TeV+Wjet_Pt_3000_3500_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+11433_Wjet_Pt_3000_3500_14TeV+Wjet_Pt_3000_3500_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D Step0-PASSED Step1-PASSED Step2-PASSED Step3-PASSED  - time date Wed Mar  5 17:47:04 2014-date Wed Mar  5 17:47:04 2014; exit: 0 0 0 0
+1 1 1 1 tests passed, 0 0 0 0 failed
+
+ignoring non-requested file relval_standard
+ignoring non-requested file relval_highstats
+ignoring non-requested file relval_pileup
+ignoring non-requested file relval_generator
+ignoring non-requested file relval_production
+ignoring non-requested file relval_ged
+processing  relval_upgrade
+request for INPUT for  None
+ignoring non-requested file relval_identity
+Running in 4 thread(s)
+
+Preparing to run 11434 LM1_sfts_14TeV+LM1_sfts_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11434_LM1_sfts_14TeV+LM1_sfts_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py LM1_sfts_14TeV_cfi  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUG --relval 9000,100 -s GEN,SIM --datatier GEN-SIM --beamspot Gauss --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --fileout file:step1.root  > step1_LM1_sfts_14TeV+LM1_sfts_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11434_LM1_sfts_14TeV+LM1_sfts_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step2  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT -s DIGI:pdigi_valid,L1,DIGI2RAW --datatier GEN-SIM-DIGI-RAW --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step1.root  --fileout file:step2.root  > step2_LM1_sfts_14TeV+LM1_sfts_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11434_LM1_sfts_14TeV+LM1_sfts_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step3  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT,DQM -s RAW2DIGI,L1Reco,RECO,VALIDATION,DQM --datatier GEN-SIM-RECO,DQM --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step2.root  --fileout file:step3.root  > step3_LM1_sfts_14TeV+LM1_sfts_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11434_LM1_sfts_14TeV+LM1_sfts_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step4  --conditions auto:upgrade2019 --scenario pp -s HARVESTING:validationHarvesting+dqmHarvesting --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --mc  --magField 38T_PostLS1 -n 100  --filein file:step3_inDQM.root --fileout file:step4.root  > step4_LM1_sfts_14TeV+LM1_sfts_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+11434_LM1_sfts_14TeV+LM1_sfts_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D Step0-PASSED Step1-PASSED Step2-PASSED Step3-PASSED  - time date Wed Mar  5 17:47:05 2014-date Wed Mar  5 17:47:05 2014; exit: 0 0 0 0
+1 1 1 1 tests passed, 0 0 0 0 failed
+
+ignoring non-requested file relval_standard
+ignoring non-requested file relval_highstats
+ignoring non-requested file relval_pileup
+ignoring non-requested file relval_generator
+ignoring non-requested file relval_production
+ignoring non-requested file relval_ged
+processing  relval_upgrade
+request for INPUT for  None
+ignoring non-requested file relval_identity
+Running in 4 thread(s)
+
+Preparing to run 11435 QCD_Pt_3000_3500_14TeV+QCD_Pt_3000_3500_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11435_QCD_Pt_3000_3500_14TeV+QCD_Pt_3000_3500_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py QCD_Pt_3000_3500_14TeV_cfi  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUG --relval 9000,25 -s GEN,SIM --datatier GEN-SIM --beamspot Gauss --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --fileout file:step1.root  > step1_QCD_Pt_3000_3500_14TeV+QCD_Pt_3000_3500_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11435_QCD_Pt_3000_3500_14TeV+QCD_Pt_3000_3500_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step2  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT -s DIGI:pdigi_valid,L1,DIGI2RAW --datatier GEN-SIM-DIGI-RAW --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step1.root  --fileout file:step2.root  > step2_QCD_Pt_3000_3500_14TeV+QCD_Pt_3000_3500_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11435_QCD_Pt_3000_3500_14TeV+QCD_Pt_3000_3500_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step3  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT,DQM -s RAW2DIGI,L1Reco,RECO,VALIDATION,DQM --datatier GEN-SIM-RECO,DQM --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step2.root  --fileout file:step3.root  > step3_QCD_Pt_3000_3500_14TeV+QCD_Pt_3000_3500_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11435_QCD_Pt_3000_3500_14TeV+QCD_Pt_3000_3500_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step4  --conditions auto:upgrade2019 --scenario pp -s HARVESTING:validationHarvesting+dqmHarvesting --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --mc  --magField 38T_PostLS1 -n 100  --filein file:step3_inDQM.root --fileout file:step4.root  > step4_QCD_Pt_3000_3500_14TeV+QCD_Pt_3000_3500_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+11435_QCD_Pt_3000_3500_14TeV+QCD_Pt_3000_3500_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D Step0-PASSED Step1-PASSED Step2-PASSED Step3-PASSED  - time date Wed Mar  5 17:47:06 2014-date Wed Mar  5 17:47:06 2014; exit: 0 0 0 0
+1 1 1 1 tests passed, 0 0 0 0 failed
+
+ignoring non-requested file relval_standard
+ignoring non-requested file relval_highstats
+ignoring non-requested file relval_pileup
+ignoring non-requested file relval_generator
+ignoring non-requested file relval_production
+ignoring non-requested file relval_ged
+processing  relval_upgrade
+request for INPUT for  None
+ignoring non-requested file relval_identity
+Running in 4 thread(s)
+
+Preparing to run 11436 QCD_Pt_80_120_14TeV+QCD_Pt_80_120_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11436_QCD_Pt_80_120_14TeV+QCD_Pt_80_120_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py QCD_Pt_80_120_14TeV_cfi  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUG --relval 9000,100 -s GEN,SIM --datatier GEN-SIM --beamspot Gauss --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --fileout file:step1.root  > step1_QCD_Pt_80_120_14TeV+QCD_Pt_80_120_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11436_QCD_Pt_80_120_14TeV+QCD_Pt_80_120_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step2  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT -s DIGI:pdigi_valid,L1,DIGI2RAW --datatier GEN-SIM-DIGI-RAW --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step1.root  --fileout file:step2.root  > step2_QCD_Pt_80_120_14TeV+QCD_Pt_80_120_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11436_QCD_Pt_80_120_14TeV+QCD_Pt_80_120_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step3  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT,DQM -s RAW2DIGI,L1Reco,RECO,VALIDATION,DQM --datatier GEN-SIM-RECO,DQM --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step2.root  --fileout file:step3.root  > step3_QCD_Pt_80_120_14TeV+QCD_Pt_80_120_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11436_QCD_Pt_80_120_14TeV+QCD_Pt_80_120_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step4  --conditions auto:upgrade2019 --scenario pp -s HARVESTING:validationHarvesting+dqmHarvesting --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --mc  --magField 38T_PostLS1 -n 100  --filein file:step3_inDQM.root --fileout file:step4.root  > step4_QCD_Pt_80_120_14TeV+QCD_Pt_80_120_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+11436_QCD_Pt_80_120_14TeV+QCD_Pt_80_120_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D Step0-PASSED Step1-PASSED Step2-PASSED Step3-PASSED  - time date Wed Mar  5 17:47:06 2014-date Wed Mar  5 17:47:06 2014; exit: 0 0 0 0
+1 1 1 1 tests passed, 0 0 0 0 failed
+
+ignoring non-requested file relval_standard
+ignoring non-requested file relval_highstats
+ignoring non-requested file relval_pileup
+ignoring non-requested file relval_generator
+ignoring non-requested file relval_production
+ignoring non-requested file relval_ged
+processing  relval_upgrade
+request for INPUT for  None
+ignoring non-requested file relval_identity
+Running in 4 thread(s)
+
+Preparing to run 11437 Higgs200ChargedTaus_14TeV+H200ChargedTaus_Tauola_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11437_Higgs200ChargedTaus_14TeV+H200ChargedTaus_Tauola_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py H200ChargedTaus_Tauola_14TeV_cfi  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUG --relval 9000,100 -s GEN,SIM --datatier GEN-SIM --beamspot Gauss --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --fileout file:step1.root  > step1_Higgs200ChargedTaus_14TeV+H200ChargedTaus_Tauola_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11437_Higgs200ChargedTaus_14TeV+H200ChargedTaus_Tauola_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step2  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT -s DIGI:pdigi_valid,L1,DIGI2RAW --datatier GEN-SIM-DIGI-RAW --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step1.root  --fileout file:step2.root  > step2_Higgs200ChargedTaus_14TeV+H200ChargedTaus_Tauola_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11437_Higgs200ChargedTaus_14TeV+H200ChargedTaus_Tauola_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step3  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT,DQM -s RAW2DIGI,L1Reco,RECO,VALIDATION,DQM --datatier GEN-SIM-RECO,DQM --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step2.root  --fileout file:step3.root  > step3_Higgs200ChargedTaus_14TeV+H200ChargedTaus_Tauola_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11437_Higgs200ChargedTaus_14TeV+H200ChargedTaus_Tauola_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step4  --conditions auto:upgrade2019 --scenario pp -s HARVESTING:validationHarvesting+dqmHarvesting --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --mc  --magField 38T_PostLS1 -n 100  --filein file:step3_inDQM.root --fileout file:step4.root  > step4_Higgs200ChargedTaus_14TeV+H200ChargedTaus_Tauola_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+11437_Higgs200ChargedTaus_14TeV+H200ChargedTaus_Tauola_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D Step0-PASSED Step1-PASSED Step2-PASSED Step3-PASSED  - time date Wed Mar  5 17:47:07 2014-date Wed Mar  5 17:47:07 2014; exit: 0 0 0 0
+1 1 1 1 tests passed, 0 0 0 0 failed
+
+ignoring non-requested file relval_standard
+ignoring non-requested file relval_highstats
+ignoring non-requested file relval_pileup
+ignoring non-requested file relval_generator
+ignoring non-requested file relval_production
+ignoring non-requested file relval_ged
+processing  relval_upgrade
+request for INPUT for  None
+ignoring non-requested file relval_identity
+Running in 4 thread(s)
+
+Preparing to run 11438 JpsiMM_14TeV+JpsiMM_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11438_JpsiMM_14TeV+JpsiMM_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py JpsiMM_14TeV_cfi  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUG --relval 66000,1000 -s GEN,SIM --datatier GEN-SIM --beamspot Gauss --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --fileout file:step1.root  > step1_JpsiMM_14TeV+JpsiMM_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11438_JpsiMM_14TeV+JpsiMM_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step2  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT -s DIGI:pdigi_valid,L1,DIGI2RAW --datatier GEN-SIM-DIGI-RAW --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step1.root  --fileout file:step2.root  > step2_JpsiMM_14TeV+JpsiMM_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11438_JpsiMM_14TeV+JpsiMM_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step3  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT,DQM -s RAW2DIGI,L1Reco,RECO,VALIDATION,DQM --datatier GEN-SIM-RECO,DQM --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step2.root  --fileout file:step3.root  > step3_JpsiMM_14TeV+JpsiMM_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11438_JpsiMM_14TeV+JpsiMM_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step4  --conditions auto:upgrade2019 --scenario pp -s HARVESTING:validationHarvesting+dqmHarvesting --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --mc  --magField 38T_PostLS1 -n 100  --filein file:step3_inDQM.root --fileout file:step4.root  > step4_JpsiMM_14TeV+JpsiMM_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+11438_JpsiMM_14TeV+JpsiMM_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D Step0-PASSED Step1-PASSED Step2-PASSED Step3-PASSED  - time date Wed Mar  5 17:47:08 2014-date Wed Mar  5 17:47:08 2014; exit: 0 0 0 0
+1 1 1 1 tests passed, 0 0 0 0 failed
+
+ignoring non-requested file relval_standard
+ignoring non-requested file relval_highstats
+ignoring non-requested file relval_pileup
+ignoring non-requested file relval_generator
+ignoring non-requested file relval_production
+ignoring non-requested file relval_ged
+processing  relval_upgrade
+request for INPUT for  None
+ignoring non-requested file relval_identity
+Running in 4 thread(s)
+
+Preparing to run 11439 TTbar_14TeV+TTbar_Tauola_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11439_TTbar_14TeV+TTbar_Tauola_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py TTbar_Tauola_14TeV_cfi  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUG --relval 9000,100 -s GEN,SIM --datatier GEN-SIM --beamspot Gauss --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --fileout file:step1.root  > step1_TTbar_14TeV+TTbar_Tauola_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11439_TTbar_14TeV+TTbar_Tauola_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step2  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT -s DIGI:pdigi_valid,L1,DIGI2RAW --datatier GEN-SIM-DIGI-RAW --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step1.root  --fileout file:step2.root  > step2_TTbar_14TeV+TTbar_Tauola_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11439_TTbar_14TeV+TTbar_Tauola_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step3  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT,DQM -s RAW2DIGI,L1Reco,RECO,VALIDATION,DQM --datatier GEN-SIM-RECO,DQM --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step2.root  --fileout file:step3.root  > step3_TTbar_14TeV+TTbar_Tauola_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11439_TTbar_14TeV+TTbar_Tauola_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step4  --conditions auto:upgrade2019 --scenario pp -s HARVESTING:validationHarvesting+dqmHarvesting --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --mc  --magField 38T_PostLS1 -n 100  --filein file:step3_inDQM.root --fileout file:step4.root  > step4_TTbar_14TeV+TTbar_Tauola_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+11439_TTbar_14TeV+TTbar_Tauola_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D Step0-PASSED Step1-PASSED Step2-PASSED Step3-PASSED  - time date Wed Mar  5 17:47:09 2014-date Wed Mar  5 17:47:09 2014; exit: 0 0 0 0
+1 1 1 1 tests passed, 0 0 0 0 failed
+
+ignoring non-requested file relval_standard
+ignoring non-requested file relval_highstats
+ignoring non-requested file relval_pileup
+ignoring non-requested file relval_generator
+ignoring non-requested file relval_production
+ignoring non-requested file relval_ged
+processing  relval_upgrade
+request for INPUT for  None
+ignoring non-requested file relval_identity
+Running in 4 thread(s)
+
+Preparing to run 11440 WE_14TeV+WE_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11440_WE_14TeV+WE_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py WE_14TeV_cfi  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUG --relval 9000,100 -s GEN,SIM --datatier GEN-SIM --beamspot Gauss --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --fileout file:step1.root  > step1_WE_14TeV+WE_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11440_WE_14TeV+WE_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step2  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT -s DIGI:pdigi_valid,L1,DIGI2RAW --datatier GEN-SIM-DIGI-RAW --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step1.root  --fileout file:step2.root  > step2_WE_14TeV+WE_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11440_WE_14TeV+WE_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step3  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT,DQM -s RAW2DIGI,L1Reco,RECO,VALIDATION,DQM --datatier GEN-SIM-RECO,DQM --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step2.root  --fileout file:step3.root  > step3_WE_14TeV+WE_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11440_WE_14TeV+WE_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step4  --conditions auto:upgrade2019 --scenario pp -s HARVESTING:validationHarvesting+dqmHarvesting --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --mc  --magField 38T_PostLS1 -n 100  --filein file:step3_inDQM.root --fileout file:step4.root  > step4_WE_14TeV+WE_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+11440_WE_14TeV+WE_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D Step0-PASSED Step1-PASSED Step2-PASSED Step3-PASSED  - time date Wed Mar  5 17:47:10 2014-date Wed Mar  5 17:47:10 2014; exit: 0 0 0 0
+1 1 1 1 tests passed, 0 0 0 0 failed
+
+ignoring non-requested file relval_standard
+ignoring non-requested file relval_highstats
+ignoring non-requested file relval_pileup
+ignoring non-requested file relval_generator
+ignoring non-requested file relval_production
+ignoring non-requested file relval_ged
+processing  relval_upgrade
+request for INPUT for  None
+ignoring non-requested file relval_identity
+Running in 4 thread(s)
+
+Preparing to run 11441 ZEE_14TeV+ZEE_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11441_ZEE_14TeV+ZEE_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py ZEE_14TeV_cfi  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUG --relval 9000,100 -s GEN,SIM --datatier GEN-SIM --beamspot Gauss --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --fileout file:step1.root  > step1_ZEE_14TeV+ZEE_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11441_ZEE_14TeV+ZEE_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step2  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT -s DIGI:pdigi_valid,L1,DIGI2RAW --datatier GEN-SIM-DIGI-RAW --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step1.root  --fileout file:step2.root  > step2_ZEE_14TeV+ZEE_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11441_ZEE_14TeV+ZEE_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step3  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT,DQM -s RAW2DIGI,L1Reco,RECO,VALIDATION,DQM --datatier GEN-SIM-RECO,DQM --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step2.root  --fileout file:step3.root  > step3_ZEE_14TeV+ZEE_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11441_ZEE_14TeV+ZEE_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step4  --conditions auto:upgrade2019 --scenario pp -s HARVESTING:validationHarvesting+dqmHarvesting --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --mc  --magField 38T_PostLS1 -n 100  --filein file:step3_inDQM.root --fileout file:step4.root  > step4_ZEE_14TeV+ZEE_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+11441_ZEE_14TeV+ZEE_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D Step0-PASSED Step1-PASSED Step2-PASSED Step3-PASSED  - time date Wed Mar  5 17:47:11 2014-date Wed Mar  5 17:47:11 2014; exit: 0 0 0 0
+1 1 1 1 tests passed, 0 0 0 0 failed
+
+ignoring non-requested file relval_standard
+ignoring non-requested file relval_highstats
+ignoring non-requested file relval_pileup
+ignoring non-requested file relval_generator
+ignoring non-requested file relval_production
+ignoring non-requested file relval_ged
+processing  relval_upgrade
+request for INPUT for  None
+ignoring non-requested file relval_identity
+Running in 4 thread(s)
+
+Preparing to run 11442 ZTT_14TeV+ZTT_Tauola_All_hadronic_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11442_ZTT_14TeV+ZTT_Tauola_All_hadronic_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py ZTT_Tauola_All_hadronic_14TeV_cfi  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUG --relval 9000,150 -s GEN,SIM --datatier GEN-SIM --beamspot Gauss --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --fileout file:step1.root  > step1_ZTT_14TeV+ZTT_Tauola_All_hadronic_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11442_ZTT_14TeV+ZTT_Tauola_All_hadronic_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step2  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT -s DIGI:pdigi_valid,L1,DIGI2RAW --datatier GEN-SIM-DIGI-RAW --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step1.root  --fileout file:step2.root  > step2_ZTT_14TeV+ZTT_Tauola_All_hadronic_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11442_ZTT_14TeV+ZTT_Tauola_All_hadronic_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step3  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT,DQM -s RAW2DIGI,L1Reco,RECO,VALIDATION,DQM --datatier GEN-SIM-RECO,DQM --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step2.root  --fileout file:step3.root  > step3_ZTT_14TeV+ZTT_Tauola_All_hadronic_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11442_ZTT_14TeV+ZTT_Tauola_All_hadronic_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step4  --conditions auto:upgrade2019 --scenario pp -s HARVESTING:validationHarvesting+dqmHarvesting --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --mc  --magField 38T_PostLS1 -n 100  --filein file:step3_inDQM.root --fileout file:step4.root  > step4_ZTT_14TeV+ZTT_Tauola_All_hadronic_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+11442_ZTT_14TeV+ZTT_Tauola_All_hadronic_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D Step0-PASSED Step1-PASSED Step2-PASSED Step3-PASSED  - time date Wed Mar  5 17:47:12 2014-date Wed Mar  5 17:47:12 2014; exit: 0 0 0 0
+1 1 1 1 tests passed, 0 0 0 0 failed
+
+ignoring non-requested file relval_standard
+ignoring non-requested file relval_highstats
+ignoring non-requested file relval_pileup
+ignoring non-requested file relval_generator
+ignoring non-requested file relval_production
+ignoring non-requested file relval_ged
+processing  relval_upgrade
+request for INPUT for  None
+ignoring non-requested file relval_identity
+Running in 4 thread(s)
+
+Preparing to run 11443 H130GGgluonfusion_14TeV+H130GGgluonfusion_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11443_H130GGgluonfusion_14TeV+H130GGgluonfusion_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py H130GGgluonfusion_14TeV_cfi  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUG --relval 9000,100 -s GEN,SIM --datatier GEN-SIM --beamspot Gauss --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --fileout file:step1.root  > step1_H130GGgluonfusion_14TeV+H130GGgluonfusion_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11443_H130GGgluonfusion_14TeV+H130GGgluonfusion_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step2  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT -s DIGI:pdigi_valid,L1,DIGI2RAW --datatier GEN-SIM-DIGI-RAW --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step1.root  --fileout file:step2.root  > step2_H130GGgluonfusion_14TeV+H130GGgluonfusion_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11443_H130GGgluonfusion_14TeV+H130GGgluonfusion_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step3  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT,DQM -s RAW2DIGI,L1Reco,RECO,VALIDATION,DQM --datatier GEN-SIM-RECO,DQM --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step2.root  --fileout file:step3.root  > step3_H130GGgluonfusion_14TeV+H130GGgluonfusion_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11443_H130GGgluonfusion_14TeV+H130GGgluonfusion_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step4  --conditions auto:upgrade2019 --scenario pp -s HARVESTING:validationHarvesting+dqmHarvesting --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --mc  --magField 38T_PostLS1 -n 100  --filein file:step3_inDQM.root --fileout file:step4.root  > step4_H130GGgluonfusion_14TeV+H130GGgluonfusion_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+11443_H130GGgluonfusion_14TeV+H130GGgluonfusion_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D Step0-PASSED Step1-PASSED Step2-PASSED Step3-PASSED  - time date Wed Mar  5 17:47:13 2014-date Wed Mar  5 17:47:13 2014; exit: 0 0 0 0
+1 1 1 1 tests passed, 0 0 0 0 failed
+
+ignoring non-requested file relval_standard
+ignoring non-requested file relval_highstats
+ignoring non-requested file relval_pileup
+ignoring non-requested file relval_generator
+ignoring non-requested file relval_production
+ignoring non-requested file relval_ged
+processing  relval_upgrade
+request for INPUT for  None
+ignoring non-requested file relval_identity
+Running in 4 thread(s)
+
+Preparing to run 11444 PhotonJets_Pt_10_14TeV+PhotonJet_Pt_10_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11444_PhotonJets_Pt_10_14TeV+PhotonJet_Pt_10_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py PhotonJet_Pt_10_14TeV_cfi  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUG --relval 9000,150 -s GEN,SIM --datatier GEN-SIM --beamspot Gauss --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --fileout file:step1.root  > step1_PhotonJets_Pt_10_14TeV+PhotonJet_Pt_10_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11444_PhotonJets_Pt_10_14TeV+PhotonJet_Pt_10_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step2  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT -s DIGI:pdigi_valid,L1,DIGI2RAW --datatier GEN-SIM-DIGI-RAW --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step1.root  --fileout file:step2.root  > step2_PhotonJets_Pt_10_14TeV+PhotonJet_Pt_10_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11444_PhotonJets_Pt_10_14TeV+PhotonJet_Pt_10_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step3  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT,DQM -s RAW2DIGI,L1Reco,RECO,VALIDATION,DQM --datatier GEN-SIM-RECO,DQM --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step2.root  --fileout file:step3.root  > step3_PhotonJets_Pt_10_14TeV+PhotonJet_Pt_10_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11444_PhotonJets_Pt_10_14TeV+PhotonJet_Pt_10_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step4  --conditions auto:upgrade2019 --scenario pp -s HARVESTING:validationHarvesting+dqmHarvesting --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --mc  --magField 38T_PostLS1 -n 100  --filein file:step3_inDQM.root --fileout file:step4.root  > step4_PhotonJets_Pt_10_14TeV+PhotonJet_Pt_10_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+11444_PhotonJets_Pt_10_14TeV+PhotonJet_Pt_10_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D Step0-PASSED Step1-PASSED Step2-PASSED Step3-PASSED  - time date Wed Mar  5 17:47:13 2014-date Wed Mar  5 17:47:13 2014; exit: 0 0 0 0
+1 1 1 1 tests passed, 0 0 0 0 failed
+
+ignoring non-requested file relval_standard
+ignoring non-requested file relval_highstats
+ignoring non-requested file relval_pileup
+ignoring non-requested file relval_generator
+ignoring non-requested file relval_production
+ignoring non-requested file relval_ged
+processing  relval_upgrade
+request for INPUT for  None
+ignoring non-requested file relval_identity
+Running in 4 thread(s)
+
+Preparing to run 11445 QQH1352T_Tauola_14TeV+QQH1352T_Tauola_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11445_QQH1352T_Tauola_14TeV+QQH1352T_Tauola_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py QQH1352T_Tauola_14TeV_cfi  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUG --relval 9000,100 -s GEN,SIM --datatier GEN-SIM --beamspot Gauss --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --fileout file:step1.root  > step1_QQH1352T_Tauola_14TeV+QQH1352T_Tauola_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11445_QQH1352T_Tauola_14TeV+QQH1352T_Tauola_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step2  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT -s DIGI:pdigi_valid,L1,DIGI2RAW --datatier GEN-SIM-DIGI-RAW --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step1.root  --fileout file:step2.root  > step2_QQH1352T_Tauola_14TeV+QQH1352T_Tauola_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11445_QQH1352T_Tauola_14TeV+QQH1352T_Tauola_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step3  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT,DQM -s RAW2DIGI,L1Reco,RECO,VALIDATION,DQM --datatier GEN-SIM-RECO,DQM --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step2.root  --fileout file:step3.root  > step3_QQH1352T_Tauola_14TeV+QQH1352T_Tauola_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11445_QQH1352T_Tauola_14TeV+QQH1352T_Tauola_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step4  --conditions auto:upgrade2019 --scenario pp -s HARVESTING:validationHarvesting+dqmHarvesting --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --mc  --magField 38T_PostLS1 -n 100  --filein file:step3_inDQM.root --fileout file:step4.root  > step4_QQH1352T_Tauola_14TeV+QQH1352T_Tauola_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+11445_QQH1352T_Tauola_14TeV+QQH1352T_Tauola_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D Step0-PASSED Step1-PASSED Step2-PASSED Step3-PASSED  - time date Wed Mar  5 17:47:14 2014-date Wed Mar  5 17:47:14 2014; exit: 0 0 0 0
+1 1 1 1 tests passed, 0 0 0 0 failed
+
+ignoring non-requested file relval_standard
+ignoring non-requested file relval_highstats
+ignoring non-requested file relval_pileup
+ignoring non-requested file relval_generator
+ignoring non-requested file relval_production
+ignoring non-requested file relval_ged
+processing  relval_upgrade
+request for INPUT for  None
+ignoring non-requested file relval_identity
+Running in 4 thread(s)
+
+Preparing to run 11446 MinBias_TuneZ2star_14TeV+MinBias_TuneZ2star_14TeV_pythia6_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11446_MinBias_TuneZ2star_14TeV+MinBias_TuneZ2star_14TeV_pythia6_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py MinBias_TuneZ2star_14TeV_pythia6_cff  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUG --relval 9000,300 -s GEN,SIM --datatier GEN-SIM --beamspot Gauss --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --fileout file:step1.root  > step1_MinBias_TuneZ2star_14TeV+MinBias_TuneZ2star_14TeV_pythia6_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11446_MinBias_TuneZ2star_14TeV+MinBias_TuneZ2star_14TeV_pythia6_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step2  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT -s DIGI:pdigi_valid,L1,DIGI2RAW --datatier GEN-SIM-DIGI-RAW --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step1.root  --fileout file:step2.root  > step2_MinBias_TuneZ2star_14TeV+MinBias_TuneZ2star_14TeV_pythia6_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11446_MinBias_TuneZ2star_14TeV+MinBias_TuneZ2star_14TeV_pythia6_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step3  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT,DQM -s RAW2DIGI,L1Reco,RECO,VALIDATION,DQM --datatier GEN-SIM-RECO,DQM --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step2.root  --fileout file:step3.root  > step3_MinBias_TuneZ2star_14TeV+MinBias_TuneZ2star_14TeV_pythia6_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11446_MinBias_TuneZ2star_14TeV+MinBias_TuneZ2star_14TeV_pythia6_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step4  --conditions auto:upgrade2019 --scenario pp -s HARVESTING:validationHarvesting+dqmHarvesting --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --mc  --magField 38T_PostLS1 -n 100  --filein file:step3_inDQM.root --fileout file:step4.root  > step4_MinBias_TuneZ2star_14TeV+MinBias_TuneZ2star_14TeV_pythia6_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+11446_MinBias_TuneZ2star_14TeV+MinBias_TuneZ2star_14TeV_pythia6_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D Step0-PASSED Step1-PASSED Step2-PASSED Step3-PASSED  - time date Wed Mar  5 17:47:15 2014-date Wed Mar  5 17:47:15 2014; exit: 0 0 0 0
+1 1 1 1 tests passed, 0 0 0 0 failed
+
+ignoring non-requested file relval_standard
+ignoring non-requested file relval_highstats
+ignoring non-requested file relval_pileup
+ignoring non-requested file relval_generator
+ignoring non-requested file relval_production
+ignoring non-requested file relval_ged
+processing  relval_upgrade
+request for INPUT for  None
+ignoring non-requested file relval_identity
+Running in 4 thread(s)
+
+Preparing to run 11447 WM_14TeV+WM_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11447_WM_14TeV+WM_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py WM_14TeV_cfi  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUG --relval 9000,200 -s GEN,SIM --datatier GEN-SIM --beamspot Gauss --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --fileout file:step1.root  > step1_WM_14TeV+WM_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11447_WM_14TeV+WM_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step2  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT -s DIGI:pdigi_valid,L1,DIGI2RAW --datatier GEN-SIM-DIGI-RAW --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step1.root  --fileout file:step2.root  > step2_WM_14TeV+WM_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11447_WM_14TeV+WM_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step3  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT,DQM -s RAW2DIGI,L1Reco,RECO,VALIDATION,DQM --datatier GEN-SIM-RECO,DQM --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step2.root  --fileout file:step3.root  > step3_WM_14TeV+WM_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11447_WM_14TeV+WM_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step4  --conditions auto:upgrade2019 --scenario pp -s HARVESTING:validationHarvesting+dqmHarvesting --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --mc  --magField 38T_PostLS1 -n 100  --filein file:step3_inDQM.root --fileout file:step4.root  > step4_WM_14TeV+WM_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+11447_WM_14TeV+WM_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D Step0-PASSED Step1-PASSED Step2-PASSED Step3-PASSED  - time date Wed Mar  5 17:47:16 2014-date Wed Mar  5 17:47:16 2014; exit: 0 0 0 0
+1 1 1 1 tests passed, 0 0 0 0 failed
+
+ignoring non-requested file relval_standard
+ignoring non-requested file relval_highstats
+ignoring non-requested file relval_pileup
+ignoring non-requested file relval_generator
+ignoring non-requested file relval_production
+ignoring non-requested file relval_ged
+processing  relval_upgrade
+request for INPUT for  None
+ignoring non-requested file relval_identity
+Running in 4 thread(s)
+
+Preparing to run 11448 ZMM_14TeV+ZMM_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11448_ZMM_14TeV+ZMM_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py ZMM_14TeV_cfi  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUG --relval 18000,300 -s GEN,SIM --datatier GEN-SIM --beamspot Gauss --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --fileout file:step1.root  > step1_ZMM_14TeV+ZMM_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11448_ZMM_14TeV+ZMM_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step2  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT -s DIGI:pdigi_valid,L1,DIGI2RAW --datatier GEN-SIM-DIGI-RAW --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step1.root  --fileout file:step2.root  > step2_ZMM_14TeV+ZMM_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11448_ZMM_14TeV+ZMM_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step3  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT,DQM -s RAW2DIGI,L1Reco,RECO,VALIDATION,DQM --datatier GEN-SIM-RECO,DQM --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step2.root  --fileout file:step3.root  > step3_ZMM_14TeV+ZMM_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11448_ZMM_14TeV+ZMM_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+ cmsDriver.py step4  --conditions auto:upgrade2019 --scenario pp -s HARVESTING:validationHarvesting+dqmHarvesting --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --mc  --magField 38T_PostLS1 -n 100  --filein file:step3_inDQM.root --fileout file:step4.root  > step4_ZMM_14TeV+ZMM_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
+ 
+11448_ZMM_14TeV+ZMM_14TeV_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D Step0-PASSED Step1-PASSED Step2-PASSED Step3-PASSED  - time date Wed Mar  5 17:47:17 2014-date Wed Mar  5 17:47:17 2014; exit: 0 0 0 0
+1 1 1 1 tests passed, 0 0 0 0 failed
+

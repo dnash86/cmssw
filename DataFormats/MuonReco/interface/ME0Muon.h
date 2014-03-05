@@ -36,6 +36,7 @@ namespace reco {
 
     virtual EmulatedME0SegmentRef me0segment() const { return me0Segment_; }
 
+
     /// a bunch of useful accessors
     int charge() const { return innerTrack_.get()->charge(); }
     /// polar angle  

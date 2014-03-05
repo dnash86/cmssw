@@ -1,6 +1,3 @@
-//#include <ME0Reconstruction/EmulatedME0SegmentMatcher/src/EmulatedME0SegmentMatcher.h>
-//#include <RecoLocalMuon/EmulatedME0Segment/src/EmulatedME0SegmentBuilder.h>
-
 #include <RecoMuon/MuonIdentification/src/ME0SegmentMatcher.h>
 
 #include <FWCore/PluginManager/interface/ModuleDef.h>

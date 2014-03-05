@@ -68,11 +68,12 @@ process.reconstruction_step = cms.Path(process.reconstruction)
 process.endjob_step = cms.EndPath(process.endOfProcess)
 process.FEVTDEBUGHLToutput_step = cms.EndPath(process.FEVTDEBUGHLToutput)
 
-#from RecoMuon.MuonIdentification.me0FullSimCustoms import customise
+from RecoMuon.MuonIdentification.me0FullSimCustoms import customise
 
-#process = customise(process)
-
-print process 
+process = customise(process)
+print "XXXXXXXXXXXXXXXXX"
+print process
+print "XXXXXXXXXXXXXXXXX"
 # Schedule definition
 process.schedule = cms.Schedule(process.raw2digi_step,process.L1Reco_step,process.reconstruction_step,process.endjob_step,process.FEVTDEBUGHLToutput_step)
 
