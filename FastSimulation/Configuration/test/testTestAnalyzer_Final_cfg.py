@@ -36,5 +36,5 @@ process.p = cms.Path(process.Test)
 process.PoolSource.fileNames = [
     #'file:FirstTest.root'
     #'file:/afs/cern.ch/work/d/dnash/ME0Segments/CommitToCMSSW/CMSSW_6_1_2_SLHC8/src/RecoMuon/MuonIdentification/test/FirstTest.root'
-    'file:/tmp/dnash/Zmumu_FlatMuonPt_SLHC7.root'
+    'file:/tmp/dnash/Zmumu_FlatMuonPt_SLHC8.root'
 ]

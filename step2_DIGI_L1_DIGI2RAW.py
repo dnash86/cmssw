@@ -2,7 +2,7 @@
 # using: 
 # Revision: 1.20 
 # Source: /local/reps/CMSSW/CMSSW/Configuration/Applications/python/ConfigBuilder.py,v 
-# with command line options: step2 --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT -s DIGI:pdigi_valid,L1,DIGI2RAW --datatier GEN-SIM-DIGI-RAW --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step1.root --fileout file:step2.root --no_exec
+# with command line options: step2 --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT -s DIGI:pdigi_valid,L1,DIGI2RAW --datatier GEN-SIM-DIGI-RAW --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step1.root --fileout file:step2.root
 import FWCore.ParameterSet.Config as cms
 
 process = cms.Process('DIGI2RAW')

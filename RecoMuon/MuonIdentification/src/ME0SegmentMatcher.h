@@ -1,5 +1,5 @@
-#ifndef ME0Segment_ME0SegmentMatcher_h
-#define ME0Segment_ME0SegmentMatcher_h
+#ifndef EmulatedME0Segment_ME0SegmentMatcher_h
+#define EmulatedME0Segment_ME0SegmentMatcher_h
 
 /** \class ME0SegmentMatcher 
  * Produces a collection of ME0Segment's in endcap muon ME0s. 

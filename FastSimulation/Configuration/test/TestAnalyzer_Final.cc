@@ -1,6 +1,3 @@
-//#include <ME0Reconstruction/ME0SegmentMatcher/src/ME0SegmentMatcher.h>
-//#include <RecoLocalMuon/ME0Segment/src/ME0SegmentBuilder.h>
-
 #include <RecoMuon/MuonIdentification/src/ME0SegmentMatcher.h>
 
 #include <FWCore/PluginManager/interface/ModuleDef.h>
@@ -13,8 +10,8 @@
 
 #include <Geometry/Records/interface/MuonGeometryRecord.h>
 
-#include <DataFormats/MuonReco/interface/ME0Segment.h>
-#include <DataFormats/MuonReco/interface/ME0SegmentCollection.h>
+#include <DataFormats/MuonReco/interface/EmulatedME0Segment.h>
+#include <DataFormats/MuonReco/interface/EmulatedME0SegmentCollection.h>
 
 #include <DataFormats/MuonReco/interface/ME0Muon.h>
 #include <DataFormats/MuonReco/interface/ME0MuonCollection.h>
@@ -123,11 +120,11 @@ TestAnalyzer_Final::analyze(const edm::Event& iEvent, const edm::EventSetup& iSe
   iEvent.getByLabel <std::vector<RecoChargedCandidate> > ("me0MuonConverter", OurCandidates);
 
 
-  Handle<std::vector<ME0Segment> > OurSegments;
-  iEvent.getByLabel<std::vector<ME0Segment> >("me0SegmentProducer", OurSegments);
+  Handle<std::vector<EmulatedME0Segment> > OurSegments;
+  iEvent.getByLabel<std::vector<EmulatedME0Segment> >("me0SegmentProducer", OurSegments);
 
   //unsigned int recosize=OurCandidates->size();
-  for (std::vector<ME0Segment>::const_iterator thisSegment = OurSegments->begin();
+  for (std::vector<EmulatedME0Segment>::const_iterator thisSegment = OurSegments->begin();
        thisSegment != OurSegments->end();++thisSegment){
     // double theta = atan(thisSegment->localDirection().y()/ thisSegment->localDirection().x());
     // double tempeta = -log(tan (theta/2.));

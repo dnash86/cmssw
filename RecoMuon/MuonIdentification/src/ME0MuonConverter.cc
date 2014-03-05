@@ -14,8 +14,8 @@
 
 #include <Geometry/Records/interface/MuonGeometryRecord.h>
 
-#include <DataFormats/MuonReco/interface/ME0Segment.h>
-#include <DataFormats/MuonReco/interface/ME0SegmentCollection.h>
+#include <DataFormats/MuonReco/interface/EmulatedME0Segment.h>
+#include <DataFormats/MuonReco/interface/EmulatedME0SegmentCollection.h>
 
 #include <DataFormats/MuonReco/interface/ME0Muon.h>
 #include <DataFormats/MuonReco/interface/ME0MuonCollection.h>

@@ -1,4 +1,3 @@
 import FWCore.ParameterSet.Config as cms
 
-process = cms.Process("me0SegmentProducer")
-process.me0SegmentProducer = cms.EDProducer("ME0SegmentProducer")
+me0SegmentProducer = cms.EDProducer("ME0SegmentProducer")

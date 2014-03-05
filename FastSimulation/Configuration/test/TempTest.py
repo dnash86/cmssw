@@ -9,7 +9,7 @@ process = cms.Process("PROD")
 
 # Number of events to be generated
 process.maxEvents = cms.untracked.PSet(
-    input = cms.untracked.int32(5000)
+    input = cms.untracked.int32(20)
 )
 
 # Include DQMStore, needed by the famosSimHits
@@ -183,7 +183,7 @@ process.o1 = cms.OutputModule("PoolOutputModule",
     outputCommands = cms.untracked.vstring('keep *', 
                                            'drop *_mix_*_*'),
 #                              process.AODSIMEventContent,
-                              fileName = cms.untracked.string('/tmp/dnash/Zmumu_FlatMuonPt_SLHC7.root')
+                              fileName = cms.untracked.string('/tmp/dnash/Zmumu_FlatMuonPt_SLHC8.root')
 )
 
 process.load("RecoParticleFlow.Configuration.Display_EventContent_cff")

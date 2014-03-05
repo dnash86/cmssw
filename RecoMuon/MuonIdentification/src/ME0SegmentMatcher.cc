@@ -52,8 +52,8 @@ void ME0SegmentMatcher::produce(edm::Event& ev, const edm::EventSetup& setup) {
     
     using namespace reco;
 
-    Handle<std::vector<ME0Segment> > OurSegments;
-    ev.getByLabel<std::vector<ME0Segment> >("me0SegmentProducer", OurSegments);
+    Handle<std::vector<EmulatedME0Segment> > OurSegments;
+    ev.getByLabel<std::vector<EmulatedME0Segment> >("me0SegmentProducer", OurSegments);
 
     Handle <TrackCollection > generalTracks;
     ev.getByLabel <TrackCollection> ("generalTracks", generalTracks);
@@ -103,9 +103,9 @@ void ME0SegmentMatcher::produce(edm::Event& ev, const edm::EventSetup& setup) {
     
       FinalTrackPosition.push_back(r3FinalReco);
       int SegmentNumber = 0;
-      for (std::vector<ME0Segment>::const_iterator thisSegment = OurSegments->begin();
+      for (std::vector<EmulatedME0Segment>::const_iterator thisSegment = OurSegments->begin();
 	   thisSegment != OurSegments->end(); ++thisSegment,++SegmentNumber){
-	//ME0Segments actually have globally initialized positions and directions, so we cast them as global points and vectors
+	//EmulatedME0Segments actually have globally initialized positions and directions, so we cast them as global points and vectors
 	GlobalPoint thisPosition(thisSegment->localPosition().x(),thisSegment->localPosition().y(),thisSegment->localPosition().z());
 	GlobalVector thisDirection(thisSegment->localDirection().x(),thisSegment->localDirection().y(),thisSegment->localDirection().z());
 	//The same goes for the error
@@ -173,8 +173,8 @@ void ME0SegmentMatcher::produce(edm::Event& ev, const edm::EventSetup& setup) {
 	if (R_MatchFound && Phi_MatchFound) {
 	  std::cout<<"FOUND ONE"<<std::endl;             
 	  TrackRef thisTrackRef(generalTracks,TrackNumber);
-	  ME0SegmentRef thisME0SegmentRef(OurSegments,SegmentNumber);
-	  TempStore.push_back(reco::ME0Muon(thisTrackRef,thisME0SegmentRef));
+	  EmulatedME0SegmentRef thisEmulatedME0SegmentRef(OurSegments,SegmentNumber);
+	  TempStore.push_back(reco::ME0Muon(thisTrackRef,thisEmulatedME0SegmentRef));
 	  TkIndex.push_back(TrackNumber);
 	}
       }
@@ -198,10 +198,10 @@ void ME0SegmentMatcher::produce(edm::Event& ev, const edm::EventSetup& setup) {
 	int thisMuonNumber = TkIndex[ComparisonIndex];    //The track number of the muon we are currently looking at
 	if (thisMuonNumber == ReferenceMuonNumber){        //This means we're looking at one track
 
-	  ME0SegmentRef SegRef = thisMuon->me0segment();
+	  EmulatedME0SegmentRef SegRef = thisMuon->me0segment();
 	  TrackRef TkRef = thisMuon->innerTrack();
 	  //Here LocalPoint is used, although the local frame and global frame coincide, hence all calculations are made in global coordinates
-	  //  NOTE: Correct this when making the change to "real" ME0Segments, since these will be in real local coordinates
+	  //  NOTE: Correct this when making the change to "real" EmulatedME0Segments, since these will be in real local coordinates
 	  LocalPoint SegPos(SegRef->localPosition().x(),SegRef->localPosition().y(),SegRef->localPosition().z());
 	  //LocalPoint TkPos(TkRef->vx(),TkRef->vy(),TkRef->vz());
 	  LocalPoint TkPos(FinalTrackPosition[thisMuonNumber].x(),FinalTrackPosition[thisMuonNumber].y(),FinalTrackPosition[thisMuonNumber].z());

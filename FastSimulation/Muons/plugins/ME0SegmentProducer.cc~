@@ -51,6 +51,7 @@ void ME0SegmentProducer::produce(edm::Event& ev, const edm::EventSetup& setup) {
 
 
     unsigned int gensize=genParticles->size();
+    //std::cout<<"gensize = "<<gensize<<std::endl;
 
     AlgebraicSymMatrix theCovMatrix(4,0);
     AlgebraicSymMatrix theGlobalCovMatrix(4,0);
@@ -174,7 +175,7 @@ void ME0SegmentProducer::produce(edm::Event& ev, const edm::EventSetup& setup) {
 
       }
     }
-
+    //std::cout<<"oc.size() = "<<oc->size()<<std::endl;
     // put collection in event
     ev.put(oc);
 }

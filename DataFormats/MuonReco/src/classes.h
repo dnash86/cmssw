@@ -24,10 +24,10 @@
 #include "DataFormats/TrackReco/interface/Track.h" 
 #include "DataFormats/Common/interface/AssociationMap.h"
 
-#include <DataFormats/MuonReco/interface/ME0Segment.h>
+#include <DataFormats/MuonReco/interface/EmulatedME0Segment.h>
 #include <DataFormats/MuonReco/interface/ME0Muon.h>
 
-#include <DataFormats/MuonReco/interface/ME0SegmentCollection.h>
+#include <DataFormats/MuonReco/interface/EmulatedME0SegmentCollection.h>
 #include <DataFormats/MuonReco/interface/ME0MuonCollection.h>
 
 #include <vector>
@@ -134,9 +134,9 @@ namespace {
     edm::Wrapper<edm::PtrVector<reco::Muon> >    w_pv_muon;
 
     //ME0 block
-    ME0Segment seg;
-    std::vector<ME0Segment> segs;
-    edm::Wrapper< std::vector<ME0Segment> > dwc1;
+    EmulatedME0Segment seg;
+    std::vector<EmulatedME0Segment> segs;
+    edm::Wrapper< std::vector<EmulatedME0Segment> > dwc1;
     
     reco::ME0Muon muon;
     std::vector<reco::ME0Muon> muons;
@@ -146,9 +146,9 @@ namespace {
     edm::Wrapper<ME0MuonCollection> mcw1;
     edm::Ref<ME0MuonCollection> mcr1;
 
-    ME0SegmentCollection segcol;
-    edm::Wrapper<ME0SegmentCollection> scw1;
-    edm::Ref<ME0SegmentCollection> scr1;    
+    EmulatedME0SegmentCollection segcol;
+    edm::Wrapper<EmulatedME0SegmentCollection> scw1;
+    edm::Ref<EmulatedME0SegmentCollection> scr1;    
   };
 }
 

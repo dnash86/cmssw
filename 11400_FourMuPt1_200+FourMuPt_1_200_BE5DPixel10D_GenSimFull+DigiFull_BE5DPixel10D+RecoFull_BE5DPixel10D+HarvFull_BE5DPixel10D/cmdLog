@@ -1,32 +1,8 @@
 
-# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11400_FourMuPt1_200+FourMuPt_1_200_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src going to execute cd 11400_FourMuPt1_200+FourMuPt_1_200_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
  cmsDriver.py FourMuPt_1_200_cfi  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUG --relval 10000,100 -s GEN,SIM --datatier GEN-SIM --beamspot Gauss --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --fileout file:step1.root  > step1_FourMuPt1_200+FourMuPt_1_200_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
  
 
-# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11400_FourMuPt1_200+FourMuPt_1_200_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
+# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src going to execute cd 11400_FourMuPt1_200+FourMuPt_1_200_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
  cmsDriver.py step2  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT -s DIGI:pdigi_valid,L1,DIGI2RAW --datatier GEN-SIM-DIGI-RAW --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step1.root  --fileout file:step2.root  > step2_FourMuPt1_200+FourMuPt_1_200_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
- 
-
-# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11400_FourMuPt1_200+FourMuPt_1_200_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
- cmsDriver.py step3  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT,DQM -s RAW2DIGI,L1Reco,RECO,VALIDATION,DQM --datatier GEN-SIM-RECO,DQM --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step2.root  --fileout file:step3.root  > step3_FourMuPt1_200+FourMuPt_1_200_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
- 
-
-# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11400_FourMuPt1_200+FourMuPt_1_200_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
- cmsDriver.py step4  --conditions auto:upgrade2019 --scenario pp -s HARVESTING:validationHarvesting+dqmHarvesting --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --mc  --magField 38T_PostLS1 -n 100  --filein file:step3_inDQM.root --fileout file:step4.root  > step4_FourMuPt1_200+FourMuPt_1_200_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
- 
-
-# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11400_FourMuPt1_200+FourMuPt_1_200_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
- cmsDriver.py FourMuPt_1_200_cfi  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUG --relval 10000,100 -s GEN,SIM --datatier GEN-SIM --beamspot Gauss --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --fileout file:step1.root  > step1_FourMuPt1_200+FourMuPt_1_200_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
- 
-
-# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11400_FourMuPt1_200+FourMuPt_1_200_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
- cmsDriver.py step2  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT -s DIGI:pdigi_valid,L1,DIGI2RAW --datatier GEN-SIM-DIGI-RAW --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step1.root  --fileout file:step2.root  > step2_FourMuPt1_200+FourMuPt_1_200_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
- 
-
-# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11400_FourMuPt1_200+FourMuPt_1_200_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
- cmsDriver.py step3  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT,DQM -s RAW2DIGI,L1Reco,RECO,VALIDATION,DQM --datatier GEN-SIM-RECO,DQM --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step2.root  --fileout file:step3.root  > step3_FourMuPt1_200+FourMuPt_1_200_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
- 
-
-# in: /afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/CMSSW_6_2_0_SLHC8/src dryRun for 'cd 11400_FourMuPt1_200+FourMuPt_1_200_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D
- cmsDriver.py step4  --conditions auto:upgrade2019 --scenario pp -s HARVESTING:validationHarvesting+dqmHarvesting --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --mc  --magField 38T_PostLS1 -n 100  --filein file:step3_inDQM.root --fileout file:step4.root  > step4_FourMuPt1_200+FourMuPt_1_200_BE5DPixel10D_GenSimFull+DigiFull_BE5DPixel10D+RecoFull_BE5DPixel10D+HarvFull_BE5DPixel10D.log  2>&1
  

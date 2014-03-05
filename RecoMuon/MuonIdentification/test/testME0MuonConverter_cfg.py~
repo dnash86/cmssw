@@ -44,7 +44,7 @@ process.PoolSource.fileNames = [
     #'file:/tmp/dnash/Zmumu.root'
     #'file:/tmp/dnash/Zmumu_620.root'
     #'file:/afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/TryNoME0SLHC8/CMSSW_6_2_0_SLHC8/src/FastSimulation/Configuration/test/MyFirstFamosFile_2.root'
-    'file:/afs/cern.ch/work/d/dnash/ME0Segments/FullSimPixel/TryFirstWithFastSim/CMSSW_6_2_0_SLHC7/src/FastSimulation/Configuration/test/'
+    'file:/tmp/dnash/MyFirstFamosFile_2.root'
 ]
 
 

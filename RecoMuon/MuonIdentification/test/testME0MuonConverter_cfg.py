@@ -26,7 +26,7 @@ process.source = cms.Source("PoolSource",
 
 )
 
-process.me0SegmentProducer = cms.EDProducer("ME0SegmentProducer")
+process.me0SegmentProducer = cms.EDProducer("EmulatedME0SegmentProducer")
 
 process.me0SegmentMatcher = cms.EDProducer("ME0SegmentMatcher",
                                            DebugHistos = cms.string('DebugHistos.root'),

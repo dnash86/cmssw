@@ -175,17 +175,17 @@
   <class name="edm::Wrapper<edm::PtrVector<reco::Muon> >" />
 
   <selection>
-    <class name="std::vector<ME0Segment>"/>
-    <class name="ME0Segment" ClassVersion="10">
-      <version ClassVersion="10" checksum="2231713208"/>
+    <class name="std::vector<EmulatedME0Segment>"/>
+    <class name="EmulatedME0Segment" ClassVersion="11">
+      <version ClassVersion="11" checksum="2771665507"/>
     </class>
-    <class name="edm::Wrapper<std::vector<ME0Segment> >"/>
+    <class name="edm::Wrapper<std::vector<EmulatedME0Segment> >"/>
     
-    <class name="edm::Ref<std::vector<ME0Segment>,ME0Segment,edm::refhelper::FindUsingAdvance<std::vector<ME0Segment>,ME0Segment> >"/>
+    <class name="edm::Ref<std::vector<EmulatedME0Segment>,EmulatedME0Segment,edm::refhelper::FindUsingAdvance<std::vector<EmulatedME0Segment>,EmulatedME0Segment> >"/>
     
     <class name="std::vector<reco::ME0Muon>"/>
-    <class name="reco::ME0Muon" ClassVersion="11">
-      <version ClassVersion="11" checksum="1137055742"/>
+    <class name="reco::ME0Muon" ClassVersion="12">
+      <version ClassVersion="12" checksum="13864262"/>
     </class>
     <class name="edm::Wrapper<std::vector<reco::ME0Muon> >"/>
     
