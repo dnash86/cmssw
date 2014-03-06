@@ -40,7 +40,8 @@
 #include "TrackPropagation/SteppingHelixPropagator/interface/SteppingHelixStateInfo.h"
 
 #include "DataFormats/Math/interface/deltaR.h"
-#include "DataFormats/Math/interface/deltaPhi.h"
+//#include "DataFormats/Math/interface/deltaPhi.h"
+//#include <deltaR.h>
 
 
 #include "DataFormats/RecoCandidate/interface/RecoChargedCandidate.h"
@@ -70,9 +71,13 @@ public:
   private:
   TFile* histoFile;
   TH1F *Candidate_Eta;  TH1F *Mass_h;  int NumCands; int NumSegs;
-  TH1F *Segment_Eta;  TH1F *Track_Eta;  TH1F *Muon_Eta; TH1F *RealMuon_Eta;  TH1F *MuonTaggingEff_h;
+  TH1F *Segment_Eta;  TH1F *Track_Eta;  TH1F *Muon_Eta; 
   TH1F *TracksPerSegment_h;  TH2F *TracksPerSegment_s;  TProfile *TracksPerSegment_p;
+  TH1F *GenMuon_Eta; TH1F *GenMuon_Pt;   TH1F *MatchedME0Muon_Eta; TH1F *MatchedME0Muon_Pt; 
+  TH1F *MuonRecoEff_Eta;  TH1F *MuonRecoEff_Pt;
   int TrackCount;
+
+
 //Removing this
 };
 
@@ -92,9 +97,13 @@ void TestAnalyzer_Final::beginJob()
   Track_Eta = new TH1F("Track_Eta"      , "Track #eta"   , 40, 2.2, 4.2 );
   Segment_Eta = new TH1F("Segment_Eta"      , "Segment #eta"   , 40, 2.2, 4.2 );
   Muon_Eta = new TH1F("Muon_Eta"      , "Muon #eta"   , 40, 2.2, 4.2 );
-  RealMuon_Eta = new TH1F("RealMuon_Eta"      , "Muon #eta"   , 40, 2.2, 4.2 );
+  GenMuon_Eta = new TH1F("GenMuon_Eta"      , "Muon #eta"   , 40, 2.2, 4.2 );
+  GenMuon_Pt = new TH1F("GenMuon_Pt"      , "Muon p_{T}"   , 40,0 , 40 );
+  MatchedME0Muon_Eta = new TH1F("MatchedME0Muon_Eta"      , "Muon #eta"   , 40, 2.2, 4.2 );
+  MatchedME0Muon_Pt = new TH1F("MatchedME0Muon_Pt"      , "Muon p_{T}"   , 40,0 , 40 );
   Mass_h = new TH1F("Mass_h"      , "Mass"   , 100, 0., 200 );
-  MuonTaggingEff_h = new TH1F("MuonTaggingEff_h"      , "Tagging Efficiency"   ,40, 2.2, 4.2  );
+  MuonRecoEff_Eta = new TH1F("MuonRecoEff_Eta"      , "Reco Efficiency"   ,40, 2.2, 4.2  );
+  MuonRecoEff_Pt = new TH1F("MuonRecoEff_Pt"      , "Reco Efficiency"   ,40, 0,40  );
   TracksPerSegment_h = new TH1F("TracksPerSegment_h", "Number of tracks", 5,0.,5.);
   TracksPerSegment_s = new TH2F("TracksPerSegment_s" , "Tracks per segment vs |#eta|, z = 560 cm", 40, 2.4, 4.0, 5,0.,5.);
   TracksPerSegment_p = new TProfile("TracksPerSegment_p" , "Tracks per segment vs |#eta|, z = 560 cm", 40, 2.4, 4.0, 0.,5.);
@@ -126,7 +135,6 @@ TestAnalyzer_Final::analyze(const edm::Event& iEvent, const edm::EventSetup& iSe
   Handle <std::vector<RecoChargedCandidate> > OurCandidates;
   iEvent.getByLabel <std::vector<RecoChargedCandidate> > ("me0MuonConverter", OurCandidates);
 
-
   Handle<std::vector<EmulatedME0Segment> > OurSegments;
   iEvent.getByLabel<std::vector<EmulatedME0Segment> >("me0SegmentProducer", OurSegments);
 
@@ -136,25 +144,35 @@ TestAnalyzer_Final::analyze(const edm::Event& iEvent, const edm::EventSetup& iSe
   Handle <TrackCollection > generalTracks;
   iEvent.getByLabel <TrackCollection> ("generalTracks", generalTracks);
 
+  Handle <std::vector<ME0Muon> > OurMuons;
+  iEvent.getByLabel <std::vector<ME0Muon> > ("me0SegmentMatcher", OurMuons);
+
+
+
   unsigned int gensize=genParticles->size();
   for(unsigned int i=0; i<gensize; ++i) {
     const reco::GenParticle& CurrentParticle=(*genParticles)[i];
-    if ( (CurrentParticle.status()==1) && ( (CurrentParticle.pdgId()==13)  || (CurrentParticle.pdgId()==-13) ) ){  
-      RealMuon_Eta->Fill(CurrentParticle.eta());
+    if ( (CurrentParticle.status()==1) && ( (CurrentParticle.pdgId()==13)  || (CurrentParticle.pdgId()==-13) ) && ((abs(CurrentParticle.eta())>2.4) && (abs(CurrentParticle.eta()) < 4.0))){  
+      GenMuon_Eta->Fill(CurrentParticle.eta());
+      GenMuon_Pt->Fill(CurrentParticle.pt());
 
-      /* 
-	 double LowestDelR = 9999;
-	 for (std::vector<Track>::const_iterator thisTrack = generalTracks->begin();
-	 thisTrack != generalTracks->end();++thisTrack){
-	 if (thisDelR < 0.15){
-         if (thisDelR < LowestDelR){
+      double LowestDelR = 9999;
+      double thisDelR = 9999;
+
+      for (std::vector<ME0Muon>::const_iterator thisMuon = OurMuons->begin();
+	   thisMuon != OurMuons->end(); ++thisMuon){
+	TrackRef tkRef = thisMuon->innerTrack();
+	
+	thisDelR = reco::deltaR(CurrentParticle,*tkRef);
+	if (thisDelR < 0.15){
+	  if (thisDelR < LowestDelR){
 	    LowestDelR = thisDelR;
 	    MatchedME0Muon_Eta->Fill(CurrentParticle.eta());
 	    MatchedME0Muon_Pt->Fill(CurrentParticle.pt());
-	 }
-	 }
-	 }
-      */
+	  }
+	}
+      }
+
     }
   }
   //unsigned int recosize=OurCandidates->size();
@@ -174,9 +192,6 @@ TestAnalyzer_Final::analyze(const edm::Event& iEvent, const edm::EventSetup& iSe
     if ( (thisTrack->eta() > 2.4) && (thisTrack->eta() < 4.0)) TrackCount++;
     //std::cout<<thisTrack->eta()<<std::endl;
   }
-
-  Handle <std::vector<ME0Muon> > OurMuons;
-  iEvent.getByLabel <std::vector<ME0Muon> > ("me0SegmentMatcher", OurMuons);
 
   // std::vector<int> UniqueIdList;
   // std::vector<int> Ids;
@@ -250,15 +265,24 @@ void TestAnalyzer_Final::endJob()
   Segment_Eta->Write();
 
   Muon_Eta->Write();
-  RealMuon_Eta->Write();
+  GenMuon_Eta->Write();
+  GenMuon_Pt->Write();
+
+  MatchedME0Muon_Eta->Write();
+  MatchedME0Muon_Pt->Write();
+
   Mass_h->Write();
   TracksPerSegment_h->Write();  TracksPerSegment_s->Write();  TracksPerSegment_p->Write();
 
-  Muon_Eta->Sumw2();
-  //RealMuon_Eta->Sumw2();
-  Segment_Eta->Sumw2();
-  MuonTaggingEff_h->Divide(Muon_Eta,Segment_Eta, 1, 1, "B");
-  MuonTaggingEff_h->Write();
+  GenMuon_Eta->Sumw2();  MatchedME0Muon_Eta->Sumw2();
+  GenMuon_Pt->Sumw2();  MatchedME0Muon_Pt->Sumw2();
+
+  
+  MuonRecoEff_Eta->Divide(MatchedME0Muon_Eta, GenMuon_Eta, 1, 1, "B");
+  MuonRecoEff_Eta->Write();
+
+  MuonRecoEff_Pt->Divide(MatchedME0Muon_Pt, GenMuon_Pt, 1, 1, "B");
+  MuonRecoEff_Pt->Write();
   //std::cout<<NumCands<<std::endl;
   //std::cout<<NumSegs<<std::endl;
   //std::cout<<TrackCount<<std::endl;
