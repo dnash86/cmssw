@@ -64,7 +64,7 @@ void ME0SegmentMatcher::produce(edm::Event& ev, const edm::EventSetup& setup) {
     int TrackNumber = 0;
     std::vector<int> TkMuonNumbers, TkIndex, TkToKeep;
     std::vector<GlobalVector>FinalTrackPosition;
-    //std::cout<<"generalTracks = "<<generalTracks->size()<<std::endl;
+    std::cout<<"generalTracks = "<<generalTracks->size()<<std::endl;
     for (std::vector<Track>::const_iterator thisTrack = generalTracks->begin();
 	 thisTrack != generalTracks->end(); ++thisTrack,++TrackNumber){
       //Initializing our plane
@@ -121,7 +121,8 @@ void ME0SegmentMatcher::produce(edm::Event& ev, const edm::EventSetup& setup) {
 	Double_t rho_track = r3FinalReco.perp();
 	Double_t phi_track = r3FinalReco.phi();
 
-	//std::cout<<r3FinalReco.eta()<<", "<<thisTrack->eta()<<std::endl;
+	std::cout<<r3FinalReco.eta()<<", "<<thisTrack->eta()<<std::endl;
+
 	Double_t drhodx_track = r3FinalReco.x()/rho_track;
 	Double_t drhody_track = r3FinalReco.y()/rho_track;
 	Double_t dphidx_track = -r3FinalReco.y()/(rho_track*rho_track);
@@ -158,20 +159,22 @@ void ME0SegmentMatcher::produce(edm::Event& ev, const edm::EventSetup& setup) {
 
 	//Checking if there is a match in rho and in phi, assuming they are pointing in the same direction
 
-	// std::cout<<"rho_hit = "<<rho_hit<<std::endl;
-	// std::cout<<"rho_track = "<<rho_track<<std::endl;
-	// std::cout<<"phi_hit = "<<phi_hit<<std::endl;
-	// std::cout<<"phi_track = "<<phi_track<<std::endl;
+	std::cout<<"rho_hit = "<<rho_hit<<std::endl;
+	std::cout<<"rho_track = "<<rho_track<<std::endl;
+	std::cout<<"phi_hit = "<<phi_hit<<std::endl;
+	std::cout<<"phi_track = "<<phi_track<<std::endl;
 
 	bool R_MatchFound = false, Phi_MatchFound = false;
-	//std::cout<<zSign<<", "<<thisPosition.z()<<std::endl;
+	std::cout<<zSign<<", "<<thisPosition.z()<<std::endl;
+
 	if ( zSign * thisPosition.z() > 0 ) {             
 	  if ( fabs(rho_hit-rho_track) < 3.0 * sigmarho) R_MatchFound = true;
 	  if ( fabs(phi_hit-phi_track) < 3.0 * sigmaphi) Phi_MatchFound = true;
 	}
 
 	if (R_MatchFound && Phi_MatchFound) {
-	  //std::cout<<"FOUND ONE"<<std::endl;             
+	  std::cout<<"FOUND ONE"<<std::endl;             
+
 	  TrackRef thisTrackRef(generalTracks,TrackNumber);
 	  EmulatedME0SegmentRef thisEmulatedME0SegmentRef(OurSegments,SegmentNumber);
 	  TempStore.push_back(reco::ME0Muon(thisTrackRef,thisEmulatedME0SegmentRef));
@@ -207,7 +210,8 @@ void ME0SegmentMatcher::produce(edm::Event& ev, const edm::EventSetup& setup) {
 	  LocalPoint TkPos(FinalTrackPosition[thisMuonNumber].x(),FinalTrackPosition[thisMuonNumber].y(),FinalTrackPosition[thisMuonNumber].z());
 	  double delR = reco::deltaR(SegPos,TkPos);
 
-	  //std::cout<<"delR = "<<delR<<std::endl;
+	  std::cout<<"delR = "<<delR<<std::endl;
+
 
 	  if (delR < RefDelR) WhichTrackToKeep = ComparisonIndex;  //Storing a list of the vector indices of tracks to keep
 	                                                           //Note: These are not the same as the "Track Numbers"

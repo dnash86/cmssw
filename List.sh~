@@ -1,5 +1,0 @@
-for i in {0..48}
-do
-    value=$((11400 + $i))
-    echo "runTheMatrix.py --what upgrade -l $value --dryRun"
-done

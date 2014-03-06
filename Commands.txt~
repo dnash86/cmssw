@@ -1,6 +1,0 @@
- cmsDriver.py FourMuPt_1_200_cfi  --conditions auto:upgrade2019 -n 10 --eventcontent GEN-SIM -s GEN,SIM --datatier GEN-SIM --beamspot Gauss --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --fileout file:step1.root 
- 
-
- cmsDriver.py step2  --conditions auto:upgrade2019 -n 10 --eventcontent GEN-SIM-DIGI-RAW -s DIGI:pdigi_valid,L1,DIGI2RAW --datatier GEN-SIM-DIGI-RAW --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step1.root  --fileout file:step2.root  
-
- cmsDriver.py step3  --conditions auto:upgrade2019 -n 10 --eventcontent FEVTDEBUGHLT,DQM -s RAW2DIGI,L1Reco,RECO --datatier GEN-SIM-RECO --customise SLHCUpgradeSimulations/Configuration/combinedCustoms.cust_phase2_BE5DPixel10D --geometry ExtendedPhase2TkBE5DPixel10D --magField 38T_PostLS1 --filein file:step2.root  --fileout file:step3.root  
