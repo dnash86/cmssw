@@ -28,7 +28,7 @@
 //#include "DataFormats/BeamSpot/interface/BeamSpot.h"
 
 #include "TLorentzVector.h"
-//#include "DataFormats/HepMCCandidate/interface/GenParticle.h"
+#include "DataFormats/HepMCCandidate/interface/GenParticle.h"
 
 #include "DataFormats/TrackReco/interface/TrackFwd.h"
 #include "DataFormats/TrackReco/interface/Track.h"
@@ -69,7 +69,7 @@ public:
   private:
   TFile* histoFile;
   TH1F *Candidate_Eta;  TH1F *Mass_h;  int NumCands; int NumSegs;
-  TH1F *Segment_Eta;  TH1F *Track_Eta;  TH1F *Muon_Eta; TH1F *MuonTaggingEff_h;
+  TH1F *Segment_Eta;  TH1F *Track_Eta;  TH1F *Muon_Eta; TH1F *RealMuon_Eta;  TH1F *MuonTaggingEff_h;
   int TrackCount;
 //Removing this
 };
@@ -90,6 +90,7 @@ void TestAnalyzer_Final::beginJob()
   Track_Eta = new TH1F("Track_Eta"      , "Track #eta"   , 40, 2.2, 4.2 );
   Segment_Eta = new TH1F("Segment_Eta"      , "Segment #eta"   , 40, 2.2, 4.2 );
   Muon_Eta = new TH1F("Muon_Eta"      , "Muon #eta"   , 40, 2.2, 4.2 );
+  RealMuon_Eta = new TH1F("RealMuon_Eta"      , "Muon #eta"   , 40, 2.2, 4.2 );
   Mass_h = new TH1F("Mass_h"      , "Mass"   , 100, 0., 200 );
   MuonTaggingEff_h = new TH1F("MuonTaggingEff_h"      , "Tagging Efficiency"   ,40, 2.2, 4.2  );
 }
@@ -123,6 +124,17 @@ TestAnalyzer_Final::analyze(const edm::Event& iEvent, const edm::EventSetup& iSe
   Handle<std::vector<EmulatedME0Segment> > OurSegments;
   iEvent.getByLabel<std::vector<EmulatedME0Segment> >("me0SegmentProducer", OurSegments);
 
+
+  Handle<GenParticleCollection> genParticles;
+  iEvent.getByLabel<GenParticleCollection>("genParticles", genParticles);
+
+  unsigned int gensize=genParticles->size();
+  for(unsigned int i=0; i<gensize; ++i) {
+    const reco::GenParticle& CurrentParticle=(*genParticles)[i];
+    if ( (CurrentParticle.status()==1) && ( (CurrentParticle.pdgId()==13)  || (CurrentParticle.pdgId()==-13) ) ){  
+      RealMuon_Eta->Fill(CurrentParticle.eta());
+    }
+  }
   //unsigned int recosize=OurCandidates->size();
   for (std::vector<EmulatedME0Segment>::const_iterator thisSegment = OurSegments->begin();
        thisSegment != OurSegments->end();++thisSegment){
@@ -149,8 +161,10 @@ TestAnalyzer_Final::analyze(const edm::Event& iEvent, const edm::EventSetup& iSe
   for (std::vector<ME0Muon>::const_iterator thisMuon = OurMuons->begin();
        thisMuon != OurMuons->end(); ++thisMuon){
     TrackRef tkRef = thisMuon->innerTrack();
-    LocalVector TempVect(tkRef->px(),tkRef->py(),tkRef->pz());
-    Muon_Eta->Fill(TempVect.eta());
+    int SegId = thisMuon->segRefId();
+    std::cout<<SegId<<std::endl;
+    //LocalVector TempVect(tkRef->px(),tkRef->py(),tkRef->pz());
+    Muon_Eta->Fill(tkRef->eta());
   }
   //std::cout<<recosize<<std::endl;
   for (std::vector<RecoChargedCandidate>::const_iterator thisCandidate = OurCandidates->begin();
@@ -181,6 +195,7 @@ void TestAnalyzer_Final::endJob()
   Track_Eta->Write();
   Segment_Eta->Write();
   Muon_Eta->Sumw2();
+  RealMuon_Eta->Sumw2();
   Track_Eta->Sumw2();
   //MuonTaggingEff_h->Add(Muon_Eta);
   //MuonTaggingEff_h->Divide(Track_Eta);
@@ -188,6 +203,7 @@ void TestAnalyzer_Final::endJob()
   //MuonTaggingEff_h->Sumw2();
   MuonTaggingEff_h->Write();
   Muon_Eta->Write();
+  RealMuon_Eta->Write();
   Mass_h->Write();
   std::cout<<NumCands<<std::endl;
   std::cout<<NumSegs<<std::endl;

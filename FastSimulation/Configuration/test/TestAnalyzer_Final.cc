@@ -50,6 +50,7 @@
 #include "TLorentzVector.h"
 
 #include "TH1.h" 
+#include <TH2.h>
 #include "TFile.h"
 #include <TProfile.h>
 
@@ -70,6 +71,7 @@ public:
   TFile* histoFile;
   TH1F *Candidate_Eta;  TH1F *Mass_h;  int NumCands; int NumSegs;
   TH1F *Segment_Eta;  TH1F *Track_Eta;  TH1F *Muon_Eta; TH1F *RealMuon_Eta;  TH1F *MuonTaggingEff_h;
+  TH1F *TracksPerSegment_h;  TH2F *TracksPerSegment_s;  TProfile *TracksPerSegment_p;
   int TrackCount;
 //Removing this
 };
@@ -93,6 +95,10 @@ void TestAnalyzer_Final::beginJob()
   RealMuon_Eta = new TH1F("RealMuon_Eta"      , "Muon #eta"   , 40, 2.2, 4.2 );
   Mass_h = new TH1F("Mass_h"      , "Mass"   , 100, 0., 200 );
   MuonTaggingEff_h = new TH1F("MuonTaggingEff_h"      , "Tagging Efficiency"   ,40, 2.2, 4.2  );
+  TracksPerSegment_h = new TH1F("TracksPerSegment_h", "Number of tracks", 5,0.,5.);
+  TracksPerSegment_s = new TH2F("TracksPerSegment_s" , "Tracks per segment vs |#eta|, z = 560 cm", 40, 2.4, 4.0, 5,0.,5.);
+  TracksPerSegment_p = new TProfile("TracksPerSegment_p" , "Tracks per segment vs |#eta|, z = 560 cm", 40, 2.4, 4.0, 0.,5.);
+  
 }
 
 
@@ -124,15 +130,31 @@ TestAnalyzer_Final::analyze(const edm::Event& iEvent, const edm::EventSetup& iSe
   Handle<std::vector<EmulatedME0Segment> > OurSegments;
   iEvent.getByLabel<std::vector<EmulatedME0Segment> >("me0SegmentProducer", OurSegments);
 
-
   Handle<GenParticleCollection> genParticles;
   iEvent.getByLabel<GenParticleCollection>("genParticles", genParticles);
+
+  Handle <TrackCollection > generalTracks;
+  iEvent.getByLabel <TrackCollection> ("generalTracks", generalTracks);
 
   unsigned int gensize=genParticles->size();
   for(unsigned int i=0; i<gensize; ++i) {
     const reco::GenParticle& CurrentParticle=(*genParticles)[i];
     if ( (CurrentParticle.status()==1) && ( (CurrentParticle.pdgId()==13)  || (CurrentParticle.pdgId()==-13) ) ){  
       RealMuon_Eta->Fill(CurrentParticle.eta());
+
+      /* 
+	 double LowestDelR = 9999;
+	 for (std::vector<Track>::const_iterator thisTrack = generalTracks->begin();
+	 thisTrack != generalTracks->end();++thisTrack){
+	 if (thisDelR < 0.15){
+         if (thisDelR < LowestDelR){
+	    LowestDelR = thisDelR;
+	    MatchedME0Muon_Eta->Fill(CurrentParticle.eta());
+	    MatchedME0Muon_Pt->Fill(CurrentParticle.pt());
+	 }
+	 }
+	 }
+      */
     }
   }
   //unsigned int recosize=OurCandidates->size();
@@ -145,25 +167,59 @@ TestAnalyzer_Final::analyze(const edm::Event& iEvent, const edm::EventSetup& iSe
     NumSegs++;
   }
 
-  Handle <TrackCollection > generalTracks;
-  iEvent.getByLabel <TrackCollection> ("generalTracks", generalTracks);
   
   for (std::vector<Track>::const_iterator thisTrack = generalTracks->begin();
        thisTrack != generalTracks->end();++thisTrack){
     Track_Eta->Fill(thisTrack->eta());
     if ( (thisTrack->eta() > 2.4) && (thisTrack->eta() < 4.0)) TrackCount++;
-    std::cout<<thisTrack->eta()<<std::endl;
+    //std::cout<<thisTrack->eta()<<std::endl;
   }
 
   Handle <std::vector<ME0Muon> > OurMuons;
   iEvent.getByLabel <std::vector<ME0Muon> > ("me0SegmentMatcher", OurMuons);
 
+  // std::vector<int> UniqueIdList;
+  // std::vector<int> Ids;
+  std::vector<Double_t> SegmentEta;
+  std::vector<const EmulatedME0Segment*> Ids;
+  std::vector<const EmulatedME0Segment*> UniqueIdList;
+
   for (std::vector<ME0Muon>::const_iterator thisMuon = OurMuons->begin();
        thisMuon != OurMuons->end(); ++thisMuon){
     TrackRef tkRef = thisMuon->innerTrack();
-    LocalVector TempVect(tkRef->px(),tkRef->py(),tkRef->pz());
-    Muon_Eta->Fill(TempVect.eta());
+    EmulatedME0SegmentRef segRef = thisMuon->me0segment();
+    //int SegId = thisMuon->segRefId();
+    //int SegId = segRef.get();
+    const EmulatedME0Segment* SegId = segRef.get();
+    //PointersVector.push_back(segRef.get());
+    bool IsNew = true;
+    for (unsigned int i =0; i < Ids.size(); i++){
+      if (SegId == Ids[i]) IsNew=false;
+    }
+    if (IsNew) {
+      std::cout<<"Found: "<<SegId<<std::endl;
+      UniqueIdList.push_back(SegId);
+      LocalVector TempVect(segRef->localDirection().x(),segRef->localDirection().y(),segRef->localDirection().z());
+      SegmentEta.push_back(TempVect.eta());
+    }
+    Ids.push_back(SegId);
+
+    //LocalVector TempVect(tkRef->px(),tkRef->py(),tkRef->pz());
+    Muon_Eta->Fill(tkRef->eta());
   }
+  
+  for (unsigned int i = 0; i < UniqueIdList.size(); i++){
+    int Num=0;
+    for (unsigned int j = 0; j < Ids.size(); j++){
+      if (Ids[j] == UniqueIdList[i]) Num++;
+    }
+    std::cout<<Num<<std::endl;
+    TracksPerSegment_h->Fill((double)Num);
+    TracksPerSegment_s->Fill(SegmentEta[i], (double)Num);
+    TracksPerSegment_p->Fill(SegmentEta[i], (double)Num);
+  }
+  
+
   //std::cout<<recosize<<std::endl;
   for (std::vector<RecoChargedCandidate>::const_iterator thisCandidate = OurCandidates->begin();
        thisCandidate != OurCandidates->end(); ++thisCandidate){
@@ -192,20 +248,20 @@ void TestAnalyzer_Final::endJob()
   Candidate_Eta->Write();
   Track_Eta->Write();
   Segment_Eta->Write();
-  Muon_Eta->Sumw2();
-  RealMuon_Eta->Sumw2();
-  Track_Eta->Sumw2();
-  //MuonTaggingEff_h->Add(Muon_Eta);
-  //MuonTaggingEff_h->Divide(Track_Eta);
-  MuonTaggingEff_h->Divide(Muon_Eta,Track_Eta, 1, 1, "B");
-  //MuonTaggingEff_h->Sumw2();
-  MuonTaggingEff_h->Write();
+
   Muon_Eta->Write();
   RealMuon_Eta->Write();
   Mass_h->Write();
-  std::cout<<NumCands<<std::endl;
-  std::cout<<NumSegs<<std::endl;
-  std::cout<<TrackCount<<std::endl;
+  TracksPerSegment_h->Write();  TracksPerSegment_s->Write();  TracksPerSegment_p->Write();
+
+  Muon_Eta->Sumw2();
+  //RealMuon_Eta->Sumw2();
+  Segment_Eta->Sumw2();
+  MuonTaggingEff_h->Divide(Muon_Eta,Segment_Eta, 1, 1, "B");
+  MuonTaggingEff_h->Write();
+  //std::cout<<NumCands<<std::endl;
+  //std::cout<<NumSegs<<std::endl;
+  //std::cout<<TrackCount<<std::endl;
   delete histoFile; histoFile = 0;
 }
 
