@@ -1,0 +1,105 @@
+#!/usr/bin/env python
+import sys
+
+from ROOT import gROOT, TCanvas, TH1D
+ 
+gROOT.Reset()
+c1 = TCanvas('c1', 'Resolution Plots', 600, 600)
+ 
+#c1.SetLogx()
+#c1.SetLogy()
+#c1.SetGridx()
+#c1.SetGridy()
+
+#
+# Create a one dimensional function and draw it
+#
+hchargetrk = TH1D('chargetrk', 'chargetrk', 2, -0.5, 1.5)
+hchargeglb = TH1D('chargeglb', 'chargeglb', 2, -0.5, 1.5)
+
+hetatrk = TH1D('etatrk', 'etatrk', 100, -0.5, 0.5)
+hetaglb = TH1D('etaglb', 'etaglb', 100, -0.5, 0.5)
+
+hphitrk = TH1D('phitrk', 'phitrk', 100, -0.5, 0.5)
+hphiglb = TH1D('phiglb', 'phiglb', 100, -0.5, 0.5)
+
+hpttrk = TH1D('pttrk', 'pttrk', 150, -2, 13)
+hptglb = TH1D('ptglb', 'ptglb', 150, -2, 13)
+
+logfile= sys.argv[1]
+for line in open(logfile, 'r'):
+    if '######' in line:
+        print line
+        genvars = line.split()[4]
+        prdvars = line.split()[5]
+        updvars = line.split()[6]
+
+        qgen = float(genvars.split('/')[1])
+        qprd = float(prdvars.split('/')[1])
+        qupd = float(updvars.split('/')[1])
+
+        hchargetrk.Fill( abs(qprd-qgen)/2 )
+        hchargeglb.Fill( abs(qupd-qgen)/2 )
+
+        etagen = float(genvars.split('/')[2])
+        etaprd = float(prdvars.split('/')[2])
+        etaupd = float(updvars.split('/')[2])
+
+        hetatrk.Fill( etaprd-etagen )
+        hetaglb.Fill( etaupd-etagen )
+
+        phigen = float(genvars.split('/')[3])
+        phiprd = float(prdvars.split('/')[3])
+        phiupd = float(updvars.split('/')[3])
+
+        hphitrk.Fill( phiprd-phigen )
+        hphiglb.Fill( phiupd-phigen )
+
+        ptgen = float(genvars.split('/')[4])
+        ptprd = float(prdvars.split('/')[4])
+        ptupd = float(updvars.split('/')[4])
+
+        hpttrk.Fill( (ptprd-ptgen)/ptgen )
+        hptglb.Fill( (ptupd-ptgen)/ptgen )
+
+c1.cd()
+c1.SetLogy(0)
+hchargetrk.Draw()
+hchargeglb.Draw('same')
+hchargetrk.SetLineColor(4)
+hchargeglb.SetLineColor(2)
+hchargetrk.GetXaxis().SetTitle('charge (mis-)match')
+c1.SaveAs('charge_mismatch.png')
+c1.SaveAs('charge_mismatch.root')
+
+c1.cd()
+c1.SetLogy(1)
+hetaglb.Draw()
+hetatrk.Draw('same')
+hetaglb.Draw('same')
+hetatrk.SetLineColor(4)
+hetaglb.SetLineColor(2)
+hetatrk.GetXaxis().SetTitle('(#eta^{Trk} - #eta^{Gen})')
+hetaglb.GetXaxis().SetTitle('(#eta^{Trk} - #eta^{Gen})')
+c1.SaveAs('eta_resolutions.png')
+c1.SaveAs('eta_resolutions.root')
+
+c1.cd()
+c1.SetLogy(1)
+hphitrk.Draw()
+hphiglb.Draw('same')
+hphitrk.SetLineColor(4)
+hphiglb.SetLineColor(2)
+hphitrk.GetXaxis().SetTitle('(#phi^{Trk} - #phi^{Gen})')
+c1.SaveAs('phi_resolutions.png')
+c1.SaveAs('phi_resolutions.root')
+
+c1.cd()
+c1.SetLogy()
+hpttrk.Draw()
+hptglb.Draw('same')
+hpttrk.SetLineColor(4)
+hptglb.SetLineColor(2)
+hpttrk.GetXaxis().SetTitle('(p_{T}^{Trk} - p_{T}^{Gen})/p_{T}^{Gen}')
+c1.SaveAs('pt_resolutions.png')
+c1.SaveAs('pt_resolutions.root')
