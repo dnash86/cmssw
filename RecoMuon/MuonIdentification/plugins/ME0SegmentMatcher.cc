@@ -26,7 +26,6 @@
 #include "DataFormats/GeometrySurface/interface/LocalError.h"
 
 
-#include "DataFormats/HepMCCandidate/interface/GenParticle.h"
 #include "TLorentzVector.h"
 
 #include "DataFormats/TrajectoryState/interface/LocalTrajectoryParameters.h"
@@ -36,14 +35,14 @@
 
 ME0SegmentMatcher::ME0SegmentMatcher(const edm::ParameterSet& pas) : iev(0){
   produces<std::vector<reco::ME0Muon> >();  
-  X_PULL_CUT   = pas.getParameter<double>("maxPullX");
-  X_RESIDUAL_CUT   = pas.getParameter<double>("maxDiffX");
-  Y_PULL_CUT   = pas.getParameter<double>("maxPullY");
-  Y_RESIDUAL_CUT   = pas.getParameter<double>("maxDiffY");
-  PHIDIR_RESIDUAL_CUT   = pas.getParameter<double>("maxDiffPhiDirection");
+  theX_PULL_CUT   = pas.getParameter<double>("maxPullX");
+  theX_RESIDUAL_CUT   = pas.getParameter<double>("maxDiffX");
+  theY_PULL_CUT   = pas.getParameter<double>("maxPullY");
+  theY_RESIDUAL_CUT   = pas.getParameter<double>("maxDiffY");
+  thePHIDIR_RESIDUAL_CUT   = pas.getParameter<double>("maxDiffPhiDirection");
   //Might need to replace "OurSegments" with an edm::InputTag of "OurSegments"
-  edm::InputTag OurSegmentsTag ("OurSegments");
-  edm::InputTag generalTracksTag ("generalTracks");
+  OurSegmentsTag = pas.getParameter<edm::InputTag>("me0SegmentTag");
+  generalTracksTag = pas.getParameter<edm::InputTag>("tracksTag");
   OurSegmentsToken_ = consumes<ME0SegmentCollection>(OurSegmentsTag);
   generalTracksToken_ = consumes<reco::TrackCollection>(generalTracksTag);
 }
@@ -59,8 +58,9 @@ void ME0SegmentMatcher::produce(edm::Event& ev, const edm::EventSetup& setup) {
 
     ESHandle<MagneticField> bField;
     setup.get<IdealMagneticFieldRecord>().get(bField);
-    ESHandle<Propagator> shProp;
-    setup.get<TrackingComponentsRecord>().get("SteppingHelixPropagatorAlong", shProp);
+    //ESHandle<Propagator> shProp;
+    //setup.get<TrackingComponentsRecord>().get("SteppingHelixPropagatorAlong", shProp);
+    ThisshProp = new SteppingHelixPropagator(&*bField,alongMomentum);
 
     using namespace reco;
 
@@ -83,11 +83,11 @@ void ME0SegmentMatcher::produce(edm::Event& ev, const edm::EventSetup& setup) {
       //Initializing our plane
 
       //Remove later
-      if (fabs(thisTrack->eta()) < 1.8) continue;
+      if (std::abs(thisTrack->eta()) < 1.8) continue;
 
-      float zSign  = thisTrack->pz()/fabs(thisTrack->pz());
+      float zSign = thisTrack->pz() > 0 ? 1.0f : -1.0f;
 
-      float zValue = 526.75 * zSign;
+      const float zValue = 526.75 * zSign;
 
       Plane *plane = new Plane(Surface::PositionType(0,0,zValue),Surface::RotationType());
 
@@ -110,8 +110,10 @@ void ME0SegmentMatcher::produce(edm::Event& ev, const edm::EventSetup& setup) {
       SteppingHelixStateInfo startrecostate(initrecostate);
       SteppingHelixStateInfo lastrecostate;
 
-      const SteppingHelixPropagator* ThisshProp = 
-	dynamic_cast<const SteppingHelixPropagator*>(&*shProp);
+      //const SteppingHelixPropagator* ThisshProp = 
+      //dynamic_cast<const SteppingHelixPropagator*>(&*shProp);
+
+      
 	
       //lastrecostate = ThisshProp->propagate(startrecostate, *plane);
       //lastrecostate = ThisshProp->propagateWithPath(startrecostate, *plane);
@@ -129,7 +131,7 @@ void ME0SegmentMatcher::produce(edm::Event& ev, const edm::EventSetup& setup) {
       int SegmentNumber = 0;
 
       reco::ME0Muon MuonCandidate;
-      double ClosestDelR = 999.;
+      double ClosestDelR2 = 999.;
 
       for (auto thisSegment = OurSegments->begin(); thisSegment != OurSegments->end(); 
 	   ++thisSegment,++SegmentNumber){
@@ -177,16 +179,16 @@ void ME0SegmentMatcher::produce(edm::Event& ev, const edm::EventSetup& setup) {
 	bool X_MatchFound = false, Y_MatchFound = false, Dir_MatchFound = false;
 	
 
-	 // if ( (fabs(thisPosition.x()-r3FinalReco.x()) < (3.0 * sigmax)) || (fabs(thisPosition.x()-r3FinalReco.x()) < 2.0 ) ) X_MatchFound = true;
-	 // if ( (fabs(thisPosition.y()-r3FinalReco.y()) < (3.0 * sigmay)) || (fabs(thisPosition.y()-r3FinalReco.y()) < 2.0 ) ) Y_MatchFound = true;
+	 // if ( (std::abs(thisPosition.x()-r3FinalReco.x()) < (3.0 * sigmax)) || (std::abs(thisPosition.x()-r3FinalReco.x()) < 2.0 ) ) X_MatchFound = true;
+	 // if ( (std::abs(thisPosition.y()-r3FinalReco.y()) < (3.0 * sigmay)) || (std::abs(thisPosition.y()-r3FinalReco.y()) < 2.0 ) ) Y_MatchFound = true;
 
-	 // if ( fabs(p3FinalReco_glob.phi()-roll->toGlobal(thisSegment->localDirection()).phi()) < 0.15) Dir_MatchFound = true;
+	 // if ( std::abs(p3FinalReco_glob.phi()-roll->toGlobal(thisSegment->localDirection()).phi()) < 0.15) Dir_MatchFound = true;
 
 
-	 if ( (fabs(thisPosition.x()-r3FinalReco.x()) < (X_PULL_CUT * sigmax)) || (fabs(thisPosition.x()-r3FinalReco.x()) < X_RESIDUAL_CUT ) ) X_MatchFound = true;
-	 if ( (fabs(thisPosition.y()-r3FinalReco.y()) < (Y_PULL_CUT * sigmay)) || (fabs(thisPosition.y()-r3FinalReco.y()) < Y_RESIDUAL_CUT ) ) Y_MatchFound = true;
+	 if ( (std::abs(thisPosition.x()-r3FinalReco.x()) < (theX_PULL_CUT * sigmax)) || (std::abs(thisPosition.x()-r3FinalReco.x()) < theX_RESIDUAL_CUT ) ) X_MatchFound = true;
+	 if ( (std::abs(thisPosition.y()-r3FinalReco.y()) < (theY_PULL_CUT * sigmay)) || (std::abs(thisPosition.y()-r3FinalReco.y()) < theY_RESIDUAL_CUT ) ) Y_MatchFound = true;
 
-	 if ( fabs(p3FinalReco_glob.phi()-roll->toGlobal(thisSegment->localDirection()).phi()) < PHIDIR_RESIDUAL_CUT) Dir_MatchFound = true;
+	 if (reco::deltaPhi(p3FinalReco_glob,roll->toGlobal(thisSegment->localDirection())) < thePHIDIR_RESIDUAL_CUT) Dir_MatchFound = true;
 
 	 //Check for a Match, and if there is a match, check the delR from the segment, keeping only the closest in MuonCandidate
 	 if (X_MatchFound && Y_MatchFound && Dir_MatchFound) {
@@ -196,19 +198,19 @@ void ME0SegmentMatcher::produce(edm::Event& ev, const edm::EventSetup& setup) {
 	   GlobalPoint SegPos(roll->toGlobal(thisSegment->localPosition()));
 	   GlobalPoint TkPos(r3FinalReco_globv.x(),r3FinalReco_globv.y(),r3FinalReco_globv.z());
 	   
-	   double thisDelR = reco::deltaR(SegPos,TkPos);
-	   if (thisDelR < ClosestDelR){
-	     ClosestDelR = thisDelR;
+	   double thisDelR2 = reco::deltaR2(SegPos,TkPos);
+	   if (thisDelR2 < ClosestDelR){
+	     ClosestDelR2 = thisDelR2;
 	     MuonCandidate = reco::ME0Muon(thisTrackRef,(*thisSegment),SegmentNumber);
 
 	     //Setting the variables for easy me0muon selection later on
-	     // MuonCandidate.setXpull( ( fabs(thisPosition.x()-r3FinalReco.x()) / sigmax) );
-	     // MuonCandidate.setYpull( ( fabs(thisPosition.y()-r3FinalReco.y()) / sigmay) );
+	     // MuonCandidate.setXpull( ( std::abs(thisPosition.x()-r3FinalReco.x()) / sigmax) );
+	     // MuonCandidate.setYpull( ( std::abs(thisPosition.y()-r3FinalReco.y()) / sigmay) );
 
-	     // MuonCandidate.setXpull( fabs(thisPosition.x()-r3FinalReco.x()) );
-	     // MuonCandidate.setYpull( fabs(thisPosition.y()-r3FinalReco.y()) );
+	     // MuonCandidate.setXpull( std::abs(thisPosition.x()-r3FinalReco.x()) );
+	     // MuonCandidate.setYpull( std::abs(thisPosition.y()-r3FinalReco.y()) );
 
-	     // MuonCandidate.setPhidirdiff(fabs(p3FinalReco_glob.phi()-roll->toGlobal(thisSegment->localDirection()).phi()));
+	     // MuonCandidate.setPhidirdiff(std::abs(p3FinalReco_glob.phi()-roll->toGlobal(thisSegment->localDirection()).phi()));
 
 	     MuonCandidate.setGlobalTrackPosAtSurface(r3FinalReco_glob);
 	     MuonCandidate.setGlobalTrackMomAtSurface(p3FinalReco_glob);

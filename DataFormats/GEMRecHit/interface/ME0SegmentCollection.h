@@ -5,7 +5,6 @@
  *
  * The collection of ME0Segment's. See \ref CSCSegmentCollection.h for details from which is derived.
  *
- *  $Date: 2014/02/04 10:08:15 $
  *  \author Marcello Maggi
  */
 

@@ -24,16 +24,12 @@
 #include <sstream>
 
 ME0MuonTrackCollProducer::ME0MuonTrackCollProducer(const edm::ParameterSet& parset) :
-  muonsTag(parset.getParameter< edm::InputTag >("muonsTag")),
-  vxtTag(parset.getParameter< edm::InputTag >("vxtTag")),
-  useIPxy(parset.getUntrackedParameter< bool >("useIPxy", true)),
-  useIPz(parset.getUntrackedParameter< bool >("useIPz", true)),
   selectionTags(parset.getParameter< std::vector<std::string> >("selectionTags")),
-  trackType(parset.getParameter< std::string >("trackType")),
+  OurMuonsTag = parset.getParameter<edm::InputTag>("me0MuonTag"),
   parset_(parset)
 {
   produces<reco::TrackCollection>();
-  edm::InputTag OurMuonsTag ("me0SegmentMatching");
+  //edm::InputTag OurMuonsTag ("me0SegmentMatching");
   OurMuonsToken_ = consumes<ME0MuonCollection>(OurMuonsTag);
 }
 

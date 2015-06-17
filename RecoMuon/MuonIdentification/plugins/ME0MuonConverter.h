@@ -39,13 +39,12 @@ public:
     /// Destructor
     ~ME0MuonConverter();
     /// Produce the converted collection
-    virtual void produce(edm::Event&, const edm::EventSetup&);
+    virtual void produce(edm::Event&, const edm::EventSetup&) override;
 
     
 
 private:
 
-    int iev; // events through
     //edm::EDGetTokenT<std::vector<reco::ME0Muon>> OurMuonsToken_;
     edm::EDGetTokenT<ME0MuonCollection> OurMuonsToken_;
 };

@@ -6,7 +6,6 @@
  *
  * The collection of EmulatedME0Segment's. See \ref EmulatedME0SegmentCollection.h for details.
  *
- *  $Date: 2010/03/12 13:08:15 $
  *  \author Matteo Sani
  */
 

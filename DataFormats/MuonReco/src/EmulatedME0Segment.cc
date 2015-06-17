@@ -38,18 +38,23 @@ AlgebraicVector EmulatedME0Segment::parameters() const {
 }
 
 
+AlgebraicMatrix createStaticMatrix()
+{
+  AlgebraicMatrix m( 4, 5, 0);
+  m[0][1] = 1;
+  m[1][2] = 1;
+  m[2][3] = 1;
+  m[3][4] = 1;
+  return m;
+}
+
+
+static const AlgebraicMatrix theProjectionMatrix = createStaticMatrix();
+
 AlgebraicMatrix EmulatedME0Segment::projectionMatrix() const {
-  const static AlgebraicMatrix theProjectionMatrix( 4, 5, 0);
-  const static bool isInitialized = false;
-  if (!isInitialized) {
-    theProjectionMatrix[0][1] = 1;
-    theProjectionMatrix[1][2] = 1;
-    theProjectionMatrix[2][3] = 1;
-    theProjectionMatrix[3][4] = 1;
-    isInitialized=true;
-  }    
   return theProjectionMatrix;
 }
+
 
 //
 void EmulatedME0Segment::print() const {

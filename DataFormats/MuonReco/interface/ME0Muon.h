@@ -20,60 +20,47 @@ namespace reco {
   public:
     ME0Muon();
     //ME0Muon( const TrackRef & t, const ME0Segment & s) { innerTrack_ = t; me0Segment_ = s;}
-    ME0Muon( const TrackRef & t, const ME0Segment & s, const int v) { innerTrack_ = t; me0Segment_ = s; me0segid_=v;}
+    ME0Muon( const TrackRef & t, const ME0Segment & s, const int v, const double c) { innerTrack_ = t; me0Segment_ = s; me0segid_=v; trackCharge_ = c;}
     virtual ~ME0Muon(){}     
     
     /// reference to Track reconstructed in the tracker only
-    virtual TrackRef innerTrack() const { return innerTrack_; }
-    virtual TrackRef track() const { return innerTrack(); }
+    TrackRef innerTrack() const { return innerTrack_; }
+    TrackRef track() const { return innerTrack(); }
     /// set reference to Track
-    virtual void setInnerTrack( const TrackRef & t ) { innerTrack_ = t; }
-    virtual void setTrack( const TrackRef & t ) { setInnerTrack(t); }
+    void setInnerTrack( const TrackRef & t ) { innerTrack_ = t; }
+    void setTrack( const TrackRef & t ) { setInnerTrack(t); }
     /// set reference to our new ME0Segment type
-    virtual void setME0Segment( const ME0Segment & s ) { me0Segment_ = s; }
+    void setME0Segment( const ME0Segment & s ) { me0Segment_ = s; }
 
-    virtual ME0Segment me0segment() const { return me0Segment_; }
+    const ME0Segment& me0segment() const { return me0Segment_; }
     
     //Added for testing
-    virtual void setme0segid( const int v){me0segid_=v;}
-    virtual int me0segid() const {return me0segid_;}
+    void setme0segid( const int v){me0segid_=v;}
+    int me0segid() const {return me0segid_;}
 
     /// a bunch of useful accessors
-    int charge() const { return innerTrack_.get()->charge(); }
+    const int& charge() const { return innerTrack_.get()->charge(); }
     /// polar angle  
-    double theta() const { return innerTrack_.get()->theta(); }
+    const double& theta() const { return innerTrack_.get()->theta(); }
     /// momentum vector magnitude
-    double p() const { return innerTrack_.get()->p(); }
+    const double& p() const { return innerTrack_.get()->p(); }
     /// track transverse momentum
-    double pt() const { return innerTrack_.get()->pt(); }
+    const double& pt() const { return innerTrack_.get()->pt(); }
     /// x coordinate of momentum vector
-    double px() const { return innerTrack_.get()->px(); }
+    const double& px() const { return innerTrack_.get()->px(); }
     /// y coordinate of momentum vector
-    double py() const { return innerTrack_.get()->py(); }
+    const double& py() const { return innerTrack_.get()->py(); }
     /// z coordinate of momentum vector
-    double pz() const { return innerTrack_.get()->pz(); }
+    const double& pz() const { return innerTrack_.get()->pz(); }
     /// azimuthal angle of momentum vector
-    double phi() const { return innerTrack_.get()->phi(); }
+    const double& phi() const { return innerTrack_.get()->phi(); }
     /// pseudorapidity of momentum vector
-    double eta() const { return innerTrack_.get()->eta(); }
+    const double& eta() const { return innerTrack_.get()->eta(); }
 
-    //functions for easy variation of me0muon criteria
-    /* double xpull() const { return xpull_; } */
-    /* double xdiff() const { return xdiff_; } */
-    /* double ypull() const { return ypull_; } */
-    /* double ydiff() const { return ydiff_; } */
-    /* double phidirdiff() const { return phidirdiff_; } */
-
-    /* void setXpull( const double xpull ) { xpull_ = xpull; } */
-    /* void setXdiff( const double xdiff ) { xdiff_ = xdiff; } */
-    /* void setYpull( const double ypull ) { ypull_ = ypull; } */
-    /* void setYdiff( const double ydiff ) { ydiff_ = ydiff; } */
-    /* void setPhidirdiff( const double phidirdiff ) { phidirdiff_ = phidirdiff; } */
-
-    GlobalPoint globalTrackPosAtSurface() const { return globalTrackPosAtSurface_; }
-    GlobalVector globalTrackMomAtSurface() const { return globalTrackMomAtSurface_; }
+    const GlobalPoint& globalTrackPosAtSurface() const { return globalTrackPosAtSurface_; }
+    const GlobalVector& globalTrackMomAtSurface() const { return globalTrackMomAtSurface_; }
     int trackCharge() const { return trackCharge_; }
-    AlgebraicSymMatrix66 trackCov() const { return trackCov_; }
+    const AlgebraicSymMatrix66& trackCov() const { return trackCov_; }
 
     void setGlobalTrackPosAtSurface(const GlobalPoint globalTrackPosAtSurface) { globalTrackPosAtSurface_ = globalTrackPosAtSurface; }
     void setGlobalTrackMomAtSurface(const GlobalVector globalTrackMomAtSurface) { globalTrackMomAtSurface_ = globalTrackMomAtSurface; }

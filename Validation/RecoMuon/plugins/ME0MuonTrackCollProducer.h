@@ -20,7 +20,7 @@ class ME0MuonTrackCollProducer : public edm::stream::EDProducer<> {
     ~ME0MuonTrackCollProducer();
 
   private:
-    virtual void produce(edm::Event&, const edm::EventSetup&);
+    virtual void produce(edm::Event&, const edm::EventSetup&) override;
     edm::Handle <std::vector<reco::ME0Muon> > OurMuons;
     //edm::Handle<reco::ME0MuonCollection> muonCollectionH;
     edm::InputTag muonsTag;

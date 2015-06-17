@@ -6,7 +6,6 @@
  *  It is modeled after CSCSegment, so it is a 4-dimensional object ( origin (x,y) , direction (x,y) )
  *  Formally it must be defined as a LocalPoint and LocalError but we actually use the global coordinate system.
  *  
- *  $Date: 2013/04/22 22:41:32 $
  *  
  *  \author David Nash
  */
@@ -31,7 +30,7 @@ public:
     //--- Base class interface
     EmulatedME0Segment* clone() const { return new EmulatedME0Segment(*this); }
 
-    LocalPoint localPosition() const { return theOrigin; }
+    virtual LocalPoint localPosition() const { return theOrigin; }
     LocalError localPositionError() const ;
 	
     LocalVector localDirection() const { return theLocalDirection; }
@@ -41,7 +40,7 @@ public:
     AlgebraicVector parameters() const;
 
     /// Covariance matrix of parameters()
-    AlgebraicSymMatrix parametersError() const { return theCovMatrix; }
+    virtual AlgebraicSymMatrix parametersError() const { return theCovMatrix; }
 
     /// The projection matrix relates the trajectory state parameters to the segment parameters().
     virtual AlgebraicMatrix projectionMatrix() const;
@@ -50,7 +49,7 @@ public:
 
     virtual std::vector<TrackingRecHit*> recHits() {return std::vector<TrackingRecHit*>();};
 
-    double chi2() const { return theChi2; };
+    virtual double chi2() const { return theChi2; };
 
     virtual int dimension() const { return 4; }
 

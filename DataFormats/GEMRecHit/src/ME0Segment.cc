@@ -1,6 +1,5 @@
 /** \file ME0egment.cc
  *
- *  $Date: 2014/02/04 12:41:33 $
  *  \author Marcello Maggi
  */
 
@@ -69,18 +68,22 @@ AlgebraicVector ME0Segment::parameters() const {
 }
 
 
+AlgebraicMatrix createStaticMatrix()
+{
+  AlgebraicMatrix m( 4, 5, 0);
+  m[0][1] = 1;
+  m[1][2] = 1;
+  m[2][3] = 1;
+  m[3][4] = 1;
+  return m;
+}
+
+static const AlgebraicMatrix theProjectionMatrix = createStaticMatrix();
+
 AlgebraicMatrix ME0Segment::projectionMatrix() const {
-  static AlgebraicMatrix theProjectionMatrix( 4, 5, 0);
-  static bool isInitialized = false;
-  if (!isInitialized) {
-    theProjectionMatrix[0][1] = 1;
-    theProjectionMatrix[1][2] = 1;
-    theProjectionMatrix[2][3] = 1;
-    theProjectionMatrix[3][4] = 1;
-    isInitialized=true;
-  }    
   return theProjectionMatrix;
 }
+
 
 float ME0Segment::time() const {
   float averageTime=0;
@@ -89,7 +92,12 @@ float ME0Segment::time() const {
     const  ME0RecHit *recHit = &(*itRH);
     averageTime+=recHit->tof();
   }
-  averageTime=averageTime/(theME0RecHits.size());
+  if (theME0RecHits.size() > 0){
+    averageTime=averageTime/(theME0RecHits.size());
+  }
+  else {
+    averageTime=-1.0;
+  }
   return averageTime;
 }
 

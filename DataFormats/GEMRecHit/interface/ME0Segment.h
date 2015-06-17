@@ -6,11 +6,10 @@
  *  This is 4-dimensional since it has an origin (x,y) and a direction (x,y)
  *  in the local coordinate system of the chamber.
  *
- *  $Date: 2014/02/04 12:41:32 $
  *  \author Marcello Maggi
  */
 
-#include <DataFormats/TrackingRecHit/interface/RecSegment.h>
+#include "DataFormats/TrackingRecHit/interface/RecSegment.h"
 #include <DataFormats/GEMRecHit/interface/ME0RecHitCollection.h>
 
 #include <iosfwd>
@@ -25,8 +24,8 @@ class ME0Segment GCC11_FINAL : public RecSegment {
  ME0Segment() : theChi2(0.){}
   
   /// Constructor
-  ME0Segment(const std::vector<const ME0RecHit*>& proto_segment, LocalPoint origin, 
-	     LocalVector direction, AlgebraicSymMatrix errors, double chi2);
+  ME0Segment(const std::vector<const ME0RecHit*>& proto_segment, const LocalPoint& origin, 
+	     const LocalVector& direction, const AlgebraicSymMatrix& errors, double chi2);
   
   /// Destructor
   virtual ~ME0Segment();
@@ -34,7 +33,7 @@ class ME0Segment GCC11_FINAL : public RecSegment {
   //--- Base class interface
   ME0Segment* clone() const { return new ME0Segment(*this); }
 
-  LocalPoint localPosition() const { return theOrigin; }
+  virtual LocalPoint localPosition() const { return theOrigin; }
   LocalError localPositionError() const ;
   
   LocalVector localDirection() const { return theLocalDirection; }
@@ -44,7 +43,7 @@ class ME0Segment GCC11_FINAL : public RecSegment {
   AlgebraicVector parameters() const;
 
   /// Covariance matrix of parameters()
-  AlgebraicSymMatrix parametersError() const { return theCovMatrix; }
+  virtual AlgebraicSymMatrix parametersError() const { return theCovMatrix; }
 
   /// The projection matrix relates the trajectory state parameters to the segment parameters().
   virtual AlgebraicMatrix projectionMatrix() const;
@@ -53,7 +52,7 @@ class ME0Segment GCC11_FINAL : public RecSegment {
 
   virtual std::vector<TrackingRecHit*> recHits();
 
-  double chi2() const { return theChi2; };
+  virtual double chi2() const { return theChi2; };
 
   virtual int dimension() const { return 4; }
 

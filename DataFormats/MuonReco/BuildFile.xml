@@ -4,10 +4,9 @@
 <use   name="DataFormats/TrackReco"/>
 <use   name="DataFormats/DTRecHit"/>
 <use   name="DataFormats/CSCRecHit"/>
-<use   name="DataFormats/VertexReco"/>
-<use   name="rootrflx"/>
-<use   name="rootmath"/>
 <use   name="DataFormats/GEMRecHit"/>
+<use   name="DataFormats/VertexReco"/>
+<use   name="rootmath"/>
 <export>
   <lib   name="1"/>
 </export>

@@ -33,15 +33,6 @@
 
 
 
-//For Debugging
-
-#include "TH1.h" 
-#include <TH2.h>
-#include "TFile.h"
-#include <TProfile.h>
-#include "TStyle.h"
-#include <TCanvas.h>
-
 
 class FreeTrajectoryState;
 class MagneticField;
@@ -73,10 +64,10 @@ public:
 
 private:
 
-    int iev; // events through
 
     edm::ESHandle<ME0Geometry> me0Geom;
-    double X_RESIDUAL_CUT, X_PULL_CUT, Y_RESIDUAL_CUT, Y_PULL_CUT, PHIDIR_RESIDUAL_CUT;
+    double theX_RESIDUAL_CUT, theX_PULL_CUT, theY_RESIDUAL_CUT, theY_PULL_CUT, thePHIDIR_RESIDUAL_CUT;
+    edm::InputTag OurSegments, generalTracksTag;
     edm::EDGetTokenT<ME0SegmentCollection> OurSegmentsToken_;
     edm::EDGetTokenT<reco::TrackCollection> generalTracksToken_;
 
