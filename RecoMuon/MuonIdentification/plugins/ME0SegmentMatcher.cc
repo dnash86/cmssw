@@ -201,20 +201,10 @@ void ME0SegmentMatcher::produce(edm::Event& ev, const edm::EventSetup& setup) {
 	   double thisDelR2 = reco::deltaR2(SegPos,TkPos);
 	   if (thisDelR2 < ClosestDelR){
 	     ClosestDelR2 = thisDelR2;
-	     MuonCandidate = reco::ME0Muon(thisTrackRef,(*thisSegment),SegmentNumber);
-
-	     //Setting the variables for easy me0muon selection later on
-	     // MuonCandidate.setXpull( ( std::abs(thisPosition.x()-r3FinalReco.x()) / sigmax) );
-	     // MuonCandidate.setYpull( ( std::abs(thisPosition.y()-r3FinalReco.y()) / sigmay) );
-
-	     // MuonCandidate.setXpull( std::abs(thisPosition.x()-r3FinalReco.x()) );
-	     // MuonCandidate.setYpull( std::abs(thisPosition.y()-r3FinalReco.y()) );
-
-	     // MuonCandidate.setPhidirdiff(std::abs(p3FinalReco_glob.phi()-roll->toGlobal(thisSegment->localDirection()).phi()));
+	     MuonCandidate = reco::ME0Muon(thisTrackRef,(*thisSegment),SegmentNumber,chargeReco);
 
 	     MuonCandidate.setGlobalTrackPosAtSurface(r3FinalReco_glob);
 	     MuonCandidate.setGlobalTrackMomAtSurface(p3FinalReco_glob);
-	     MuonCandidate.setTrackCharge(chargeReco);
 	     MuonCandidate.setTrackCov(covFinalReco);
 	   }
 	 }
