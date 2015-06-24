@@ -1,5 +1,5 @@
 
-#include "Validation/RecoMuon/plugins/ME0MuonTrackCollProducer.h"
+#include "CommonTools/RecoAlgos/plugins/ME0MuonTrackCollProducer.h"
 #include "FWCore/MessageLogger/interface/MessageLogger.h"
 #include "DataFormats/TrackReco/interface/TrackFwd.h"
 #include "DataFormats/TrackReco/interface/Track.h"
@@ -16,16 +16,16 @@
 #include <FWCore/Framework/interface/ESHandle.h>
 
 
-#include "Geometry/GEMGeometry/interface/ME0Geometry.h"
-#include <Geometry/GEMGeometry/interface/ME0EtaPartition.h>
-#include <Geometry/Records/interface/MuonGeometryRecord.h>
-#include <DataFormats/MuonDetId/interface/ME0DetId.h>
+// #include "Geometry/GEMGeometry/interface/ME0Geometry.h"
+// #include <Geometry/GEMGeometry/interface/ME0EtaPartition.h>
+// #include <Geometry/Records/interface/MuonGeometryRecord.h>
+// #include <DataFormats/MuonDetId/interface/ME0DetId.h>
 
 #include <sstream>
 
 ME0MuonTrackCollProducer::ME0MuonTrackCollProducer(const edm::ParameterSet& parset) :
+  OurMuonsTag(parset.getParameter<edm::InputTag>("me0MuonTag")),
   selectionTags(parset.getParameter< std::vector<std::string> >("selectionTags")),
-  OurMuonsTag = parset.getParameter<edm::InputTag>("me0MuonTag"),
   parset_(parset)
 {
   produces<reco::TrackCollection>();
@@ -43,8 +43,8 @@ void ME0MuonTrackCollProducer::produce(edm::Event& iEvent, const edm::EventSetup
   Handle <ME0MuonCollection> OurMuons;
   iEvent.getByToken(OurMuonsToken_,OurMuons);
 
-  edm::ESHandle<ME0Geometry> me0Geom;
-  iSetup.get<MuonGeometryRecord>().get(me0Geom);
+  // edm::ESHandle<ME0Geometry> me0Geom;
+  // iSetup.get<MuonGeometryRecord>().get(me0Geom);
 
   
   std::auto_ptr<reco::TrackCollection> selectedTracks(new reco::TrackCollection);
@@ -56,7 +56,7 @@ void ME0MuonTrackCollProducer::produce(edm::Event& iEvent, const edm::EventSetup
   for(std::vector<reco::ME0Muon>::const_iterator thismuon = OurMuons->begin();
        thismuon != OurMuons->end(); ++thismuon) {
 
-    if (!muon::isGoodMuon(me0Geom, *thismuon, muon::Tight)) continue;
+    if (!muon::isGoodMuon(*thismuon, muon::Tight)) continue;
     reco::TrackRef trackref;    
 
     if (thismuon->innerTrack().isNonnull()) trackref = thismuon->innerTrack();

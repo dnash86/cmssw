@@ -34,7 +34,7 @@
 #include "DataFormats/RecoCandidate/interface/RecoChargedCandidateFwd.h"
 
 
-ME0MuonConverter::ME0MuonConverter(const edm::ParameterSet& pas) : iev(0) {
+ME0MuonConverter::ME0MuonConverter(const edm::ParameterSet& pas) {
 	
   produces<std::vector<reco::RecoChargedCandidate> >();  
   edm::InputTag OurMuonsTag ("me0SegmentMatching");

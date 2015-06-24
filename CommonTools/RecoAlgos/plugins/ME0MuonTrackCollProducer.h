@@ -1,6 +1,6 @@
 
-#ifndef RecoMuon_ME0MuonTrackCollProducer_h
-#define RecoMuon_ME0MuonTrackCollProducer_h
+#ifndef CommonTools_RecoAlgos_ME0MuonTrackCollProducer_h
+#define CommonTools_RecoAlgos_ME0MuonTrackCollProducer_h
 
 #include <memory>
 #include "FWCore/Framework/interface/stream/EDProducer.h"
@@ -23,11 +23,8 @@ class ME0MuonTrackCollProducer : public edm::stream::EDProducer<> {
     virtual void produce(edm::Event&, const edm::EventSetup&) override;
     edm::Handle <std::vector<reco::ME0Muon> > OurMuons;
     //edm::Handle<reco::ME0MuonCollection> muonCollectionH;
-    edm::InputTag muonsTag;
-    edm::InputTag vxtTag;
-    bool useIPxy, useIPz;
+    edm::InputTag OurMuonsTag;
     std::vector<std::string> selectionTags;
-    std::string trackType;
     const edm::ParameterSet parset_;
     edm::EDGetTokenT<ME0MuonCollection> OurMuonsToken_;
 };
