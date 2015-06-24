@@ -15,8 +15,8 @@ namespace {
 
 }
 
-ME0Segment::ME0Segment(const std::vector<const ME0RecHit*>& proto_segment, LocalPoint origin, 
-		       LocalVector direction, AlgebraicSymMatrix errors, double chi2) : 
+ME0Segment::ME0Segment(const std::vector<const ME0RecHit*>& proto_segment, const LocalPoint& origin, 
+		       const LocalVector& direction, const AlgebraicSymMatrix& errors, double chi2) : 
   RecSegment(buildDetId(proto_segment.front()->me0Id())),
   theOrigin(origin), 
   theLocalDirection(direction), theCovMatrix(errors), theChi2(chi2){

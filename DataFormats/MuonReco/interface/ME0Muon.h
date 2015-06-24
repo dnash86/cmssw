@@ -14,9 +14,11 @@
 
 #include <DataFormats/GEMRecHit/interface/ME0SegmentCollection.h>
 
+#include "DataFormats/RecoCandidate/interface/RecoCandidate.h"
+
 namespace reco {
  
-  class ME0Muon {
+  class ME0Muon : public RecoCandidate{
   public:
     ME0Muon();
     //ME0Muon( const TrackRef & t, const ME0Segment & s) { innerTrack_ = t; me0Segment_ = s;}
@@ -25,7 +27,7 @@ namespace reco {
     
     /// reference to Track reconstructed in the tracker only
     TrackRef innerTrack() const { return innerTrack_; }
-    TrackRef track() const { return innerTrack(); }
+    virtual TrackRef track() const { return innerTrack(); }
     /// set reference to Track
     void setInnerTrack( const TrackRef & t ) { innerTrack_ = t; }
     void setTrack( const TrackRef & t ) { setInnerTrack(t); }
@@ -38,36 +40,28 @@ namespace reco {
     void setme0segid( const int v){me0segid_=v;}
     int me0segid() const {return me0segid_;}
 
-    /// a bunch of useful accessors
-    const int& charge() const { return innerTrack_.get()->charge(); }
-    /// polar angle  
-    const double& theta() const { return innerTrack_.get()->theta(); }
-    /// momentum vector magnitude
-    const double& p() const { return innerTrack_.get()->p(); }
-    /// track transverse momentum
-    const double& pt() const { return innerTrack_.get()->pt(); }
-    /// x coordinate of momentum vector
-    const double& px() const { return innerTrack_.get()->px(); }
-    /// y coordinate of momentum vector
-    const double& py() const { return innerTrack_.get()->py(); }
-    /// z coordinate of momentum vector
-    const double& pz() const { return innerTrack_.get()->pz(); }
-    /// azimuthal angle of momentum vector
-    const double& phi() const { return innerTrack_.get()->phi(); }
-    /// pseudorapidity of momentum vector
-    const double& eta() const { return innerTrack_.get()->eta(); }
-
+    
     const GlobalPoint& globalTrackPosAtSurface() const { return globalTrackPosAtSurface_; }
     const GlobalVector& globalTrackMomAtSurface() const { return globalTrackMomAtSurface_; }
+    const LocalPoint& localTrackPosAtSurface() const { return localTrackPosAtSurface_; }
+    const LocalVector& localTrackMomAtSurface() const { return localTrackMomAtSurface_; }
+
     int trackCharge() const { return trackCharge_; }
-    const AlgebraicSymMatrix66& trackCov() const { return trackCov_; }
+    const AlgebraicSymMatrix66& globalTrackCov() const { return globalTrackCov_; }
+    const AlgebraicSymMatrix55& localTrackCov() const { return localTrackCov_; }
 
     void setGlobalTrackPosAtSurface(const GlobalPoint globalTrackPosAtSurface) { globalTrackPosAtSurface_ = globalTrackPosAtSurface; }
     void setGlobalTrackMomAtSurface(const GlobalVector globalTrackMomAtSurface) { globalTrackMomAtSurface_ = globalTrackMomAtSurface; }
+    void setLocalTrackPosAtSurface(const LocalPoint localTrackPosAtSurface) { localTrackPosAtSurface_ = localTrackPosAtSurface; }
+    void setLocalTrackMomAtSurface(const LocalVector localTrackMomAtSurface) { localTrackMomAtSurface_ = localTrackMomAtSurface; }
     void setTrackCharge(const int trackCharge) { trackCharge_ = trackCharge; }
-    void setTrackCov(const AlgebraicSymMatrix66 trackCov) { trackCov_ = trackCov; }
+    void setGlobalTrackCov(const AlgebraicSymMatrix66 trackCov) { globalTrackCov_ = trackCov; }
+    void setLocalTrackCov(const AlgebraicSymMatrix55 trackCov) { localTrackCov_ = trackCov; }
      
   private:
+    /// check overlap with another candidate
+    virtual bool overlap( const Candidate & ) const;
+
     /// reference to Track reconstructed in the tracker only
     TrackRef innerTrack_;
     ME0Segment me0Segment_;
@@ -75,8 +69,12 @@ namespace reco {
 
     GlobalPoint globalTrackPosAtSurface_;
     GlobalVector globalTrackMomAtSurface_;
+
+    LocalPoint localTrackPosAtSurface_;
+    LocalVector localTrackMomAtSurface_;
     int trackCharge_;
-    AlgebraicSymMatrix66 trackCov_;
+    AlgebraicSymMatrix66 globalTrackCov_;
+    AlgebraicSymMatrix55 localTrackCov_;
 
     //double xpull_,ypull_,xdiff_,ydiff_,phidirdiff_;
   };
