@@ -4,10 +4,6 @@
 
 #include "DataFormats/MuonReco/interface/ME0Muon.h"
 
-#include "Geometry/GEMGeometry/interface/ME0Geometry.h"
-#include <Geometry/GEMGeometry/interface/ME0EtaPartition.h>
-#include <Geometry/Records/interface/MuonGeometryRecord.h>
-#include <DataFormats/MuonDetId/interface/ME0DetId.h>
 #include "FWCore/Framework/interface/ESHandle.h"
 
 #include "TMath.h"
@@ -30,12 +26,12 @@ namespace muon {
    SelectionType selectionTypeFromString( const std::string &label );
      
    /// main GoodMuon wrapper call
-   bool isGoodMuon( edm::ESHandle <ME0Geometry> me0Geom, const reco::ME0Muon& me0muon, SelectionType type );
+   bool isGoodMuon(const reco::ME0Muon& me0muon, SelectionType type );
 
 
    /// Specialized isGoodMuon function called from main wrapper
 
-   bool isGoodMuon( edm::ESHandle <ME0Geometry> me0Geom, const reco::ME0Muon& me0muon, double MaxPullX, double MaxDiffX, double MaxPullY, double MaxDiffY, double MaxDiffPhiDir  );
+   bool isGoodMuon(const reco::ME0Muon& me0muon, double MaxPullX, double MaxDiffX, double MaxPullY, double MaxDiffY, double MaxDiffPhiDir  );
 
 
 }

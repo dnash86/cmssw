@@ -642,7 +642,7 @@ ME0MuonAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup
   std::vector<int> SegIdForMatch;
   for (std::vector<ME0Muon>::const_iterator thisMuon = OurMuons->begin();
        thisMuon != OurMuons->end(); ++thisMuon){
-    if (!muon::isGoodMuon(me0Geom, *thisMuon, muon::Tight)) continue;
+    if (!muon::isGoodMuon(*thisMuon, muon::Tight)) continue;
     IsMatched.push_back(false);
     SegIdForMatch.push_back(-1);
   }
@@ -667,7 +667,7 @@ ME0MuonAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup
 
       for (std::vector<ME0Muon>::const_iterator thisMuon = OurMuons->begin();
 	   thisMuon != OurMuons->end(); ++thisMuon){
-	if (!muon::isGoodMuon(me0Geom, *thisMuon, muon::Tight)) continue;
+	if (!muon::isGoodMuon(*thisMuon, muon::Tight)) continue;
 	TrackRef tkRef = thisMuon->innerTrack();
 	SegIdForMatch.push_back(thisMuon->me0segid());
 	thisDelR = reco::deltaR(CurrentParticle,*tkRef);
@@ -803,7 +803,7 @@ ME0MuonAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup
 
       for (std::vector<ME0Muon>::const_iterator thisMuon = OurMuons->begin();
 	   thisMuon != OurMuons->end(); ++thisMuon){
-	if (!muon::isGoodMuon(me0Geom, *thisMuon, muon::Tight)) continue;
+	if (!muon::isGoodMuon(*thisMuon, muon::Tight)) continue;
 	TrackRef tkRef = thisMuon->innerTrack();
 	thisDelR = reco::deltaR(CurrentParticle,*tkRef);
 	if (thisDelR < LowestDelR) LowestDelR = thisDelR;
@@ -822,7 +822,7 @@ ME0MuonAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup
   int ME0MuonID = 0;
   for (std::vector<ME0Muon>::const_iterator thisMuon = OurMuons->begin();
        thisMuon != OurMuons->end(); ++thisMuon){
-    if (!muon::isGoodMuon(me0Geom, *thisMuon, muon::Tight)) continue;
+    if (!muon::isGoodMuon(*thisMuon, muon::Tight)) continue;
     TrackRef tkRef = thisMuon->innerTrack();
     //Moved resolution stuff here, only calculate resolutions for matched muons!
     if (!IsMatched[ME0MuonID]){
@@ -870,7 +870,7 @@ ME0MuonAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup
   int i_me0muon=0;
   for (std::vector<ME0Muon>::const_iterator thisMuon = OurMuons->begin();
        thisMuon != OurMuons->end(); ++thisMuon, ++i_me0muon){
-    if (!muon::isGoodMuon(me0Geom, *thisMuon, muon::Tight)) continue;
+    if (!muon::isGoodMuon(*thisMuon, muon::Tight)) continue;
     SkimmedIsMatched.push_back(IsMatched[i_me0muon]);
   }
 
@@ -1147,7 +1147,7 @@ ME0MuonAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup
 
   for (std::vector<ME0Muon>::const_iterator thisMuon = OurMuons->begin();
        thisMuon != OurMuons->end(); ++thisMuon){
-    if (!muon::isGoodMuon(me0Geom, *thisMuon, muon::Tight)) continue;
+    if (!muon::isGoodMuon(*thisMuon, muon::Tight)) continue;
     TrackRef tkRef = thisMuon->innerTrack();
 
     ME0Segment Seg = thisMuon->me0segment();

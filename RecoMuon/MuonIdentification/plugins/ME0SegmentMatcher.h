@@ -67,7 +67,7 @@ private:
 
     edm::ESHandle<ME0Geometry> me0Geom;
     double theX_RESIDUAL_CUT, theX_PULL_CUT, theY_RESIDUAL_CUT, theY_PULL_CUT, thePHIDIR_RESIDUAL_CUT;
-    edm::InputTag OurSegments, generalTracksTag;
+    edm::InputTag OurSegmentsTag, generalTracksTag;
     edm::EDGetTokenT<ME0SegmentCollection> OurSegmentsToken_;
     edm::EDGetTokenT<reco::TrackCollection> generalTracksToken_;
 

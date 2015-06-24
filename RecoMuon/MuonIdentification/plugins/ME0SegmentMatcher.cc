@@ -33,7 +33,13 @@
 #include "TrackingTools/AnalyticalJacobians/interface/JacobianLocalToCartesian.h"
 
 
-ME0SegmentMatcher::ME0SegmentMatcher(const edm::ParameterSet& pas) : iev(0){
+#include "Geometry/GEMGeometry/interface/ME0Geometry.h"
+#include <Geometry/Records/interface/MuonGeometryRecord.h>
+#include "Geometry/GEMGeometry/interface/ME0EtaPartitionSpecs.h"
+#include "Geometry/CommonTopologies/interface/StripTopology.h"
+#include <DataFormats/GeometrySurface/interface/SimpleDiskBounds.h>
+
+ME0SegmentMatcher::ME0SegmentMatcher(const edm::ParameterSet& pas) {
   produces<std::vector<reco::ME0Muon> >();  
   theX_PULL_CUT   = pas.getParameter<double>("maxPullX");
   theX_RESIDUAL_CUT   = pas.getParameter<double>("maxDiffX");
@@ -51,7 +57,6 @@ ME0SegmentMatcher::~ME0SegmentMatcher() {}
 
 void ME0SegmentMatcher::produce(edm::Event& ev, const edm::EventSetup& setup) {
 
-    LogDebug("ME0SegmentMatcher") << "start producing segments for " << ++iev << "th event ";
 
     //Getting the objects we'll need
     using namespace edm;
@@ -60,6 +65,7 @@ void ME0SegmentMatcher::produce(edm::Event& ev, const edm::EventSetup& setup) {
     setup.get<IdealMagneticFieldRecord>().get(bField);
     //ESHandle<Propagator> shProp;
     //setup.get<TrackingComponentsRecord>().get("SteppingHelixPropagatorAlong", shProp);
+    const SteppingHelixPropagator* ThisshProp;
     ThisshProp = new SteppingHelixPropagator(&*bField,alongMomentum);
 
     using namespace reco;
@@ -188,7 +194,7 @@ void ME0SegmentMatcher::produce(edm::Event& ev, const edm::EventSetup& setup) {
 	 if ( (std::abs(thisPosition.x()-r3FinalReco.x()) < (theX_PULL_CUT * sigmax)) || (std::abs(thisPosition.x()-r3FinalReco.x()) < theX_RESIDUAL_CUT ) ) X_MatchFound = true;
 	 if ( (std::abs(thisPosition.y()-r3FinalReco.y()) < (theY_PULL_CUT * sigmay)) || (std::abs(thisPosition.y()-r3FinalReco.y()) < theY_RESIDUAL_CUT ) ) Y_MatchFound = true;
 
-	 if (reco::deltaPhi(p3FinalReco_glob,roll->toGlobal(thisSegment->localDirection())) < thePHIDIR_RESIDUAL_CUT) Dir_MatchFound = true;
+	 if (reco::deltaPhi(p3FinalReco_glob.phi(),roll->toGlobal(thisSegment->localDirection()).phi()) < thePHIDIR_RESIDUAL_CUT) Dir_MatchFound = true;
 
 	 //Check for a Match, and if there is a match, check the delR from the segment, keeping only the closest in MuonCandidate
 	 if (X_MatchFound && Y_MatchFound && Dir_MatchFound) {
@@ -199,19 +205,22 @@ void ME0SegmentMatcher::produce(edm::Event& ev, const edm::EventSetup& setup) {
 	   GlobalPoint TkPos(r3FinalReco_globv.x(),r3FinalReco_globv.y(),r3FinalReco_globv.z());
 	   
 	   double thisDelR2 = reco::deltaR2(SegPos,TkPos);
-	   if (thisDelR2 < ClosestDelR){
+	   if (thisDelR2 < ClosestDelR2){
 	     ClosestDelR2 = thisDelR2;
 	     MuonCandidate = reco::ME0Muon(thisTrackRef,(*thisSegment),SegmentNumber,chargeReco);
 
 	     MuonCandidate.setGlobalTrackPosAtSurface(r3FinalReco_glob);
 	     MuonCandidate.setGlobalTrackMomAtSurface(p3FinalReco_glob);
-	     MuonCandidate.setTrackCov(covFinalReco);
+	     MuonCandidate.setLocalTrackPosAtSurface(r3FinalReco);
+	     MuonCandidate.setLocalTrackMomAtSurface(p3FinalReco);
+	     MuonCandidate.setGlobalTrackCov(covFinalReco);
+	     MuonCandidate.setLocalTrackCov(C);
 	   }
 	 }
       }//End loop for (auto thisSegment = OurSegments->begin(); thisSegment != OurSegments->end(); ++thisSegment,++SegmentNumber)
 
       //As long as the delR of the MuonCandidate is sensible, store the track-segment pair
-      if (ClosestDelR < 500.) {
+      if (ClosestDelR2 < 500.) {
 	oc->push_back(MuonCandidate);
       }
     }
