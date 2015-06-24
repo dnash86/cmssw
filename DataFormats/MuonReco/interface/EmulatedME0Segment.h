@@ -1,5 +1,5 @@
-#ifndef ME0RecHit_EmulatedME0Segment_h
-#define ME0RecHit_EmulatedME0Segment_h
+#ifndef GEMRecHit_EmulatedME0Segment_h
+#define GEMRecHit_EmulatedME0Segment_h
 
 /** \class EmulatedME0Segment
  *  Describes a simulated track segment in a z-plane modeling an ME0 chamber.
