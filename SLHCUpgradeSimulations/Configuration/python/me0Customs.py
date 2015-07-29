@@ -1,6 +1,7 @@
 import FWCore.ParameterSet.Config as cms
 
 def customise(process):
+    process=customise_hack_ecal(process)
     if hasattr(process,'digitisation_step'):
         process=customise_Digi(process)
     if hasattr(process,'L1simulation_step'):
@@ -19,6 +20,23 @@ def customise(process):
         process=customise_harvesting(process)
     if hasattr(process,'validation_step'):
         process=customise_Validation(process)
+    return process
+
+def customise_hack_ecal(process):
+    process.load("Geometry.CaloEventSetup.CaloGeometryBuilder_cfi")
+    process.CaloGeometryBuilder.SelectedCalos = cms.vstring('HCAL',
+                                                            'ZDC',
+                                                            'EcalBarrel',
+                                                            'EcalEndcap',
+                                                            #'EcalPreshower',
+                                                            'TOWER')
+    #process.load("RecoEcal.EgammaClusterProducers.reducedRecHitsSequence_cff")
+    #process.load("Configuration.StandardSequences.Reconstruction_cff")
+    #process.reducedRecHits = cms.Sequence ( reducedEcalRecHitsSequenceEcalOnly * reducedHcalRecHitsSequence )
+    #Might not be needed...
+    #process.load("RecoEcal.EgammaClusterProducers.particleFlowSuperClusterECAL_cfi")
+    #process.particleFlowSuperClusterECALBox.use_preshower=cms.bool(False)
+    #process.particleFlowSuperClusterECALMustache.use_preshower=cms.bool(False)
     return process
 
 def customise_Digi(process):

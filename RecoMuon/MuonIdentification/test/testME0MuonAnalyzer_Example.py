@@ -3,8 +3,8 @@ import FWCore.ParameterSet.Config as cms
 process = cms.Process("Test")
 
 
-process.load('Configuration.Geometry.GeometryExtended2023MuonReco_cff')
-process.load('Configuration.Geometry.GeometryExtended2023Muon_cff')
+process.load('Configuration.Geometry.GeometryExtended2015MuonGEMDevReco_cff')
+process.load('Configuration.Geometry.GeometryExtended2015MuonGEMDev_cff')
 
 
 process.load('Configuration.StandardSequences.MagneticField_38T_PostLS1_cff')
@@ -16,11 +16,6 @@ process.load("TrackPropagation.SteppingHelixPropagator.SteppingHelixPropagatorOp
 process.load("TrackPropagation.SteppingHelixPropagator.SteppingHelixPropagatorAny_cfi")
 
 process.load( "DQMServices/Core/DQMStore_cfg" )
-
-process.load('Validation.RecoMuon.associators_cff')
-process.load('Validation.RecoMuon.selectors_cff')
-process.load('Validation.RecoMuon.MuonTrackValidator_cfi')
-process.load('Validation.RecoMuon.RecoMuonValidator_cfi')
 
 
 
@@ -41,25 +36,18 @@ process.source = cms.Source("PoolSource",
 
 )
 
-from Validation.RecoMuon.selectors_cff import *
-from Validation.RecoMuon.associators_cff import *
 # Configurations for MuonTrackValidators
-import Validation.RecoMuon.MuonTrackValidator_cfi
 
 
 # Configurations for RecoMuonValidators
-from RecoMuon.TrackingTools.MuonServiceProxy_cff import *
-from Validation.RecoMuon.RecoMuonValidator_cfi import *
 
 #import SimGeneral.MixingModule.mixNoPU_cfi
-from SimMuon.MCTruth.MuonAssociatorByHitsESProducer_NoSimHits_cfi import *
-from SimMuon.MCTruth.MuonAssociatorByHits_cfi import muonAssociatorByHitsCommonParameters
-
 #process.TrackAssociatorByChi2ESProducer = Validation.RecoMuon.associators_cff.TrackAssociatorByChi2ESProducer.clone(chi2cut = 100.0,ComponentName = 'TrackAssociatorByChi2')
 
-import SimMuon.MCTruth.MuonAssociatorByHitsESProducer_cfi
 
-process.muonAssociatorByHits = SimMuon.MCTruth.MuonAssociatorByHitsESProducer_cfi.muonAssociatorByHitsESProducer.clone(ComponentName = 'muonAssociatorByHits',
+import SimMuon.MCTruth.muonAssociatorByHitsHelper_cfi
+
+process.muonAssociatorByHits = SimMuon.MCTruth.muonAssociatorByHitsHelper_cfi.muonAssociatorByHitsHelper.clone(#ComponentName = "muonAssociatorByHits",
  #tpTag = 'mix:MergedTrackTruth',
  UseTracker = True,
  UseMuon = False,
@@ -67,13 +55,14 @@ process.muonAssociatorByHits = SimMuon.MCTruth.MuonAssociatorByHitsESProducer_cf
  PurityCut_track = cms.double(0.0)
  )
 
-process.recoMuonValidation = cms.Sequence(#probeTracks_seq*
-    #(selectedVertices * selectedFirstPrimaryVertex) * 
-    #bestMuonTuneP_seq*
-    #muonColl_seq*trackColl_seq*extractedMuonTracks_seq*bestMuon_seq*trackerMuon_seq*
-    me0muonColl_seq
-    #((process.muonValidation_seq))
-    )
+
+from CommonTools.RecoAlgos.me0Associator import *
+
+#process.me0MuonSel = cms.Sequence(
+#    me0muonColl_seq
+#    )
+
+process.me0MuonSel = me0muon
 
 process.Test = cms.EDAnalyzer("ME0MuonAnalyzer",
                               
@@ -85,7 +74,7 @@ process.Test = cms.EDAnalyzer("ME0MuonAnalyzer",
                               FakeRatePtCut = cms.double(3.0),
                               MatchingWindowDelR = cms.double (.15),
                               RejectEndcapMuons = cms.bool(False),
-                              UseAssociators = cms.bool(True),
+                              UseAssociators = cms.bool(False),
 
                               associators = cms.vstring('muonAssociatorByHits'),
 
@@ -94,12 +83,12 @@ process.Test = cms.EDAnalyzer("ME0MuonAnalyzer",
                               
 )
 
-process.p = cms.Path(process.recoMuonValidation*process.Test)
+process.p = cms.Path(process.me0MuonSel*process.Test)
 
 
 
 process.PoolSource.fileNames = [
 
-FILETEMPLATE
+'file:/afs/cern.ch/work/d/dnash/ME0Segments/ForRealSegmentsOnly/ReCommit75X/CMSSW_7_5_X_2015-06-29-2300/src/out_digi_test.root'
 
 ]
