@@ -1,7 +1,7 @@
 import FWCore.ParameterSet.Config as cms
 
 def customise(process):
-    process=customise_hack_ecal(process)
+    #process=customise_hack_ecal(process)
     if hasattr(process,'digitisation_step'):
         process=customise_Digi(process)
     if hasattr(process,'L1simulation_step'):
@@ -40,16 +40,24 @@ def customise_hack_ecal(process):
     return process
 
 def customise_Digi(process):
-    process.RandomNumberGeneratorService.simMuonME0Digis = cms.PSet(
-        initialSeed = cms.untracked.uint32(1234567),
-        engineName = cms.untracked.string('HepJamesRandom')
-    )
-    process.mix.mixObjects.mixSH.crossingFrames.append('MuonME0Hits')
-    process.mix.mixObjects.mixSH.input.append(cms.InputTag("g4SimHits","MuonME0Hits"))
-    process.mix.mixObjects.mixSH.subdets.append('MuonME0Hits')
-    process.load('SimMuon.GEMDigitizer.muonME0DigisPreReco_cfi')
-    process.muonDigi += process.simMuonME0Digis
-    process=outputCustoms(process)
+    # process.RandomNumberGeneratorService.simMuonME0Digis = cms.PSet(
+    #     initialSeed = cms.untracked.uint32(1234567),
+    #     engineName = cms.untracked.string('HepJamesRandom')
+    # )
+    # process.mix.mixObjects.mixSH.crossingFrames.append('MuonME0Hits')
+    # process.mix.mixObjects.mixSH.input.append(cms.InputTag("g4SimHits","MuonME0Hits"))
+    # process.mix.mixObjects.mixSH.subdets.append('MuonME0Hits')
+    # process.load('SimMuon.GEMDigitizer.muonME0DigisPreReco_cfi')
+    # process.muonDigi += process.simMuonME0Digis
+    from SimMuon.GEMDigitizer.customizeGEMDigi import customize_digi_addGEM_addME0_muon_only
+    process = customize_digi_addGEM_addME0_muon_only(process)
+    process.simMuonGEMDigis.mixLabel = cms.string("mix")
+    process.simMuonME0Digis.mixLabel = cms.string("mix")
+    # process.digitisation_step.remove(process.simMuonRPCDigis)
+    # process.simMuonRPCDigis.digiModel = cms.string('RPCSimParam')
+    process.simMuonRPCDigis.digiModel = cms.string('RPCSimAverageNoiseEff')
+    #process=outputCustoms(process)
+
     return process
 
 def customise_L1Emulator(process):
