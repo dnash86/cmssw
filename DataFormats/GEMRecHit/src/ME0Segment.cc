@@ -1,9 +1,8 @@
 /** \file ME0egment.cc
  *
- *  $Date: 2014/02/04 12:41:33 $
  *  \author Marcello Maggi
  */
-#include "FWCore/MessageLogger/interface/MessageLogger.h"
+
 #include <DataFormats/GEMRecHit/interface/ME0Segment.h>
 #include <iostream>
 
@@ -13,27 +12,11 @@ namespace {
   DetId buildDetId(ME0DetId id) {
     return ME0DetId(id.region(),1,id.chamber(),id.roll());
   }
+
 }
 
-class ProjectionMatrixDiag {
-  // Aider class to make the return of the projection Matrix thread-safe
-protected:
-  AlgebraicMatrix theProjectionMatrix;
-public:
-  ProjectionMatrixDiag() : theProjectionMatrix(4,5,0) {
-    theProjectionMatrix[0][1] = 1;
-    theProjectionMatrix[1][2] = 1;
-    theProjectionMatrix[2][3] = 1;
-    theProjectionMatrix[3][4] = 1;
-  }
-  const AlgebraicMatrix &getMatrix() const {
-    return (theProjectionMatrix);
-  }
-};
-
-
-ME0Segment::ME0Segment(const std::vector<const ME0RecHit*>& proto_segment, LocalPoint origin, 
-	LocalVector direction, AlgebraicSymMatrix errors, double chi2) : 
+ME0Segment::ME0Segment(const std::vector<const ME0RecHit*>& proto_segment, const LocalPoint& origin, 
+		       const LocalVector& direction, const AlgebraicSymMatrix& errors, double chi2) : 
   RecSegment(buildDetId(proto_segment.front()->me0Id())),
   theOrigin(origin), 
   theLocalDirection(direction), theCovMatrix(errors), theChi2(chi2){
@@ -76,21 +59,31 @@ AlgebraicVector ME0Segment::parameters() const {
   
   AlgebraicVector result(4);
 
-  if(theLocalDirection.z() != 0)
-  {
   result[0] = theLocalDirection.x()/theLocalDirection.z();
   result[1] = theLocalDirection.y()/theLocalDirection.z();    
-  }
   result[2] = theOrigin.x();
   result[3] = theOrigin.y();
 
   return result;
 }
 
-AlgebraicMatrix ME0Segment::projectionMatrix() const {
-  static const ProjectionMatrixDiag theProjectionMatrix;
-  return (theProjectionMatrix.getMatrix());
+
+AlgebraicMatrix createStaticMatrix()
+{
+  AlgebraicMatrix m( 4, 5, 0);
+  m[0][1] = 1;
+  m[1][2] = 1;
+  m[2][3] = 1;
+  m[3][4] = 1;
+  return m;
 }
+
+static const AlgebraicMatrix theProjectionMatrix = createStaticMatrix();
+
+AlgebraicMatrix ME0Segment::projectionMatrix() const {
+  return theProjectionMatrix;
+}
+
 
 float ME0Segment::time() const {
   float averageTime=0;
@@ -99,14 +92,18 @@ float ME0Segment::time() const {
     const  ME0RecHit *recHit = &(*itRH);
     averageTime+=recHit->tof();
   }
-  if(theME0RecHits.size() != 0)averageTime=averageTime/(theME0RecHits.size());
+  if (theME0RecHits.size() > 0){
+    averageTime=averageTime/(theME0RecHits.size());
+  }
+  else {
+    averageTime=-1.0;
+  }
   return averageTime;
 }
 
 //
 void ME0Segment::print() const {
-  LogDebug("ME0Segment") << *this;
-
+  std::cout << *this << std::endl;
 }
 
 std::ostream& operator<<(std::ostream& os, const ME0Segment& seg) {
@@ -116,8 +113,7 @@ std::ostream& operator<<(std::ostream& os, const ME0Segment& seg) {
     "            dir = " << seg.localDirection() <<
     " dirErr = (" << sqrt(seg.localDirectionError().xx())<<","<<sqrt(seg.localDirectionError().yy())<<
     "0,)\n"<<
-    "            chi2/ndf = " << ((seg.degreesOfFreedom() != 0.) ? seg.chi2()/double(seg.degreesOfFreedom()) :0 ) << 
+    "            chi2/ndf = " << seg.chi2()/double(seg.degreesOfFreedom()) << 
     " #rechits = " << seg.specificRecHits().size();
   return os;  
 }
-
