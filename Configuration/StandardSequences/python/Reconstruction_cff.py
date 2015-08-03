@@ -71,7 +71,8 @@ globalreco = cms.Sequence(offlineBeamSpot*
 globalreco_plusPL= cms.Sequence(globalreco*ctfTracksPixelLess)
 
 
-reducedRecHits = cms.Sequence ( reducedEcalRecHitsSequence * reducedHcalRecHitsSequence )
+#reducedRecHits = cms.Sequence ( reducedEcalRecHitsSequence * reducedHcalRecHitsSequence )
+reducedRecHits = cms.Sequence ( reducedEcalRecHitsSequenceEcalOnly * reducedHcalRecHitsSequence )
 
 highlevelreco = cms.Sequence(egammaHighLevelRecoPrePF*
                              particleFlowReco*
