@@ -1,7 +1,7 @@
 import FWCore.ParameterSet.Config as cms
 
 def customise(process):
-    process=customise_hack_ecal(process)
+    #process=customise_hack_ecal(process)
     if hasattr(process,'digitisation_step'):
         process=customise_Digi(process)
     #if hasattr(process,'L1simulation_step'):
@@ -49,8 +49,12 @@ def customise_Digi(process):
     # process.mix.mixObjects.mixSH.subdets.append('MuonME0Hits')
     # process.load('SimMuon.GEMDigitizer.muonME0DigisPreReco_cfi')
     # process.muonDigi += process.simMuonME0Digis
-    from SimMuon.GEMDigitizer.customizeGEMDigi import customize_digi_addGEM_addME0_muon_only
-    process = customize_digi_addGEM_addME0_muon_only(process)
+    #from SimMuon.GEMDigitizer.customizeGEMDigi import customize_digi_addGEM_addME0_muon_only
+    #process = customize_digi_addGEM_addME0_muon_only(process)
+    #from SimMuon.GEMDigitizer.customizeGEMDigi import customize_digi_addGEM_addME0
+    #process = customize_digi_addGEM_addME0(process)
+    from SimMuon.GEMDigitizer.customizeGEMDigi import customize_digi_addGEM_addME0_nocalo
+    process = customize_digi_addGEM_addME0_nocalo(process)
     process.simMuonGEMDigis.mixLabel = cms.string("mix")
     process.simMuonME0Digis.mixLabel = cms.string("mix")
     # process.digitisation_step.remove(process.simMuonRPCDigis)
