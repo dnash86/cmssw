@@ -81,6 +81,18 @@ def customise_RecoFull(process):
     process=outputCustoms(process)
     return process
 
+
+def customise_Reco(process):
+    #process.load('RecoLocalMuon.GEMRecHit.gemRecHits_cfi')
+    process.load('RecoLocalMuon.GEMRecHit.me0RecHits_cfi')
+    process.muonlocalreco += process.me0RecHits
+    process.standAloneMuons.STATrajBuilderParameters.FilterParameters.EnableME0Measurement = cms.bool(True)
+    process.standAloneMuons.STATrajBuilderParameters.BWFilterParameters.EnableME0Measurement = cms.bool(True)
+    process.refittedStandAloneMuons.STATrajBuilderParameters.FilterParameters.EnableME0Measurement = cms.bool(True)
+    process.refittedStandAloneMuons.STATrajBuilderParameters.BWFilterParameters.EnableME0Measurement = cms.bool(True)
+    process=outputCustoms(process)
+    return process
+
 def customise_Validation(process):
     process.load('Validation.Configuration.gemSimValid_cff')
     process.genvalid_all += process.me0SimValid
