@@ -4,7 +4,7 @@
  */
 
 #include "FWCore/Framework/interface/Frameworkfwd.h"
-#include "FWCore/Framework/interface/one/EDAnalyzer.h"
+#include "FWCore/Framework/interface/EDAnalyzer.h"
 #include "FWCore/Framework/interface/Event.h"
 #include "FWCore/Framework/interface/EventSetup.h"
 #include "FWCore/Framework/interface/ESHandle.h"
@@ -25,28 +25,25 @@
 #include <iomanip>
 #include <set>
 
-class ME0GeometryAnalyzer : public edm::one::EDAnalyzer<>
-{
+class ME0GeometryAnalyzer : public edm::EDAnalyzer {
+
 public: 
   ME0GeometryAnalyzer( const edm::ParameterSet& pset);
 
   ~ME0GeometryAnalyzer();
 
-  void beginJob() override {}
-  void analyze(edm::Event const& iEvent, edm::EventSetup const&) override;
-  void endJob() override {}
+  virtual void analyze( const edm::Event&, const edm::EventSetup& );
   
-private:
   const std::string& myName() { return myName_;}
+  
+private: 
 
   const int dashedLineWidth_;
   const std::string dashedLine_;
   const std::string myName_;
   std::ofstream ofos;
 };
-
 using namespace std;
-
 ME0GeometryAnalyzer::ME0GeometryAnalyzer( const edm::ParameterSet& /*iConfig*/ )
   : dashedLineWidth_(104), dashedLine_( string(dashedLineWidth_, '-') ), 
     myName_( "ME0GeometryAnalyzer" ) 
@@ -54,6 +51,7 @@ ME0GeometryAnalyzer::ME0GeometryAnalyzer( const edm::ParameterSet& /*iConfig*/ )
   ofos.open("MytestOutput.out"); 
   ofos <<"======================== Opening output file"<< endl;
 }
+
 
 ME0GeometryAnalyzer::~ME0GeometryAnalyzer() 
 {

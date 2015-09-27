@@ -5,7 +5,7 @@
  */
 
 #include "FWCore/Framework/interface/Frameworkfwd.h"
-#include "FWCore/Framework/interface/one/EDAnalyzer.h"
+#include "FWCore/Framework/interface/EDAnalyzer.h"
 #include "FWCore/Framework/interface/Event.h"
 #include "FWCore/Framework/interface/EventSetup.h"
 #include "FWCore/Framework/interface/ESHandle.h"
@@ -26,19 +26,18 @@
 #include <iomanip>
 #include <set>
 
-class GEMGeometryAnalyzer : public edm::one::EDAnalyzer<> {
+class GEMGeometryAnalyzer : public edm::EDAnalyzer {
 
 public: 
   GEMGeometryAnalyzer( const edm::ParameterSet& pset);
 
   ~GEMGeometryAnalyzer();
 
-  void beginJob() override {}
-  void analyze(edm::Event const& iEvent, edm::EventSetup const&) override;
-  void endJob() override {}
+  virtual void analyze( const edm::Event&, const edm::EventSetup& );
   
-private:
   const std::string& myName() { return myName_;}
+  
+private: 
 
   const int dashedLineWidth_;
   const std::string dashedLine_;
