@@ -28,10 +28,6 @@
 #include "DataFormats/MuonDetId/interface/RPCDetId.h"
 #include "DataFormats/MuonDetId/interface/ME0DetId.h"
 
-// ME0-Muon stuff
-#include "DataFormats/GEMRecHit/interface/ME0Segment.h"
-#include "DataFormats/GEMRecHit/interface/ME0SegmentCollection.h"
-
 #include "RecoMuon/MuonIdentification/interface/MuonMesh.h"
 
 #include "RecoMuon/MuonIdentification/interface/MuonKinkFinder.h"
