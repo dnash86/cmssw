@@ -34,6 +34,7 @@ SelectionType selectionTypeFromString( const std::string &label )
       { "TMLastStationOptimizedBarrelLowPtLoose", TMLastStationOptimizedBarrelLowPtLoose },
       { "TMLastStationOptimizedBarrelLowPtTight", TMLastStationOptimizedBarrelLowPtTight },
       { "RPCMuLoose", RPCMuLoose },
+      { "ME0MuLoose", ME0MuLoose },
       { 0, (SelectionType)-1 }
    };
 
@@ -561,6 +562,44 @@ bool muon::isGoodMuon( const reco::Muon& muon,
     else return false;
   } // RPCMu
 
+  if ( type == ME0Mu )
+  {
+    if ( minNumberOfMatches == 0 ) return true;
+    
+    int nMatch = 0;
+    for ( std::vector<reco::MuonChamberMatch>::const_iterator chamberMatch = muon.matches().begin();
+          chamberMatch != muon.matches().end(); ++chamberMatch )
+    {
+      //Should determine if detector() should be 6 for me0...
+      if ( chamberMatch->detector() != 6 ) continue;
+
+      const double trkX = chamberMatch->x;
+      const double errX = chamberMatch->xErr;
+
+
+      const double trkY = chamberMatch->y;
+      const double errY = chamberMatch->yErr;
+
+      for ( std::vector<reco::MuonSegmentMatch>::const_iterator me0Match = chamberMatch->me0Matches.begin();
+            me0Match != chamberMatch->me0Matches.end(); ++me0Match )
+      {
+        const double me0X = me0Match->x;
+        const double dX = fabs(me0X-trkX);
+
+        const double me0Y = me0Match->y;
+        const double dY = fabs(me0Y-trkY);
+        if ( (dX < maxAbsDx or dX/errX < maxAbsPullX) and (dY < maxAbsDy or dY/errY < maxAbsPullY) )
+        {
+          ++nMatch;
+          break;
+        }
+      }
+    }
+
+    if ( nMatch >= minNumberOfMatches ) return true;
+    else return false;
+  } // ME0Mu
+
    return goodMuon;
 }
 
@@ -667,6 +706,8 @@ bool muon::isGoodMuon( const reco::Muon& muon, SelectionType type,
       break;
     case muon::RPCMuLoose:
 	return muon.isRPCMuon() && isGoodMuon(muon, RPCMu, 2, 20, 4, 1e9, 1e9, 1e9, 1e9, arbitrationType, false, false);
+    case muon::ME0MuLoose:
+      return muon.isME0Muon() && isGoodMuon(muon, ME0Mu, 1, 2, 3, 2, 3, 1e9, 1e9, arbitrationType, false, false);//Note: Maybe include angular cut later
       break;
     default:
       return false;

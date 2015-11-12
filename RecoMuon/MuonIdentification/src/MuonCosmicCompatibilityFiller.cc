@@ -115,14 +115,13 @@ MuonCosmicCompatibilityFiller::fillCompatibility( const reco::Muon& muon, edm::E
   reco::MuonCosmicCompatibility returnComp;
   
   service_->update(iSetup);
-  
   float timeCompatibility = muonTiming(iEvent, muon, false);
   float backToBackCompatibility = backToBack2LegCosmic(iEvent,muon);    
   float overlapCompatibility = isOverlappingMuon(iEvent,iSetup,muon);
   float ipCompatibility = pvMatches(iEvent,muon,false);
   float vertexCompatibility = eventActivity(iEvent,muon);
   float combinedCompatibility = combinedCosmicID(iEvent,iSetup,muon,false,false);
-  
+
   returnComp.timeCompatibility = timeCompatibility;
   returnComp.backToBackCompatibility = backToBackCompatibility;
   returnComp.overlapCompatibility = overlapCompatibility;
@@ -225,16 +224,15 @@ MuonCosmicCompatibilityFiller::backToBack2LegCosmic(const edm::Event& iEvent, co
   reco::TrackRef track;
   if ( muon.isGlobalMuon()  )            track = muon.innerTrack();
   else if ( muon.isTrackerMuon() )       track = muon.track();
-  else if ( muon.isStandAloneMuon() )    return false;
-
+  else if ( muon.isStandAloneMuon() || muon.isRPCMuon() || muon.isME0Muon() )    return false;
+  
   for (unsigned int iColl = 0; iColl<inputTrackCollections_.size(); ++iColl){
     edm::Handle<reco::TrackCollection> trackHandle;
     iEvent.getByLabel(inputTrackCollections_[iColl],trackHandle);
     if (muonid::findOppositeTrack(trackHandle, *track, angleThreshold_, deltaPt_).isNonnull()) { 
       result++;
-     }
-   } //loop over track collections
-
+    }
+  } //loop over track collections
   return result;
 }
 

@@ -64,8 +64,10 @@ CosmicsMuonIdProducer::produce(edm::Event& iEvent, const edm::EventSetup& iSetup
       }
       values.push_back(foundPartner);
 
+
       compValues.push_back(compatibilityFiller_.fillCompatibility(*muon, iEvent, iSetup));
     }
+
 
   // create and fill value map
   std::auto_ptr<edm::ValueMap<unsigned int> > out(new edm::ValueMap<unsigned int>());
@@ -82,5 +84,6 @@ CosmicsMuonIdProducer::produce(edm::Event& iEvent, const edm::EventSetup& iSetup
   // put value map into event
   iEvent.put(out);
   iEvent.put(outC);
+
 }
 DEFINE_FWK_MODULE(CosmicsMuonIdProducer);

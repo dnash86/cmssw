@@ -51,11 +51,17 @@
 #include "DataFormats/MuonDetId/interface/DTChamberId.h"
 #include "DataFormats/MuonDetId/interface/CSCDetId.h"
 #include "DataFormats/MuonDetId/interface/RPCDetId.h"
+#include "DataFormats/MuonDetId/interface/ME0DetId.h"
 
 // RPC-Muon stuffs
 #include "DataFormats/RPCRecHit/interface/RPCRecHit.h"
 #include "DataFormats/RPCRecHit/interface/RPCRecHitCollection.h"
 #include "DataFormats/MuonReco/interface/MuonRPCHitMatch.h"
+
+
+// RPC-Muon stuffs
+#include "DataFormats/GEMRecHit/interface/ME0Segment.h"
+#include "DataFormats/GEMRecHit/interface/ME0SegmentCollection.h"
 
 #include "DataFormats/Common/interface/ValueMap.h"
 
@@ -538,114 +544,113 @@ void MuonIdProducer::produce(edm::Event& iEvent, const edm::EventSetup& iSetup)
 
    // tracker and calo muons are next
    if ( innerTrackCollectionHandle_.isValid() ) {
-      LogTrace("MuonIdentification") << "Creating tracker muons";
-      for ( unsigned int i = 0; i < innerTrackCollectionHandle_->size(); ++i )
-	{
-	   const reco::Track& track = innerTrackCollectionHandle_->at(i);
-	   if ( ! isGoodTrack( track ) ) continue;
-	   bool splitTrack = false;
-	   if ( track.extra().isAvailable() && 
-		TrackDetectorAssociator::crossedIP( track ) ) splitTrack = true;
-	   std::vector<TrackDetectorAssociator::Direction> directions;
-	   if ( splitTrack ) {
-	      directions.push_back(TrackDetectorAssociator::InsideOut);
-	      directions.push_back(TrackDetectorAssociator::OutsideIn);
-	   } else {
-	      directions.push_back(TrackDetectorAssociator::Any);
-	   }
-	   for ( std::vector<TrackDetectorAssociator::Direction>::const_iterator direction = directions.begin();
-		 direction != directions.end(); ++direction )
-	     {
-		// make muon
-		// timers.push("MuonIdProducer::produce::fillMuonId");
-	       reco::Muon trackerMuon( makeMuon(iEvent, iSetup, reco::TrackRef( innerTrackCollectionHandle_, i ), reco::Muon::InnerTrack ) );
-		trackerMuon.setType( reco::Muon::TrackerMuon | reco::Muon::RPCMuon );
-		fillMuonId(iEvent, iSetup, trackerMuon, *direction);
-		// timers.pop();
-	  
-		if ( debugWithTruthMatching_ ) {
-		   // add MC hits to a list of matched segments. 
-		   // Since it's debugging mode - code is slow
-		   MuonIdTruthInfo::truthMatchMuon(iEvent, iSetup, trackerMuon);
-		}
-	  
-		// check if this muon is already in the list
-		// have to check where muon hits are really located
-		// to match properly
-		bool newMuon = true;
-		bool goodTrackerMuon = isGoodTrackerMuon( trackerMuon );
-		bool goodRPCMuon = isGoodRPCMuon( trackerMuon );
-		for ( reco::MuonCollection::iterator muon = outputMuons->begin();
-		      muon !=  outputMuons->end(); ++muon )
-		  {
-		     if ( muon->innerTrack().get() == trackerMuon.innerTrack().get() &&
-			  cos(phiOfMuonIneteractionRegion(*muon) - 
-			      phiOfMuonIneteractionRegion(trackerMuon)) > 0 )
-		       {
-			  newMuon = false;
-			  muon->setMatches( trackerMuon.matches() );
-			  if (trackerMuon.isTimeValid()) muon->setTime( trackerMuon.time() );
-			  if (trackerMuon.isEnergyValid()) muon->setCalEnergy( trackerMuon.calEnergy() );
-			  if (goodTrackerMuon) muon->setType( muon->type() | reco::Muon::TrackerMuon );
-			  if (goodRPCMuon) muon->setType( muon->type() | reco::Muon::RPCMuon );
-			  LogTrace("MuonIdentification") << "Found a corresponding global muon. Set energy, matches and move on";
-			  break;
-		       }
-		  }
-		if ( newMuon ) {
-		   if ( goodTrackerMuon ){
-		      outputMuons->push_back( trackerMuon );
-		   } else {
-		      LogTrace("MuonIdentification") << "track failed minimal number of muon matches requirement";
-		      const reco::CaloMuon& caloMuon = makeCaloMuon(trackerMuon);
-		      if ( ! caloMuon.isCaloCompatibilityValid() || caloMuon.caloCompatibility() < caloCut_ || caloMuon.p() < minPCaloMuon_) continue;
-		      caloMuons->push_back( caloMuon );
-		   }
-		}
-	     }
-	}
+     LogTrace("MuonIdentification") << "Creating tracker muons";
+     std::vector<TrackDetectorAssociator::Direction> directions1, directions2;
+     directions1.push_back(TrackDetectorAssociator::InsideOut);
+     directions1.push_back(TrackDetectorAssociator::OutsideIn);
+     directions2.push_back(TrackDetectorAssociator::Any);
+
+     for ( unsigned int i = 0; i < innerTrackCollectionHandle_->size(); ++i )
+     {
+       const reco::Track& track = innerTrackCollectionHandle_->at(i);
+       if ( ! isGoodTrack( track ) ) continue;
+       const auto& trackRef = reco::TrackRef(innerTrackCollectionHandle_, i);
+       bool splitTrack = false;
+       if ( track.extra().isAvailable() &&
+            TrackDetectorAssociator::crossedIP( track ) ) splitTrack = true;
+       const auto& directions = splitTrack ? directions1 : directions2;
+       for ( const auto direction : directions ) {
+         // make muon
+         reco::Muon trackerMuon( makeMuon(iEvent, iSetup, trackRef, reco::Muon::InnerTrack) );
+         fillMuonId(iEvent, iSetup, trackerMuon, direction);
+
+         if ( debugWithTruthMatching_ ) {
+           // add MC hits to a list of matched segments.
+           // Since it's debugging mode - code is slow
+           MuonIdTruthInfo::truthMatchMuon(iEvent, iSetup, trackerMuon);
+         }
+
+         // check if this muon is already in the list
+         // have to check where muon hits are really located
+         // to match properly
+         bool newMuon = true;
+         const bool goodTrackerMuon = isGoodTrackerMuon( trackerMuon );
+         const bool goodRPCMuon = isGoodRPCMuon( trackerMuon );
+         const bool goodME0Muon = isGoodME0Muon( trackerMuon );
+         if ( goodTrackerMuon ) trackerMuon.setType( trackerMuon.type() | reco::Muon::TrackerMuon );
+         if ( goodRPCMuon ) trackerMuon.setType( trackerMuon.type() | reco::Muon::RPCMuon );
+         if ( goodME0Muon ) trackerMuon.setType( trackerMuon.type() | reco::Muon::ME0Muon );
+         for ( auto& muon : *outputMuons ) 
+         {
+           if ( muon.innerTrack().get() == trackerMuon.innerTrack().get() &&
+                cos(phiOfMuonIneteractionRegion(muon) - phiOfMuonIneteractionRegion(trackerMuon)) > 0 )
+           {
+             newMuon = false;
+             muon.setMatches( trackerMuon.matches() );
+             if (trackerMuon.isTimeValid()) muon.setTime( trackerMuon.time() );
+             if (trackerMuon.isEnergyValid()) muon.setCalEnergy( trackerMuon.calEnergy() );
+             if (goodTrackerMuon) muon.setType( muon.type() | reco::Muon::TrackerMuon );
+             if (goodRPCMuon) muon.setType( muon.type() | reco::Muon::RPCMuon );
+             if (goodME0Muon) muon.setType( muon.type() | reco::Muon::ME0Muon );
+             LogTrace("MuonIdentification") << "Found a corresponding global muon. Set energy, matches and move on";
+             break;
+           }
+         }
+         if ( newMuon ) {
+           if ( goodTrackerMuon || goodRPCMuon || goodME0Muon){  //question: Should we actually push back a tracker muon if it is a good me0Muon?  Maybe not...
+             outputMuons->push_back( trackerMuon );
+           } else {
+             LogTrace("MuonIdentification") << "track failed minimal number of muon matches requirement";
+             const reco::CaloMuon& caloMuon = makeCaloMuon(trackerMuon);
+             if ( ! caloMuon.isCaloCompatibilityValid() || caloMuon.caloCompatibility() < caloCut_ || caloMuon.p() < minPCaloMuon_) continue;
+             caloMuons->push_back( caloMuon );
+           }
+         }
+       }
+     }
    }
-   
+
    // and at last the stand alone muons
    if ( outerTrackCollectionHandle_.isValid() ) {
-      LogTrace("MuonIdentification") << "Looking for new muons among stand alone muon tracks";
-      for ( unsigned int i = 0; i < outerTrackCollectionHandle_->size(); ++i )
-	{
-	   // check if this muon is already in the list of global muons
-	   bool newMuon = true;
-	   for ( reco::MuonCollection::iterator muon = outputMuons->begin();
-		 muon !=  outputMuons->end(); ++muon ) 
-	     {
-		if ( ! muon->standAloneMuon().isNull() ) {
-		   // global muon
-		   if ( muon->standAloneMuon().get() ==  &(outerTrackCollectionHandle_->at(i)) ) {
-		      newMuon = false;
-		      break;
-		   }
-		} else {
-		   // tracker muon - no direct links to the standalone muon
-		   // since we have only a few real muons in an event, matching 
-		   // the stand alone muon to the tracker muon by DetIds should 
-		   // be good enough for association. At the end it's up to a 
-		   // user to redefine the association and what it means. Here 
-		   // we would like to avoid obvious double counting and we 
-		   // tolerate a potential miss association
-		   if ( overlap(*muon,outerTrackCollectionHandle_->at(i))>0 ) {
-		      LogTrace("MuonIdentification") << "Found associated tracker muon. Set a reference and move on";
-		      newMuon = false;
-		      muon->setOuterTrack( reco::TrackRef( outerTrackCollectionHandle_, i ) );
-		      muon->setType( muon->type() | reco::Muon::StandAloneMuon );
-		      break;
-		   }
-		}
-	     }
-	   if ( newMuon ) {
-	      LogTrace("MuonIdentification") << "No associated stand alone track is found. Making a muon";
-	      outputMuons->push_back( makeMuon(iEvent, iSetup, 
-					       reco::TrackRef( outerTrackCollectionHandle_, i ), reco::Muon::OuterTrack ) );
-	      outputMuons->back().setType( reco::Muon::StandAloneMuon );
-	   }
-	}
+     LogTrace("MuonIdentification") << "Looking for new muons among stand alone muon tracks";
+     for ( unsigned int i = 0; i < outerTrackCollectionHandle_->size(); ++i )
+     {
+       const auto& outerTrack = outerTrackCollectionHandle_->at(i);
+
+       // check if this muon is already in the list of global muons
+       bool newMuon = true;
+       for ( auto& muon : *outputMuons )
+       {
+         if ( ! muon.standAloneMuon().isNull() ) {
+           // global muon
+           if ( muon.standAloneMuon().get() ==  &outerTrack ) {
+             newMuon = false;
+             break;
+           }
+         } else {
+           // tracker muon - no direct links to the standalone muon
+           // since we have only a few real muons in an event, matching
+           // the stand alone muon to the tracker muon by DetIds should
+           // be good enough for association. At the end it's up to a
+           // user to redefine the association and what it means. Here
+           // we would like to avoid obvious double counting and we
+           // tolerate a potential miss association
+           if ( overlap(muon, outerTrack) > 0 ) {
+             LogTrace("MuonIdentification") << "Found associated tracker muon. Set a reference and move on";
+             newMuon = false;
+             muon.setOuterTrack( reco::TrackRef( outerTrackCollectionHandle_, i ) );
+             muon.setType( muon.type() | reco::Muon::StandAloneMuon );
+             break;
+           }
+         }
+       }
+       if ( newMuon ) {
+         LogTrace("MuonIdentification") << "No associated stand alone track is found. Making a muon";
+         outputMuons->push_back( makeMuon(iEvent, iSetup,
+                                          reco::TrackRef( outerTrackCollectionHandle_, i ), reco::Muon::OuterTrack ) );
+         outputMuons->back().setType( reco::Muon::StandAloneMuon );
+       }
+     }
    }
    
    LogTrace("MuonIdentification") << "Dress up muons if it's necessary";
@@ -767,19 +772,29 @@ void MuonIdProducer::produce(edm::Event& iEvent, const edm::EventSetup& iSetup)
 bool MuonIdProducer::isGoodTrackerMuon( const reco::Muon& muon )
 {
   if(muon.track()->pt() < minPt_ || muon.track()->p() < minP_) return false;
-   if ( addExtraSoftMuons_ && 
-	muon.pt()<5 && fabs(muon.eta())<1.5 && 
-	muon.numberOfMatches( reco::Muon::NoArbitration ) >= 1 ) return true;
-   return ( muon.numberOfMatches( reco::Muon::NoArbitration ) >= minNumberOfMatches_ );
+  if ( addExtraSoftMuons_ &&
+       muon.pt()<5 && std::abs(muon.eta())<1.5 &&
+       muon.numberOfMatches( reco::Muon::NoArbitration ) >= 1 ) return true;
+  return ( muon.numberOfMatches( reco::Muon::NoArbitration ) >= minNumberOfMatches_ );
 }
 
 bool MuonIdProducer::isGoodRPCMuon( const reco::Muon& muon )
 {
   if(muon.track()->pt() < minPt_ || muon.track()->p() < minP_) return false;
+  if ( addExtraSoftMuons_ &&
+	     muon.pt()<5 && std::abs(muon.eta())<1.5 &&
+       muon.numberOfMatchedRPCLayers( reco::Muon::RPCHitAndTrackArbitration ) > 1 ) return true;
+  return ( muon.numberOfMatchedRPCLayers( reco::Muon::RPCHitAndTrackArbitration ) > minNumberOfMatches_ );
+}
+
+bool MuonIdProducer::isGoodME0Muon( const reco::Muon& muon )
+{
+  if(muon.track()->pt() < minPt_ || muon.track()->p() < minP_) return false;
+  //question: These "ExtraSoftMuons may not be relevant, since there's no eta coverage below eta 1.5 anyway - the eta requirement should always fail
    if ( addExtraSoftMuons_ && 
 	muon.pt()<5 && fabs(muon.eta())<1.5 && 
-	muon.numberOfMatchedRPCLayers( reco::Muon::RPCHitAndTrackArbitration ) > 1 ) return true;
-   return ( muon.numberOfMatchedRPCLayers( reco::Muon::RPCHitAndTrackArbitration ) > minNumberOfMatches_ );
+	muon.numberOfMatchedME0Layers( reco::Muon::ME0HitAndTrackArbitration ) > 0 ) return true;
+   return ( muon.numberOfMatchedME0Layers( reco::Muon::ME0HitAndTrackArbitration ) >= minNumberOfMatches_ );
 }
 
 void MuonIdProducer::fillMuonId(edm::Event& iEvent, const edm::EventSetup& iSetup,
@@ -832,10 +847,13 @@ void MuonIdProducer::fillMuonId(edm::Event& iEvent, const edm::EventSetup& iSetu
       }
       aMuon.setCalEnergy( muonEnergy );
    }
-   if ( ! fillMatching_ && ! aMuon.isTrackerMuon() && ! aMuon.isRPCMuon() ) return;
+   if ( ! fillMatching_ && ! aMuon.isTrackerMuon() && ! aMuon.isRPCMuon() && ! aMuon.isME0Muon() ) return;
    
   edm::Handle<RPCRecHitCollection> rpcRecHits;
   iEvent.getByLabel(edm::InputTag("rpcRecHits"), rpcRecHits);
+
+  edm::Handle<ME0SegmentCollection> me0Segments;
+  iEvent.getByLabel(edm::InputTag("me0Segments"), me0Segments);
 
    // fill muon match info
    std::vector<reco::MuonChamberMatch> muonChamberMatches;
@@ -844,6 +862,7 @@ void MuonIdProducer::fillMuonId(edm::Event& iEvent, const edm::EventSetup& iSetu
 	chamber!=info.chambers.end(); chamber++ )
      {
        if  (chamber->id.subdetId() == 3 && rpcRecHits.isValid()  ) continue; // Skip RPC chambers, they are taken care of below)
+       if  (chamber->id.subdetId() == MuonSubdetId::ME0 && me0Segments.isValid()  ) continue; // Skip ME0 chambers, they are taken care of below)
 	reco::MuonChamberMatch matchedChamber;
 	
 	LocalError localError = chamber->tState.localError().positionError();
@@ -957,6 +976,129 @@ void MuonIdProducer::fillMuonId(edm::Event& iEvent, const edm::EventSetup& iSetu
       muonChamberMatches.push_back(matchedChamber);
     }
   }
+
+  // Fill ME0 info
+  if ( me0Segments.isValid() )
+    {
+      std::cout<<"me0Segments valid"<<std::endl;
+      for( std::vector<TAMuonChamberMatch>::const_iterator chamber=info.chambers.begin();
+	   chamber!=info.chambers.end(); chamber++ )
+	{
+	  // if(chamber->id.subdetId() == MuonSubdetId::DT)
+	  //   std::cout << " Chamber Type::  DT " << std::endl;
+	  // else if (chamber->id.subdetId() == MuonSubdetId::CSC )
+	  //   std::cout << " Chamber Type::  CSC " << std::endl;
+	  // else if (chamber->id.subdetId() == MuonSubdetId::RPC )
+	  //   std::cout << " Chamber Type::  RPC " << std::endl;
+	  // else if (chamber->id.subdetId() == MuonSubdetId::GEM )
+	  //   std::cout << " Chamber Type::  GEM " << std::endl;
+	  // else if (chamber->id.subdetId() == MuonSubdetId::ME0) {	
+	  //   std::cout << "Chamber Type: ME0 " << std::endl;
+	  // }
+	  // else
+	  //   std::cout << " UNKNOWN MUON HIT TYPE ";
+	
+	  if (chamber->id.subdetId() != MuonSubdetId::ME0 ) continue; // Consider ME0 chambers only
+	  
+	  std::cout<<"In an ME0Chamber"<<std::endl;
+	  reco::MuonChamberMatch matchedChamber;
+
+	  LocalError localError = chamber->tState.localError().positionError();
+	  matchedChamber.x = chamber->tState.localPosition().x();
+	  matchedChamber.y = chamber->tState.localPosition().y();
+	  matchedChamber.xErr = sqrt( localError.xx() );
+	  matchedChamber.yErr = sqrt( localError.yy() );
+
+	  matchedChamber.dXdZ = chamber->tState.localDirection().z()!=0?chamber->tState.localDirection().x()/chamber->tState.localDirection().z():9999;
+	  matchedChamber.dYdZ = chamber->tState.localDirection().z()!=0?chamber->tState.localDirection().y()/chamber->tState.localDirection().z():9999;
+	  // DANGEROUS - compiler cannot guaranty parameters ordering
+	  AlgebraicSymMatrix55 trajectoryCovMatrix = chamber->tState.localError().matrix();
+	  matchedChamber.dXdZErr = trajectoryCovMatrix(1,1)>0?sqrt(trajectoryCovMatrix(1,1)):0;
+	  matchedChamber.dYdZErr = trajectoryCovMatrix(2,2)>0?sqrt(trajectoryCovMatrix(2,2)):0;
+
+	  matchedChamber.edgeX = chamber->localDistanceX;
+	  matchedChamber.edgeY = chamber->localDistanceY;
+
+	  matchedChamber.id = chamber->id;
+	  std::cout<<"About to loop over ME0Segments"<<std::endl;
+	  for ( ME0SegmentCollection::const_iterator me0Segment = me0Segments->begin();
+		me0Segment != me0Segments->end(); ++me0Segment )
+	    {
+	      reco::MuonSegmentMatch me0HitMatch;
+	      std::cout<<"me0segm: "<<me0Segment->rawId()<<" , matchedChamb: "<<chamber->id.rawId()<<std::endl;
+
+	      //ME0DetId SegIdPreCompare (me0Segment->rawId());
+	      ME0DetId SegIdForCompare (me0Segment->me0DetId().region(),
+					me0Segment->me0DetId().layer(),
+					me0Segment->me0DetId().chamber(),
+					0);
+	      //std::cout<<"Alternative me0segm ID:"<<std::endl;
+	      // //std::cout<<me0Segment->geographicalId()<<std::endl;
+	      // std::cout<<me0Segment->geographicalId().rawId()<<std::endl;
+	      // ME0DetId chamberId(me0Segment->geographicalId().rawId());
+	      // std::cout<<chamberId<<std::endl;
+	      //std::cout<<"me0segm: "<<me0Segment->rawId()<<" , matchedChamb: "<<chamber->id.rawId()<<std::endl;
+	      std::cout<<"New seg id = "<<SegIdForCompare<<std::endl;
+	      std::cout<<"Old seg id = "<<me0Segment->me0DetId()<<std::endl;
+	      int muonSubdetId = chamber->id.subdetId();
+	      if(muonSubdetId==1) {//DT
+		DTChamberId segId(chamber->id.rawId());
+		std::cout << "DT chamber (wheel, station, sector): "
+		    << segId.wheel() << ", "
+		    << segId.station() << ", "
+		    << segId.sector();
+	      }
+
+	      if(muonSubdetId==2) {//CSC
+		CSCDetId segId(chamber->id.rawId());
+		std::cout << "CSC chamber (endcap, station, ring, chamber, layer): "
+		    << segId.endcap() << ", "
+		    << segId.station() << ", "
+		    << segId.ring() << ", "
+		    << segId.chamber() << ", "
+		    << segId.layer();
+	      }
+	      if(muonSubdetId==3) {//RPC
+		// RPCDetId segId(id.rawId());
+		std::cout << "RPC chamber";
+	      }
+	      if(muonSubdetId==MuonSubdetId::ME0) {//ME0
+		ME0DetId segId(chamber->id.rawId());
+		std::cout << "ME0 chamber (region, chamber, layer, roll): "
+			  << segId.region() << ", "
+			  << segId.chamber() << ", "
+			  << segId.layer() << ", "
+			  << segId.roll() <<std::endl;
+	      }
+	      ME0DetId segmentsId(me0Segment->rawId());
+	      std::cout << "ME0 Segment's chamber: "
+			<< segmentsId.region() << ", "
+			<< segmentsId.chamber() << ", "
+			<< segmentsId.layer() << ", "
+			<< segmentsId.roll() <<std::endl;
+	      
+
+	      //if ( me0Segment->rawId() != chamber->id.rawId() ) continue;
+	      if ( SegIdForCompare != chamber->id.rawId() ) continue;
+	      std::cout<<"Found the matching ME0Segment"<<std::endl;
+
+	      me0HitMatch.x = me0Segment->localPosition().x();
+	      me0HitMatch.mask = 0;
+
+	      const double AbsDx = std::abs(me0Segment->localPosition().x()-chamber->tState.localPosition().x());
+	      const double AbsDy = std::abs(me0Segment->localPosition().y()-chamber->tState.localPosition().y());
+	      std::cout<<"AbsDx = "<<AbsDx<<", PullX = "<<sqrt(localError.xx() + me0Segment->localPositionError().xx())<<std::endl;
+	      std::cout<<"AbsDy = "<<AbsDy<<", PullY = "<<sqrt(localError.yy() + me0Segment->localPositionError().yy())<<std::endl;
+
+	      //These matches are hardcoded, is that okay?
+	      if( (AbsDx <= 3 or AbsDx/sqrt(localError.xx() + me0Segment->localPositionError().xx()) <= 4) and 
+		  (AbsDy <= 9999. or AbsDy/sqrt(localError.yy() + me0Segment->localPositionError().yy()) <= 9999.)
+		  ) matchedChamber.me0Matches.push_back(me0HitMatch);
+	    }
+
+	  muonChamberMatches.push_back(matchedChamber);
+	}
+    }
 
    aMuon.setMatches(muonChamberMatches);
 
