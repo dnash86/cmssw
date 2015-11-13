@@ -265,14 +265,35 @@ process.output = cms.OutputModule("PoolOutputModule",
 process.digi2raw_step   = cms.Path(process.siPixelRawData+process.SiStripDigiToRaw)
 process.raw2digi_step   = cms.Path(process.siPixelDigis+process.siStripDigis) 
 #process.localreco_step  = cms.Path(process.muonlocalreco+process.gemRecHits+process.me0RecHits+process.trackerlocalreco)
+
 process.localreco_step  = cms.Path(process.muonlocalreco+process.gemRecHits+process.me0LocalReco+process.trackerlocalreco)
+#process.localreco_step  = cms.Path(process.muonlocalreco+process.trackerlocalreco)
 
 # Run-2 Global Reco Step:
 # process.globalreco_step = cms.Path(process.offlineBeamSpot*process.MeasurementTrackerEventPreSplitting*process.siPixelClusterShapeCachePreSplitting*
 #                                    process.standalonemuontracking*process.iterTracking)#process.trackingGlobalReco*process.vertexreco)#*process.muonGlobalReco)
 # Run-1 Global Reco Step: (no PreSplitting before iterTracking sequence)
-process.globalreco_step = cms.Path(process.offlineBeamSpot*process.MeasurementTrackerEvent*process.siPixelClusterShapeCache*process.PixelLayerTriplets*process.recopixelvertexing*
-                                   process.standalonemuontracking*process.trackingGlobalReco*process.vertexreco*process.me0MuonReco)#*process.muonGlobalReco)
+
+#process.globalreco_step = cms.Path(process.offlineBeamSpot*process.MeasurementTrackerEvent*process.siPixelClusterShapeCache*process.PixelLayerTriplets*process.recopixelvertexing*process.standalonemuontracking*process.trackingGlobalReco*process.vertexreco*process.me0MuonReco)#*process.muonGlobalReco)
+
+
+############# Customization for stanalone muons to include me0
+process.standAloneMuons.STATrajBuilderParameters.FilterParameters.EnableME0Measurement = cms.bool(True)
+process.standAloneMuons.STATrajBuilderParameters.BWFilterParameters.EnableME0Measurement = cms.bool(True)
+process.refittedStandAloneMuons.STATrajBuilderParameters.FilterParameters.EnableME0Measurement = cms.bool(True)
+process.refittedStandAloneMuons.STATrajBuilderParameters.BWFilterParameters.EnableME0Measurement = cms.bool(True)
+
+process.standAloneMuons.STATrajBuilderParameters.FilterParameters.EnableGEMMeasurement = cms.bool(True)
+process.standAloneMuons.STATrajBuilderParameters.BWFilterParameters.EnableGEMMeasurement = cms.bool(True)
+process.refittedStandAloneMuons.STATrajBuilderParameters.FilterParameters.EnableGEMMeasurement = cms.bool(True)
+process.refittedStandAloneMuons.STATrajBuilderParameters.BWFilterParameters.EnableGEMMeasurement = cms.bool(True)
+
+
+### Bare minimum for global muons, globalMuons, from RecoMuon/Configuration/python/RecoMuonPPonly_cff.py
+process.globalreco_step = cms.Path(process.offlineBeamSpot*process.MeasurementTrackerEvent*process.siPixelClusterShapeCache*process.PixelLayerTriplets*process.recopixelvertexing*process.standalonemuontracking*process.trackingGlobalReco*process.vertexreco*process.globalMuons)
+
+
+
 
 process.endjob_step     = cms.Path(process.endOfProcess)
 process.out_step        = cms.EndPath(process.output)

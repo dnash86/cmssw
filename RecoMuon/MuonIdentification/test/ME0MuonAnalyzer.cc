@@ -79,6 +79,7 @@
 #include <DataFormats/MuonDetId/interface/ME0DetId.h>
 
 
+
 #include "TrackingTools/AnalyticalJacobians/interface/JacobianCartesianToLocal.h"
 #include "TrackingTools/AnalyticalJacobians/interface/JacobianLocalToCartesian.h"
 #include "TGraph.h"
@@ -92,6 +93,7 @@
 
 class ME0MuonAnalyzer : public edm::EDAnalyzer {
 public:
+
   explicit ME0MuonAnalyzer(const edm::ParameterSet&);
   ~ME0MuonAnalyzer();
   FreeTrajectoryState getFTS(const GlobalVector& , const GlobalVector& , 
@@ -224,6 +226,7 @@ public:
 
   TH2F *UnmatchedME0Muon_ScatterPlot;
 
+
   double  FakeRatePtCut, MatchingWindowDelR;
 
   double Nevents;
@@ -234,6 +237,7 @@ public:
 
 ME0MuonAnalyzer::ME0MuonAnalyzer(const edm::ParameterSet& iConfig) 
 {
+  std::cout<<"Contructor"<<std::endl;
   histoFile = new TFile(iConfig.getParameter<std::string>("HistoFile").c_str(), "recreate");
   histoFolder = iConfig.getParameter<std::string>("HistoFolder").c_str();
   me0MuonSelector = iConfig.getParameter<std::string>("ME0MuonSelectionType").c_str();
@@ -269,6 +273,7 @@ ME0MuonAnalyzer::ME0MuonAnalyzer(const edm::ParameterSet& iConfig)
       consumes<reco::TrackToTrackingParticleAssociator>(edm::InputTag(thisassociator));
     }
   }
+
 
 
   std::cout<<"Contructor end"<<std::endl;
@@ -566,6 +571,7 @@ void ME0MuonAnalyzer::beginRun(edm::Run const&, edm::EventSetup const& iSetup) {
   Nevents=0;
 
 
+
 }
 
 
@@ -612,6 +618,7 @@ ME0MuonAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup
       }
     }      
   }
+
 
 
 
@@ -726,6 +733,7 @@ ME0MuonAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup
 		Pt_Track_Window_Failed_Under5->Fill(thisTrack->pt());
 	      }
 	      Pt_Track_Window_Failed->Fill(thisTrack->pt());
+
 	    }
 	  }
 	}
@@ -1281,6 +1289,7 @@ void ME0MuonAnalyzer::endRun(edm::Run const&, edm::EventSetup const&)
 {
   
   //Write plots to histo root file and folder
+
   TString cmsText     = "CMS PhaseII Simulation Prelim.";
 
   TString lumiText = "PU 140, 14 TeV";

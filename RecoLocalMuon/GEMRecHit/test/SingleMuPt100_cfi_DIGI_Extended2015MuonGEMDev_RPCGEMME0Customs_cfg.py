@@ -79,7 +79,6 @@ process.FEVTDEBUGHLToutput = cms.OutputModule("PoolOutputModule",
 from Configuration.AlCa.GlobalTag import GlobalTag
 process.GlobalTag = GlobalTag(process.GlobalTag, 'auto:run2_mc', '')
 
-# Path and EndPath definitions
 process.digitisation_step = cms.Path(process.pdigi)
 process.endjob_step = cms.EndPath(process.endOfProcess)
 process.FEVTDEBUGHLToutput_step = cms.EndPath(process.FEVTDEBUGHLToutput)
