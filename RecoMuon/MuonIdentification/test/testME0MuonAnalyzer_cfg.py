@@ -3,8 +3,11 @@ import FWCore.ParameterSet.Config as cms
 process = cms.Process("Test")
 
 
-process.load('Configuration.Geometry.GeometryExtended2023MuonReco_cff')
-process.load('Configuration.Geometry.GeometryExtended2023Muon_cff')
+#process.load('Configuration.Geometry.GeometryExtended2023MuonReco_cff')
+#process.load('Configuration.Geometry.GeometryExtended2023Muon_cff')
+
+process.load('Configuration.Geometry.GeometryExtended2023HGCalMuonReco_cff')
+process.load('Configuration.Geometry.GeometryExtended2023HGCalMuon_cff')
 
 
 process.load('Configuration.StandardSequences.MagneticField_38T_PostLS1_cff')
@@ -27,21 +30,20 @@ process.load('Validation.RecoMuon.RecoMuonValidator_cfi')
 process.load('Configuration.StandardSequences.FrontierConditions_GlobalTag_cff')
 from Configuration.AlCa.GlobalTag import GlobalTag
 
-process.GlobalTag = GlobalTag(process.GlobalTag, 'auto:upgrade2019', '')
+#process.GlobalTag = GlobalTag(process.GlobalTag, 'auto:upgrade2019', '')
+process.GlobalTag = GlobalTag(process.GlobalTag, 'PH2_1K_FB_V6::All', '')
 
 process.maxEvents = cms.untracked.PSet(
-    input = cms.untracked.int32(50)
+    input = cms.untracked.int32(-1)
 )
 
 
 
 process.source = cms.Source("PoolSource",
-    fileNames = cms.untracked.vstring('file:/store/group/upgrade/muon/ME0GlobalReco/ME0MuonReRun_DY_SLHC23patch1/M-20_TuneZ2star_14TeV_6_2_0_SLHC23patch1_2023/output_9_1_hVY.root')
+    fileNames = cms.untracked.vstring('file:///somewhere/simevent.root') ##/somewhere/simevent.root" }
 
 
 )
-
-
 
 from Validation.RecoMuon.selectors_cff import *
 from Validation.RecoMuon.associators_cff import *
@@ -57,38 +59,38 @@ from Validation.RecoMuon.RecoMuonValidator_cfi import *
 from SimMuon.MCTruth.MuonAssociatorByHitsESProducer_NoSimHits_cfi import *
 from SimMuon.MCTruth.MuonAssociatorByHits_cfi import muonAssociatorByHitsCommonParameters
 
-process.TrackAssociatorByChi2ESProducer = Validation.RecoMuon.associators_cff.TrackAssociatorByChi2ESProducer.clone(chi2cut = 6.0,ComponentName = 'TrackAssociatorByChi2')
+#process.TrackAssociatorByChi2ESProducer = Validation.RecoMuon.associators_cff.TrackAssociatorByChi2ESProducer.clone(chi2cut = 100.0,ComponentName = 'TrackAssociatorByChi2')     ####Uncomment this for association by chi2
 
-process.recoMuonValidation = cms.Sequence(#probeTracks_seq*
-    #(selectedVertices * selectedFirstPrimaryVertex) * 
-    #bestMuonTuneP_seq*
-    #muonColl_seq*trackColl_seq*extractedMuonTracks_seq*bestMuon_seq*trackerMuon_seq*
-    me0muonColl_seq
-    #((process.muonValidation_seq))
-    )
+###  Thsi is for association by hits
+import SimMuon.MCTruth.MuonAssociatorByHitsESProducer_cfi
+
+process.muonAssociatorByHits = SimMuon.MCTruth.MuonAssociatorByHitsESProducer_cfi.muonAssociatorByHitsESProducer.clone(ComponentName = 'muonAssociatorByHits',
+ #tpTag = 'mix:MergedTrackTruth',
+ UseTracker = True, 
+ UseMuon = False,
+ EfficiencyCut_track = cms.double(0.0),   
+ PurityCut_track = cms.double(0.0)       
+ )
+
+#####
+
+process.recoMuonValidation = cms.Sequence( me0muonColl_seq   )
 
 process.Test = cms.EDAnalyzer("ME0MuonAnalyzer",
-                              HistoFile = cms.string('ME0MuonAnalyzerOutput.root'),
-                              HistoFolder = cms.string('ME0MuonAnalyzerOutput'),
-                              FakeRatePtCut = cms.double(5.0),
-                              MatchingWindowDelR = cms.double (.15),
-                              RejectEndcapMuons = cms.bool(False),
-                              UseAssociators = cms.bool(True),
-                              associators = cms.vstring('TrackAssociatorByChi2'),
-                              #label = cms.VInputTag('bestMuon'),
-                              label = cms.VInputTag('me0muon'),
-                              #associatormap = cms.InputTag("tpToMuonTrackAssociation"),
+                              
 
-                              # selection of GP for evaluation of efficiency
-                              ptMinGP = cms.double(0.9),
-                              minRapidityGP = cms.double(-2.5),
-                              maxRapidityGP = cms.double(2.5),
-                              tipGP = cms.double(3.5),
-                              lipGP = cms.double(30.0),
-                              chargedOnlyGP = cms.bool(True),
-                              statusGP = cms.int32(1),
-                              pdgIdGP = cms.vint32(13, -13),
-                              #parametersDefiner = cms.string('LhcParametersDefinerForTP')
+                              HistoFolder = cms.string('OUTPUTTEMPLATE'),  #This will make a folder with plots
+                              HistoFile = cms.string('OUTPUTTEMPLATE.root'),  #The root file where plots also go
+
+                              ME0MuonSelectionType = cms.string('Loose'),   ##Not actually implemented yet in analyzer, must choose ME0 type inside analyzer
+                              FakeRatePtCut = cms.double(5.0),  ##pT cut
+                              MatchingWindowDelR = cms.double (.15),  ##matching window for DelR matching
+                              RejectEndcapMuons = cms.bool(False),  
+                              UseAssociators = cms.bool(True),   ##Must be true for association by hits/chi2 to work
+                              associators = cms.vstring('muonAssociatorByHits'),  ##Parameters for assocByHits can be modified above (Efficiency & Purity)
+
+                              label = cms.VInputTag('me0muon'),
+                              
                               
 )
 
@@ -97,5 +99,7 @@ process.p = cms.Path(process.recoMuonValidation*process.Test)
 
 
 process.PoolSource.fileNames = [
-'file:out_me0_test.root'
+
+FILETEMPLATE
+
 ]
