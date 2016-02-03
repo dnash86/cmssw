@@ -73,7 +73,7 @@ tobTecStepChi2Est = TrackingTools.KalmanUpdators.Chi2MeasurementEstimator_cfi.Ch
     ComponentName = cms.string('tobTecStepChi2Est'),
     nSigma = cms.double(3.0),
     MaxChi2 = cms.double(16.0),
-    clusterChargeCut = cms.PSet(refToPSet_ = cms.string('SiStripClusterChargeCutNone'))
+    ##clusterChargeCut = cms.PSet(refToPSet_ = cms.string('SiStripClusterChargeCutNone'))
 )
 
 # TRACK BUILDING
