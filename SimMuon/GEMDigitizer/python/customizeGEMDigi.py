@@ -263,8 +263,10 @@ def customize_digi_addGEM_nocalo(process):
     process.pdigi = cms.Sequence(
         cms.SequencePlaceholder("randomEngineStateProducer")*
         cms.SequencePlaceholder("mix")*
-        process.muonDigi
+        process.muonDigi*
+        process.addPileupInfo
     )
+
     # process.pdigi.remove(simCastorDigis)
     process = append_GEMDigi_event(process)
     return process
@@ -458,7 +460,7 @@ def append_GEMDigi_event(process):
             getattr(process,b).outputCommands.append('keep *_*Strip*_*_*')
             getattr(process,b).outputCommands.append('keep *_*Pixel*_*_*')
             # getattr(process,b).outputCommands.append('keep *_*_*_*')
-            # getattr(process,b).outputCommands.append('keep *_simSiPixelDigis_*_*')
-            # getattr(process,b).outputCommands.append('keep *_simSiStripDigis_*_*')
+             getattr(process,b).outputCommands.append('keep *_simSiPixelDigis_*_*')
+             getattr(process,b).outputCommands.append('keep *_simSiStripDigis_*_*')
 
     return process
