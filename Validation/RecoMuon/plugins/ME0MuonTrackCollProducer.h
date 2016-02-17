@@ -29,6 +29,8 @@ class ME0MuonTrackCollProducer : public edm::EDProducer {
     std::vector<std::string> selectionTags;
     std::string trackType;
     const edm::ParameterSet parset_;
+    bool doTimeWindow;
+    double TimeWindowCut;
 };
 
 #endif

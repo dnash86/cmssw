@@ -71,8 +71,18 @@ process.muonAssociatorByHits = SimMuon.MCTruth.MuonAssociatorByHitsESProducer_cf
  EfficiencyCut_track = cms.double(0.0),   
  PurityCut_track = cms.double(0.0)       
  )
-
-#####
+###Note: not yet configurable for ME0 ID, set ID here: Validation/RecoMuon/plugins/ME0MuonTrackCollProducer.cc
+#----------ME0Muon Collection Production for association by chi2
+process.me0muon = cms.EDProducer("ME0MuonTrackCollProducer",     
+                         me0MuonTag = cms.InputTag("me0SegmentMatching"),
+                         selectionTags = cms.vstring('All'),
+                         doTimeWindow=cms.untracked.bool(False),
+                         TimeWindowCut=cms.untracked.double(12.5)  ## 18 +/- this parameter
+                         )
+#--------------------
+process.me0muonColl_seq = cms.Sequence(
+    process.me0muon
+    )
 
 process.recoMuonValidation = cms.Sequence( me0muonColl_seq   )
 
