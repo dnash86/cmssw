@@ -116,6 +116,7 @@ def customise_Reco(process):
     process.refittedStandAloneMuons.STATrajBuilderParameters.FilterParameters.EnableME0Measurement = cms.bool(True)
     process.refittedStandAloneMuons.STATrajBuilderParameters.BWFilterParameters.EnableME0Measurement = cms.bool(True)
     process.muons1stStep.doME0=cms.bool(True)
+    process.muonDetIdAssociator.doME0=cms.bool(True)
     process=outputCustoms(process)
     return process
 

@@ -18,7 +18,7 @@ muons1stStep = cms.EDProducer("MuonIdProducer",
     # Kink finder
     TrackerKinkFinderParametersBlock,
 
-    fillEnergy = cms.bool(True),
+    fillEnergy = cms.bool(False),
     # OR
     maxAbsPullX = cms.double(4.0),
     maxAbsEta = cms.double(3.0),
@@ -39,7 +39,7 @@ muons1stStep = cms.EDProducer("MuonIdProducer",
     # input tracks
     inputCollectionLabels = cms.VInputTag(cms.InputTag("generalTracks"), cms.InputTag("globalMuons"), cms.InputTag("standAloneMuons","UpdatedAtVtx"),
                                           cms.InputTag("tevMuons","firstHit"),cms.InputTag("tevMuons","picky"),cms.InputTag("tevMuons","dyt")),
-    fillCaloCompatibility = cms.bool(True),
+    fillCaloCompatibility = cms.bool(False),
     # OR
     maxAbsPullY = cms.double(9999.0),
     # AND
@@ -49,8 +49,8 @@ muons1stStep = cms.EDProducer("MuonIdProducer",
 
     # Match parameters
     maxAbsDx = cms.double(3.0),
-    fillIsolation = cms.bool(True),
-    writeIsoDeposits = cms.bool(True),
+    fillIsolation = cms.bool(False),
+    writeIsoDeposits = cms.bool(False),
     minNumberOfMatches = cms.int32(1),
     fillMatching = cms.bool(True),
 
