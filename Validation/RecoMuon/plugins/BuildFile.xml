@@ -6,6 +6,10 @@
 <use   name="DataFormats/Common"/>
 <use   name="DataFormats/TrackReco"/>
 <use   name="DataFormats/MuonReco"/>
+<use   name="DataFormats/DetId"/>
+<use   name="DataFormats/MuonDetId"/>
+<use   name="DataFormats/TrackReco"/>
+<use   name="DataFormats/GEMRecHit"/>
 <use   name="clhep"/>
 <use   name="boost"/>
 <use   name="DQMServices/Core"/>
@@ -14,6 +18,10 @@
 <use   name="FWCore/ParameterSet"/>
 <use   name="Geometry/TrackerGeometryBuilder"/>
 <use   name="Geometry/Records"/>
+<use   name="Geometry/CommonDetUnit"/>
+<use   name="Geometry/GEMGeometry"/>
+
+
 <use   name="MagneticField/Records"/>
 <use   name="MagneticField/Engine"/>
 <use   name="SimDataFormats/Vertex"/>
@@ -26,6 +34,9 @@
 <use   name="SimTracker/TrackerHitAssociation"/>
 <use   name="DQMServices/ClientConfig"/>
 <lib   name="MathMore"/>
+
+<use   name="FWCore/ParameterSet"/>
+
 <library   file="*.cc" name="ValidationRecoMuonPlugins">
   <flags   EDM_PLUGIN="1"/>
 </library>
