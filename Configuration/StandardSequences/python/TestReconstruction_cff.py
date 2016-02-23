@@ -100,8 +100,8 @@ highlevelreco = cms.Sequence(
 from FWCore.Modules.logErrorHarvester_cfi import *
 
 # "Export" Section
-##reconstruction         = cms.Sequence(bunchSpacingProducer*localreco*globalreco*highlevelreco*logErrorHarvester)
-reconstruction         = cms.Sequence(localreco*globalreco*highlevelreco*logErrorHarvester)
+reconstruction         = cms.Sequence(bunchSpacingProducer*localreco*globalreco*highlevelreco*logErrorHarvester)
+##reconstruction         = cms.Sequence(localreco*globalreco*highlevelreco*logErrorHarvester)
 
 reconstruction_trackingOnly = cms.Sequence(bunchSpacingProducer*localreco*globalreco_tracking)
 
@@ -145,7 +145,8 @@ modulesToRemove.append(hcalnoise)
 modulesToRemove.append(zdcreco)
 modulesToRemove.append(castorreco)
 ##it's OK according to Ronny modulesToRemove.append(CSCHaloData)#needs digis
-reconstruction_fromRECO = reconstruction.copyAndExclude(modulesToRemove+noTrackingAndDependent)
+##reconstruction_fromRECO = reconstruction.copyAndExclude(modulesToRemove+noTrackingAndDependent)
+reconstruction_fromRECO = reconstruction.copyAndExclude(modulesToRemove)
 noTrackingAndDependent.append(siPixelRecHitsPreSplitting)
 noTrackingAndDependent.append(siStripMatchedRecHits)
 noTrackingAndDependent.append(pixelTracks)

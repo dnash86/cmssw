@@ -1,11 +1,11 @@
 import FWCore.ParameterSet.Config as cms
 
 from SimGeneral.MixingModule.aliases_cfi import * 
-# from SimGeneral.MixingModule.mixObjects_cfi import *
-# from SimGeneral.MixingModule.digitizers_cfi import *
+from SimGeneral.MixingModule.mixObjects_cfi import *
+from SimGeneral.MixingModule.digitizers_cfi import *
 from SimGeneral.MixingModule.pixelDigitizer_cfi import *
 from SimGeneral.MixingModule.stripDigitizer_cfi import *
-# from SimGeneral.MixingModule.trackingTruthProducer_cfi import *
+from SimGeneral.MixingModule.trackingTruthProducer_cfi import *
 
 # PSet of mixObjects that only keeps muon collections (and SimTracks with SimVertices)
 mixObjects_dt_csc_rpc =  cms.PSet(
@@ -179,26 +179,44 @@ def customize_mix_muon_only(process):
 
 # Customize process.mix to be used for running muon and tracker digi only.
 #  - remove calo digitizers that are now run as part of mixing process
-#  - delete all the digitizers' aliases apart of pixel and strip aliasses.
+#  - delete all the digitizers' aliases apart of pixel and str-ip aliasses.
 #  - reset the simCastorDigis, simEcalUnsuppressedDigis 
 #          and simHcalUnsuppressedDigis
 #  - drop unnecessary mixObjects
 def customize_mix_nocalo(process):
-    process.mix.digitizers = digitizers = cms.PSet(
-          pixel = cms.PSet(
-          pixelDigitizer
-       ),
-       strip = cms.PSet(
-           stripDigitizer
-       ),
-    )
+    # process.mix.digitizers = digitizers = cms.PSet(
+    #     pixel = cms.PSet(
+    #         pixelDigitizer
+    #         ),
+    #     strip = cms.PSet(
+    #         stripDigitizer
+    #         ),
+    #     puVtx = cms.PSet(
+    #         pileupVtxDigitizer
+    #         )
+    #     )
+    process.mix.digitizers =  cms.PSet(
+        pixel = cms.PSet(
+            pixelDigitizer
+            ),
+        strip = cms.PSet(
+            stripDigitizer
+            ),
+        puVtx = cms.PSet(
+            pileupVtxDigitizer
+            )
+        )
     process.mix.theDigitizersValid = cms.PSet(
         pixel = cms.PSet(
             pixelDigitizer
             ),
         strip = cms.PSet(
             stripDigitizer
+            ),
+        puVtx = cms.PSet(
+            pileupVtxDigitizer
             )
+
     )
     # delete some contents of SimGeneral/MixingModule/python/aliases_cfi.py
     # i was not able to delete these processes in a different way
@@ -210,7 +228,7 @@ def customize_mix_nocalo(process):
     print("digi aliases before clean up: ")
     for a in digi_aliases: 
         print(a)
-    if ('Strip' not in a) and ('Pixel' not in a): 
+    if ('Strip' not in a) and ('Pixel' not in a) and ('Pileup' not in a): 
             process.__delattr__(a)
     process.mix.mixObjects = mixObjects_dt_csc_rpc_trk
     return process
@@ -264,6 +282,7 @@ def customize_digi_addGEM_nocalo(process):
         cms.SequencePlaceholder("randomEngineStateProducer")*
         cms.SequencePlaceholder("mix")*
         process.muonDigi*
+        ##process.trackingParticles*
         process.addPileupInfo
     )
 
@@ -450,7 +469,7 @@ def append_GEMDigi_event(process):
         b=a+'output'
         if hasattr(process,b):
             getattr(process,b).outputCommands.append('drop *')
-            # getattr(process,b).outputCommands.append('keep *_mix_*_*')
+            #getattr(process,b).outputCommands.append('keep *_mix_*_*')
             getattr(process,b).outputCommands.append('keep *_g4SimHits__*')
             getattr(process,b).outputCommands.append('keep *_g4SimHits_Muon*_*')
             getattr(process,b).outputCommands.append('keep *_g4SimHits_Tracker*_*')
@@ -459,8 +478,9 @@ def append_GEMDigi_event(process):
             getattr(process,b).outputCommands.append('keep *_*Muon*_*_*')
             getattr(process,b).outputCommands.append('keep *_*Strip*_*_*')
             getattr(process,b).outputCommands.append('keep *_*Pixel*_*_*')
+            getattr(process,b).outputCommands.append('keep *_*Pileup*_*_*')
             # getattr(process,b).outputCommands.append('keep *_*_*_*')
-             getattr(process,b).outputCommands.append('keep *_simSiPixelDigis_*_*')
-             getattr(process,b).outputCommands.append('keep *_simSiStripDigis_*_*')
+            getattr(process,b).outputCommands.append('keep *_simSiPixelDigis_*_*')
+            getattr(process,b).outputCommands.append('keep *_simSiStripDigis_*_*')
 
     return process
